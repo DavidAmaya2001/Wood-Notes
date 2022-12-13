@@ -3,9 +3,14 @@ D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Deb
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\Wood-Notes.pdb
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.AssemblyReference.cache
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.SuggestedBindingRedirects.cache
-D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.Form1.resources
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.Properties.Resources.resources
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.GenerateResource.cache
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.CoreCompileInputs.cache
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.exe
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.pdb
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmWorkStation.resources
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmCalendario.resources
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmConfig.resources
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmCuenta.resources
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmInicio.resources
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotas.resources
