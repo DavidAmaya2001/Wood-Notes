@@ -52,10 +52,55 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCalendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCalendario.Designer.cs">
+      <DependentUpon>frmCalendario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfig.Designer.cs">
+      <DependentUpon>frmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCuenta.Designer.cs">
+      <DependentUpon>frmCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotas.Designer.cs">
+      <DependentUpon>frmNotas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCalendario.resx">
+      <DependentUpon>frmCalendario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfig.resx">
+      <DependentUpon>frmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCuenta.resx">
+      <DependentUpon>frmCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotas.resx">
+      <DependentUpon>frmNotas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
