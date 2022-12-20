@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Wood_Notes
 {
@@ -17,12 +18,15 @@ namespace Wood_Notes
             InitializeComponent();
         }
 
+        Conexion conexion = new Conexion();
+
         private void frmWorkStation_Load(object sender, EventArgs e)
         {
             btnInicio.Size = new System.Drawing.Size(180, 55);
             AbrirForm<frmInicio>();
+            conexion.AbrirConexion();
         }
-
+        #region Animación de Secciones
         private void SelectedButton(Button boton)
         {
             boton.BackColor = Color.RoyalBlue;
@@ -40,7 +44,7 @@ namespace Wood_Notes
             boton.FlatAppearance.BorderSize = 3;
             boton.Size = new System.Drawing.Size(154, 45);
         }
-
+        #endregion
         #region Botones de cierre
         private void btnMaximized_Click(object sender, EventArgs e)
         {
@@ -57,6 +61,7 @@ namespace Wood_Notes
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            conexion.CerrarConexion();
         }
 
         private void btnMinimized_Click(object sender, EventArgs e)

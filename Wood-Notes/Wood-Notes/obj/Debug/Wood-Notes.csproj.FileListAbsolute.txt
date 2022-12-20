@@ -14,3 +14,9 @@ D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Deb
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmCuenta.resources
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmInicio.resources
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotas.resources
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.dll
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.xml
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotasSubMenu.resources
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.CopyComplete
