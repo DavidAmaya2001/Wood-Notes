@@ -13,10 +13,10 @@ namespace Wood_Notes.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WoodNotesDBEntities : DbContext
+    public partial class WoodNotesDBEntities1 : DbContext
     {
-        public WoodNotesDBEntities()
-            : base("name=WoodNotesDBEntities")
+        public WoodNotesDBEntities1()
+            : base("name=WoodNotesDBEntities1")
         {
         }
     

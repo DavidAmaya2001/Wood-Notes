@@ -98,23 +98,30 @@
     <Compile Include="frmNotasSubMenu.Designer.cs">
       <DependentUpon>frmNotasSubMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Base.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Base.Context.tt</DependentUpon>
+    <Compile Include="frmNotasSubMenu2.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Models\Base.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Base.tt</DependentUpon>
+    <Compile Include="frmNotasSubMenu2.Designer.cs">
+      <DependentUpon>frmNotasSubMenu2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Base.Designer.cs">
+    <Compile Include="LoadData.cs" />
+    <Compile Include="Models\ModelDataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Base.edmx</DependentUpon>
+      <DependentUpon>ModelDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\UserNotes.cs">
-      <DependentUpon>Base.tt</DependentUpon>
+      <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +146,9 @@
     <EmbeddedResource Include="frmNotasSubMenu.resx">
       <DependentUpon>frmNotasSubMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNotasSubMenu2.resx">
+      <DependentUpon>frmNotasSubMenu2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -148,12 +158,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Models\Base.edmx">
+    <EntityDeploy Include="Models\ModelDataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Base.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelDataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Base.edmx.diagram">
-      <DependentUpon>Base.edmx</DependentUpon>
+    <None Include="Models\ModelDataBase.edmx.diagram">
+      <DependentUpon>ModelDataBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -173,19 +183,19 @@
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Base.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Base.Context.cs</LastGenOutput>
-      <DependentUpon>Base.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Base.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Base.edmx</DependentUpon>
-      <LastGenOutput>Base.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Models\ModelDataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDataBase.edmx</DependentUpon>
+      <LastGenOutput>ModelDataBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDataBase.edmx</DependentUpon>
+      <LastGenOutput>ModelDataBase.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WoodNotesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'WoodNotesDB.dbo.UserNotes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="UserNotes">
+    <Key>
+      <PropertyRef Name="IdNota" />
+    </Key>
+    <Property Name="IdNota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="varchar" MaxLength="80" />
+    <Property Name="Contenido" Type="varchar" MaxLength="2000" />
+    <Property Name="Fecha" Type="date" />
+  </EntityType>
+  <EntityContainer Name="WoodNotesDBModelStoreContainer">
+    <EntitySet Name="UserNotes" EntityType="Self.UserNotes" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UserNotes].[IdNota] AS [IdNota], 
+    [UserNotes].[Titulo] AS [Titulo], 
+    [UserNotes].[Contenido] AS [Contenido], 
+    [UserNotes].[Fecha] AS [Fecha]
+    FROM [dbo].[UserNotes] AS [UserNotes]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

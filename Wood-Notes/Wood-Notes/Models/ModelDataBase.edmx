@@ -12,8 +12,8 @@ advertencia 6002: La tabla o vista 'WoodNotesDB.dbo.UserNotes' no tiene definida
             <PropertyRef Name="IdNota" />
           </Key>
           <Property Name="IdNota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Titulo" Type="varchar" MaxLength="50" />
-          <Property Name="Contenido" Type="varchar" MaxLength="500" />
+          <Property Name="Titulo" Type="varchar" MaxLength="80" />
+          <Property Name="Contenido" Type="varchar" MaxLength="2000" />
           <Property Name="Fecha" Type="date" />
         </EntityType>
         <EntityContainer Name="WoodNotesDBModelStoreContainer">
@@ -36,11 +36,11 @@ advertencia 6002: La tabla o vista 'WoodNotesDB.dbo.UserNotes' no tiene definida
             <PropertyRef Name="IdNota" />
           </Key>
           <Property Name="IdNota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Contenido" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Titulo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Contenido" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="Fecha" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityContainer Name="WoodNotesDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WoodNotesDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="UserNotes" EntityType="Self.UserNotes" />
         </EntityContainer>
       </Schema>
@@ -48,7 +48,7 @@ advertencia 6002: La tabla o vista 'WoodNotesDB.dbo.UserNotes' no tiene definida
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WoodNotesDBModelStoreContainer" CdmEntityContainer="WoodNotesDBEntities">
+        <EntityContainerMapping StorageEntityContainer="WoodNotesDBModelStoreContainer" CdmEntityContainer="WoodNotesDBEntities1">
           <EntitySetMapping Name="UserNotes">
             <EntityTypeMapping TypeName="WoodNotesDBModel.UserNotes">
               <MappingFragment StoreEntitySet="UserNotes">

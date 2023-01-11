@@ -13,18 +13,23 @@ namespace Wood_Notes
 {
     public partial class frmNotasSubMenu : Form
     {
+
+        // Estableciendo conexion y ajustando parametros de los controladores
+        Conexion conexion = new Conexion();
         public frmNotasSubMenu()
         {
             InitializeComponent();
             conexion.AbrirConexion();
-            dtpNewDate.Format = DateTimePickerFormat.Custom;
+            dtpNewDate.Format = DateTimePickerFormat.Custom; // Modificando formato de DateTimePicker
             dtpNewDate.CustomFormat = "yyyy/MM/dd";
         }
 
-        Conexion conexion = new Conexion();
+        #region Agregar Nota
 
+        // Agregado de nota
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            // Verificacion de campos vacios de una nueva nota
             if(txtTitulo.ForeColor!=Color.Silver && rtxtNota.ForeColor != Color.Silver)
             {
                 conexion.InsertarNotas(txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text);
@@ -52,12 +57,24 @@ namespace Wood_Notes
             }
             
         }
+        #endregion
 
+        #region Cierre de Ventana
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        #region PlaceHolders de los textbox
+
+        // PlaceHolder de textbox Titulo
         private void txtTitulo_Enter(object sender, EventArgs e)
         {
             if (txtTitulo.Text == "Título")
@@ -76,6 +93,7 @@ namespace Wood_Notes
             }
         }
 
+        // PlaceHolder de textbox Nota
         private void rtxtNota_Enter(object sender, EventArgs e)
         {
             if (rtxtNota.Text == "Escribe una nota")
@@ -93,5 +111,8 @@ namespace Wood_Notes
                 rtxtNota.ForeColor = Color.Silver;
             }
         }
+        #endregion
+
+
     }
 }

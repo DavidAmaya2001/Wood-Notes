@@ -20,3 +20,4 @@ D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Deb
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.SqlServer.xml
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotasSubMenu.resources
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.CopyComplete
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotasSubMenu2.resources

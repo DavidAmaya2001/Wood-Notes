@@ -14,6 +14,7 @@ namespace Wood_Notes
         static string conexionstring = "server= DESKTOP-DGI3QEQ\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);
 
+        #region Apertura y cierre de conexion
         public void AbrirConexion()
         {
             conexion.Open();
@@ -23,10 +24,26 @@ namespace Wood_Notes
         {
             conexion.Close();
         }
+        #endregion
 
+        #region Consultas a SQL
         public void InsertarNotas(string Titulo, string Nota, string Fecha)
         {
             string cadena = "insert into UserNotes([Titulo],[Contenido],[Fecha]) values ('" + Titulo + "','" + Nota + "','" + Fecha + "')";
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            comando.ExecuteNonQuery();
+        }
+
+        public void EliminarDato(int Id)
+        {
+            string cadena = "delete from UserNotes where IdNota =" + Id;
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            comando.ExecuteNonQuery();
+        }
+
+        public void ModificarDato(int Id, string Titulo, string Nota, string Fecha)
+        {
+            string cadena = "update UserNotes set Titulo=" + Titulo + ",Contenido='" + Nota + "',Fecha='" + Fecha + "' where IdNota =" + Id;
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
@@ -49,5 +66,7 @@ namespace Wood_Notes
             dataInfo.Fill(tabla);
             return tabla;
         }
+
+        #endregion
     }
 }
