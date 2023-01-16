@@ -31,33 +31,35 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNotasSubMenu2));
             this.panelSupNew = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnMenu = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelCenNew = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rtxtNota = new System.Windows.Forms.RichTextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.panelInfNew = new System.Windows.Forms.Panel();
-            this.btnEliminar = new System.Windows.Forms.PictureBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpNewDate = new System.Windows.Forms.DateTimePicker();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnFile = new System.Windows.Forms.Button();
+            this.btnPortapapeles = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnDetalles = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.Label();
             this.panelSupNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.panelCenNew.SuspendLayout();
             this.panelInfNew.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).BeginInit();
+            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSupNew
             // 
             this.panelSupNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.panelSupNew.Controls.Add(this.txtId);
             this.panelSupNew.Controls.Add(this.btnClose);
-            this.panelSupNew.Controls.Add(this.pictureBox3);
+            this.panelSupNew.Controls.Add(this.btnMenu);
             this.panelSupNew.Controls.Add(this.label2);
             this.panelSupNew.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSupNew.Location = new System.Drawing.Point(0, 0);
@@ -77,16 +79,18 @@
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pictureBox3
+            // btnMenu
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.InitialImage = null;
-            this.pictureBox3.Location = new System.Drawing.Point(682, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.InitialImage = null;
+            this.btnMenu.Location = new System.Drawing.Point(682, 12);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(40, 40);
+            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMenu.TabIndex = 1;
+            this.btnMenu.TabStop = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // label2
             // 
@@ -151,45 +155,20 @@
             // 
             // panelInfNew
             // 
-            this.panelInfNew.Controls.Add(this.btnEliminar);
-            this.panelInfNew.Controls.Add(this.btnCancel);
+            this.panelInfNew.Controls.Add(this.txtId);
             this.panelInfNew.Controls.Add(this.label1);
             this.panelInfNew.Controls.Add(this.dtpNewDate);
-            this.panelInfNew.Controls.Add(this.btnEditar);
             this.panelInfNew.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInfNew.Location = new System.Drawing.Point(0, 558);
+            this.panelInfNew.Location = new System.Drawing.Point(0, 568);
             this.panelInfNew.Name = "panelInfNew";
-            this.panelInfNew.Size = new System.Drawing.Size(805, 64);
+            this.panelInfNew.Size = new System.Drawing.Size(805, 54);
             this.panelInfNew.TabIndex = 14;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(601, 15);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(33, 32);
-            this.btnEliminar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.TabStop = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(455, 15);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(113, 32);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 23);
+            this.label1.Location = new System.Drawing.Point(25, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 17);
             this.label1.TabIndex = 2;
@@ -199,7 +178,7 @@
             // 
             this.dtpNewDate.Enabled = false;
             this.dtpNewDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNewDate.Location = new System.Drawing.Point(214, 20);
+            this.dtpNewDate.Location = new System.Drawing.Point(214, 16);
             this.dtpNewDate.Name = "dtpNewDate";
             this.dtpNewDate.Size = new System.Drawing.Size(116, 20);
             this.dtpNewDate.TabIndex = 1;
@@ -207,23 +186,88 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(650, 15);
+            this.btnEditar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEditar.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(0, 3);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(113, 32);
+            this.btnEditar.Size = new System.Drawing.Size(177, 32);
             this.btnEditar.TabIndex = 0;
-            this.btnEditar.Text = "Modificar";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Text = "Modificar Nota";
+            this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.Controls.Add(this.btnDetalles);
+            this.panelMenu.Controls.Add(this.btnEliminar);
+            this.panelMenu.Controls.Add(this.btnFile);
+            this.panelMenu.Controls.Add(this.btnPortapapeles);
+            this.panelMenu.Controls.Add(this.btnEditar);
+            this.panelMenu.Location = new System.Drawing.Point(545, 68);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(177, 192);
+            this.panelMenu.TabIndex = 15;
+            this.panelMenu.Visible = false;
+            // 
+            // btnFile
+            // 
+            this.btnFile.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFile.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFile.ForeColor = System.Drawing.Color.White;
+            this.btnFile.Location = new System.Drawing.Point(3, 79);
+            this.btnFile.Name = "btnFile";
+            this.btnFile.Size = new System.Drawing.Size(171, 32);
+            this.btnFile.TabIndex = 2;
+            this.btnFile.Text = "Crear Archivo";
+            this.btnFile.UseVisualStyleBackColor = false;
+            // 
+            // btnPortapapeles
+            // 
+            this.btnPortapapeles.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnPortapapeles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPortapapeles.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPortapapeles.ForeColor = System.Drawing.Color.White;
+            this.btnPortapapeles.Location = new System.Drawing.Point(3, 41);
+            this.btnPortapapeles.Name = "btnPortapapeles";
+            this.btnPortapapeles.Size = new System.Drawing.Size(171, 32);
+            this.btnPortapapeles.TabIndex = 1;
+            this.btnPortapapeles.Text = "Copiar al portapapeles";
+            this.btnPortapapeles.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminar.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(0, 115);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(177, 32);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar Nota";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            // 
+            // btnDetalles
+            // 
+            this.btnDetalles.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnDetalles.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.Location = new System.Drawing.Point(0, 153);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.Size = new System.Drawing.Size(177, 32);
+            this.btnDetalles.TabIndex = 4;
+            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.UseVisualStyleBackColor = false;
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
             // 
             // txtId
             // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.txtId.Location = new System.Drawing.Point(229, 22);
+            this.txtId.AutoSize = true;
+            this.txtId.Location = new System.Drawing.Point(499, 21);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(20, 13);
+            this.txtId.Size = new System.Drawing.Size(0, 13);
             this.txtId.TabIndex = 9;
             // 
             // frmNotasSubMenu2
@@ -231,6 +275,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 622);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelInfNew);
             this.Controls.Add(this.panelCenNew);
             this.Controls.Add(this.panelSupNew);
@@ -241,12 +286,12 @@
             this.panelSupNew.ResumeLayout(false);
             this.panelSupNew.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.panelCenNew.ResumeLayout(false);
             this.panelCenNew.PerformLayout();
             this.panelInfNew.ResumeLayout(false);
             this.panelInfNew.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEliminar)).EndInit();
+            this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -255,18 +300,21 @@
 
         private System.Windows.Forms.Panel panelSupNew;
         private System.Windows.Forms.PictureBox btnClose;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox btnMenu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelCenNew;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelInfNew;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.PictureBox btnEliminar;
         public System.Windows.Forms.RichTextBox rtxtNota;
         public System.Windows.Forms.TextBox txtTitulo;
         public System.Windows.Forms.DateTimePicker dtpNewDate;
-        public System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Button btnFile;
+        private System.Windows.Forms.Button btnPortapapeles;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDetalles;
+        public System.Windows.Forms.Label txtId;
     }
 }

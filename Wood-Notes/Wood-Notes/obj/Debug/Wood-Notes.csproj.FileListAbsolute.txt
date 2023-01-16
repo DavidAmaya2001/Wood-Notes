@@ -21,3 +21,4 @@ D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\bin\Deb
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotasSubMenu.resources
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.CopyComplete
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotasSubMenu2.resources
+D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmDetalles.resources

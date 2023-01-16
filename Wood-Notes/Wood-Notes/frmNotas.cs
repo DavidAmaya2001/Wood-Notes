@@ -143,6 +143,7 @@ namespace Wood_Notes
             Load.setFechaNota(Fecha);
 
             frmNotasSubMenu2 formulario = new frmNotasSubMenu2();
+            frmDetalles formulariodetalles = new frmDetalles();
             //MessageBox.Show(" " + Load.IdNota + " " + Load.TituloNota + " " + Load.ContenidoNota);
             //formulario.txtbaboso.Text = dgvContenedor.CurrentRow.Cells[1].Value.ToString();
             formulario.txtId.Text = Convert.ToString(Load.getIdNota());

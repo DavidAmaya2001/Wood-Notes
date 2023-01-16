@@ -16,11 +16,13 @@ namespace Wood_Notes
         {
             InitializeComponent();
             LoadData Data = new LoadData();
+            txtId.Visible = false;
             /*txtTitulo.Text = Data.TituloNota;
             rtxtNota.Text = Data.ContenidoNota;
             dtpNewDate.Value = Convert.ToDateTime(Data.FechaNota);*/
         }
 
+        frmDetalles formulariodetalles = new frmDetalles();
         Conexion conexion = new Conexion();
 
         #region Botones de cierre
@@ -49,10 +51,16 @@ namespace Wood_Notes
 
         private void txtTitulo_Enter(object sender, EventArgs e)
         {
+            // Hover de textbox
             if (txtTitulo.Text == "Título")
             {
                 txtTitulo.Text = "";
                 txtTitulo.ForeColor = Color.Black;
+            }
+            // Ocultando menu
+            if (panelMenu.Visible == true)
+            {
+                panelMenu.Visible = false;
             }
         }
 
@@ -68,28 +76,77 @@ namespace Wood_Notes
 
         private void rtxtNota_Enter(object sender, EventArgs e)
         {
+            // Hover de textbox
             if (rtxtNota.Text == "Escribe una nota")
             {
                 rtxtNota.Text = "";
                 rtxtNota.ForeColor = Color.Black;
             }
+            // Ocultando menu
+            if (panelMenu.Visible == true)
+            {
+                panelMenu.Visible = false;
+            }
         }
 
         #endregion
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        #region Menu desplegable
+        // Acciones del menu desplegable
+        private void btnMenu_Click(object sender, EventArgs e)
         {
-            conexion.AbrirConexion();
-            conexion.EliminarDato(Convert.ToInt32(txtId.Text));
-            conexion.CerrarConexion();
+            // Accion de abrir y cerrar panel menu
+            if (panelMenu.Visible == false)
+            {
+                panelMenu.Visible = true;
+            }
+            else
+            {
+                panelMenu.Visible = false;
+            }
+
+            // Regresando Placeholder al acceder al menu
+            if (txtTitulo.Text == "")
+            {
+                txtTitulo.Text = "Título";
+                txtTitulo.ForeColor = Color.Silver;
+            }
+            if (rtxtNota.Text == "")
+            {
+                rtxtNota.Text = "Escribe una nota";
+                rtxtNota.ForeColor = Color.Silver;
+            }
         }
 
+        // Boton que ejecuta la funcion de la clase Conexion para poder modificar los datos en la base de datos
         private void btnEditar_Click(object sender, EventArgs e)
         {
             dtpNewDate.Value = DateTime.Now;
             conexion.AbrirConexion();
-            conexion.ModificarDato(Convert.ToInt32(txtId.Text), txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text);
+            conexion.ModificarDato(Convert.ToInt32(formulariodetalles.txtId.Text), txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text);
             conexion.CerrarConexion();
         }
+
+        // Boton que ejecuta la funcion de la clase Conexion para poder eliminar los datos de la base de datos
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            conexion.AbrirConexion();
+            conexion.EliminarDato(Convert.ToInt32(formulariodetalles.txtId.Text));
+            conexion.CerrarConexion();
+        }
+
+        // Boton que abre el formulario de detalles
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            // Paso de datos hacia el formulario detalles
+            formulariodetalles.txtId.Text = txtId.Text;
+
+            // Abriendo formulario detalles
+            panelMenu.Visible = false;
+            formulariodetalles.ShowDialog();
+        }
+        #endregion
+
+
     }
 }

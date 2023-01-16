@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Wood_Notes
 {
@@ -24,47 +25,113 @@ namespace Wood_Notes
             dtpNewDate.CustomFormat = "yyyy/MM/dd";
         }
 
-        #region Agregar Nota
+        #region Menu desplegable
+        // Acciones del menu desplegable
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            // Accion de abrir y cerrar panel menu
+            if (panelMenu.Visible == false)
+            {
+                panelMenu.Visible = true;
+            }
+            else
+            {
+                panelMenu.Visible = false;
+            }
+
+            // Regresando Placeholder al acceder al menu
+            if (txtTitulo.Text == "")
+            {
+                txtTitulo.Text = "Título";
+                txtTitulo.ForeColor = Color.Silver;
+            }
+            if (rtxtNota.Text == "")
+            {
+                rtxtNota.Text = "Escribe una nota";
+                rtxtNota.ForeColor = Color.Silver;
+            }
+        }
 
         // Agregado de nota
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // Verificacion de campos vacios de una nueva nota
-            if(txtTitulo.ForeColor!=Color.Silver && rtxtNota.ForeColor != Color.Silver)
+            // Mensaje de confirmación
+            DialogResult result = MessageBox.Show( "¿Desea guardar la siguiente nota?", "Agregar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
             {
-                conexion.InsertarNotas(txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text);
-                txtTitulo.Text = "";
-                rtxtNota.Text = "";
-                dtpNewDate.Value = DateTime.Now;
-            }
-            else
-            {
-                if (txtTitulo.ForeColor == Color.Silver)
+                // Verificacion de campos vacios de una nueva nota
+                if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
                 {
-                    errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
-                    errorNota.Clear();
-                }
-                else if(rtxtNota.ForeColor == Color.Silver)
-                {
-                    errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
-                    errorTitulo.Clear();
+                    conexion.InsertarNotas(txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text);
+                    txtTitulo.Text = "";
+                    rtxtNota.Text = "";
+                    dtpNewDate.Value = DateTime.Now;
                 }
                 else
                 {
-                    errorTitulo.Clear();
-                    errorNota.Clear();
+                    if (txtTitulo.ForeColor == Color.Silver)
+                    {
+                        errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
+                        errorNota.Clear();
+                    }
+                    else if (rtxtNota.ForeColor == Color.Silver)
+                    {
+                        errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
+                        errorTitulo.Clear();
+                    }
+                    else
+                    {
+                        errorTitulo.Clear();
+                        errorNota.Clear();
+                    }
                 }
             }
             
         }
+        // Copiar al portapapeles
+        private void btnPortapapeles_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText("Titulo: " + txtTitulo.Text + " ,Contenido: " + rtxtNota.Text);
+        }
+        // Creación de archivo .txt
+        private void btnFile_Click(object sender, EventArgs e)
+        {
+            /*string RutaOrigen = @"D:\Users\Documentos";
+
+            List<string> CreadorArchivo = new List<string>();
+            CreadorArchivo.Add("Titulo: " + txtTitulo.Text);
+            CreadorArchivo.Add("\n");
+            CreadorArchivo.Add("Contenido: " + rtxtNota.Text);
+            CreadorArchivo.Add("\n");
+            CreadorArchivo.Add("Ultima fecha de modificación: " + dtpNewDate.Text);
+
+            File.AppendAllLines(RutaOrigen, CreadorArchivo);
+            */
+
+            /*
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                string RutaOrigen = fbd.SelectedPath;
+                File.Create(RutaOrigen);
+                List<string> CreadorArchivo = new List<string>();
+                CreadorArchivo.Add("Titulo: " + txtTitulo.Text);
+                CreadorArchivo.Add("\n");
+                CreadorArchivo.Add("Contenido: " + rtxtNota.Text);
+                CreadorArchivo.Add("\n");
+                CreadorArchivo.Add("Ultima fecha de modificación: " + dtpNewDate.Text);
+
+                File.AppendAllLines(RutaOrigen, CreadorArchivo);
+            
+            }
+            */
+            
+        }
+
         #endregion
 
         #region Cierre de Ventana
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -77,11 +144,18 @@ namespace Wood_Notes
         // PlaceHolder de textbox Titulo
         private void txtTitulo_Enter(object sender, EventArgs e)
         {
+            // Hover de textbox
             if (txtTitulo.Text == "Título")
             {
                 txtTitulo.Text = "";
                 txtTitulo.ForeColor = Color.Black;
             }
+            // Ocultando menu
+            if (panelMenu.Visible == true)
+            {
+                panelMenu.Visible = false;
+            }
+            
         }
 
         private void txtTitulo_Leave(object sender, EventArgs e)
@@ -96,10 +170,16 @@ namespace Wood_Notes
         // PlaceHolder de textbox Nota
         private void rtxtNota_Enter(object sender, EventArgs e)
         {
+            // Hover de textbox
             if (rtxtNota.Text == "Escribe una nota")
             {
                 rtxtNota.Text = "";
                 rtxtNota.ForeColor = Color.Black;
+            }
+            // Ocultando menu
+            if (panelMenu.Visible == true)
+            {
+                panelMenu.Visible = false;
             }
         }
 
@@ -111,8 +191,10 @@ namespace Wood_Notes
                 rtxtNota.ForeColor = Color.Silver;
             }
         }
+
+
         #endregion
 
-
+        
     }
 }
