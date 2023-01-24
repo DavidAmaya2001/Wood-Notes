@@ -27,9 +27,9 @@ namespace Wood_Notes
         #endregion
 
         #region Consultas a SQL
-        public void InsertarNotas(string Titulo, string Nota, string Fecha)
+        public void InsertarNotas(string Titulo, string Nota, string Fecha, int Caracteres)
         {
-            string cadena = "insert into UserNotes([Titulo],[Contenido],[Fecha]) values ('" + Titulo + "','" + Nota + "','" + Fecha + "')";
+            string cadena = "insert into UserNotes([Titulo],[Contenido],[Fecha],[Modificacion],[Caracteres]) values ('" + Titulo + "','" + Nota + "','" + Fecha + "','" + Fecha + "','" + Caracteres + "')";
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
@@ -41,9 +41,9 @@ namespace Wood_Notes
             comando.ExecuteNonQuery();
         }
 
-        public void ModificarDato(int Id, string Titulo, string Nota, string Fecha)
+        public void ModificarDato(int Id, string Titulo, string Nota, string Fecha, int Caracteres)
         {
-            string cadena = "update UserNotes set Titulo=" + Titulo + ",Contenido='" + Nota + "',Fecha='" + Fecha + "' where IdNota =" + Id;
+            string cadena = "update UserNotes set Titulo='" + Titulo + "',Contenido='" + Nota + "',Modificacion='" + Fecha + "',Caracteres='" + Caracteres +"'  where IdNota =" + Id;
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }

@@ -8,6 +8,9 @@
     <Property Name="Titulo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
     <Property Name="Contenido" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
     <Property Name="Fecha" Type="DateTime" Precision="0" />
+    <Property Name="Modificacion" Type="DateTime" Precision="0" />
+    <Property Name="Caracteres" Type="Int32" />
+    <Property Name="Peso" Type="Int32" />
   </EntityType>
   <EntityContainer Name="WoodNotesDBEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="UserNotes" EntityType="Self.UserNotes" />

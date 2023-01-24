@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNotasSubMenu2));
             this.panelSupNew = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.PictureBox();
@@ -38,21 +39,28 @@
             this.rtxtNota = new System.Windows.Forms.RichTextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.panelInfNew = new System.Windows.Forms.Panel();
+            this.txtId = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpNewDate = new System.Windows.Forms.DateTimePicker();
             this.btnEditar = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnDetalles = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnFile = new System.Windows.Forms.Button();
             this.btnPortapapeles = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnDetalles = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.Label();
+            this.errorTitulo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorNota = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblcontador = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelSupNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.panelCenNew.SuspendLayout();
             this.panelInfNew.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTitulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNota)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSupNew
@@ -134,6 +142,7 @@
             this.rtxtNota.Size = new System.Drawing.Size(735, 407);
             this.rtxtNota.TabIndex = 1;
             this.rtxtNota.Text = "Escribe una nota";
+            this.rtxtNota.TextChanged += new System.EventHandler(this.rtxtNota_TextChanged);
             this.rtxtNota.Enter += new System.EventHandler(this.rtxtNota_Enter);
             this.rtxtNota.Leave += new System.EventHandler(this.rtxtNota_Leave);
             // 
@@ -155,6 +164,9 @@
             // 
             // panelInfNew
             // 
+            this.panelInfNew.Controls.Add(this.label3);
+            this.panelInfNew.Controls.Add(this.lblcontador);
+            this.panelInfNew.Controls.Add(this.label4);
             this.panelInfNew.Controls.Add(this.txtId);
             this.panelInfNew.Controls.Add(this.label1);
             this.panelInfNew.Controls.Add(this.dtpNewDate);
@@ -163,6 +175,14 @@
             this.panelInfNew.Name = "panelInfNew";
             this.panelInfNew.Size = new System.Drawing.Size(805, 54);
             this.panelInfNew.TabIndex = 14;
+            // 
+            // txtId
+            // 
+            this.txtId.AutoSize = true;
+            this.txtId.Location = new System.Drawing.Point(499, 21);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(0, 13);
+            this.txtId.TabIndex = 9;
             // 
             // label1
             // 
@@ -210,6 +230,32 @@
             this.panelMenu.TabIndex = 15;
             this.panelMenu.Visible = false;
             // 
+            // btnDetalles
+            // 
+            this.btnDetalles.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnDetalles.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.Location = new System.Drawing.Point(0, 153);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.Size = new System.Drawing.Size(177, 32);
+            this.btnDetalles.TabIndex = 4;
+            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.UseVisualStyleBackColor = false;
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminar.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(0, 115);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(177, 32);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar Nota";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            // 
             // btnFile
             // 
             this.btnFile.BackColor = System.Drawing.Color.RoyalBlue;
@@ -236,39 +282,45 @@
             this.btnPortapapeles.Text = "Copiar al portapapeles";
             this.btnPortapapeles.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // errorTitulo
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnEliminar.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(0, 115);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(177, 32);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar Nota";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            this.errorTitulo.ContainerControl = this;
+            this.errorTitulo.Icon = ((System.Drawing.Icon)(resources.GetObject("errorTitulo.Icon")));
             // 
-            // btnDetalles
+            // errorNota
             // 
-            this.btnDetalles.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnDetalles.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnDetalles.Location = new System.Drawing.Point(0, 153);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.Size = new System.Drawing.Size(177, 32);
-            this.btnDetalles.TabIndex = 4;
-            this.btnDetalles.Text = "Detalles";
-            this.btnDetalles.UseVisualStyleBackColor = false;
-            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
+            this.errorNota.ContainerControl = this;
+            this.errorNota.Icon = ((System.Drawing.Icon)(resources.GetObject("errorNota.Icon")));
             // 
-            // txtId
+            // label4
             // 
-            this.txtId.AutoSize = true;
-            this.txtId.Location = new System.Drawing.Point(499, 21);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(0, 13);
-            this.txtId.TabIndex = 9;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(542, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Limite de Caracteres:";
+            // 
+            // lblcontador
+            // 
+            this.lblcontador.AutoSize = true;
+            this.lblcontador.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcontador.Location = new System.Drawing.Point(691, 21);
+            this.lblcontador.Name = "lblcontador";
+            this.lblcontador.Size = new System.Drawing.Size(14, 15);
+            this.lblcontador.TabIndex = 11;
+            this.lblcontador.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(733, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "/  2000";
             // 
             // frmNotasSubMenu2
             // 
@@ -292,6 +344,8 @@
             this.panelInfNew.ResumeLayout(false);
             this.panelInfNew.PerformLayout();
             this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorTitulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorNota)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,5 +370,10 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnDetalles;
         public System.Windows.Forms.Label txtId;
+        private System.Windows.Forms.ErrorProvider errorTitulo;
+        private System.Windows.Forms.ErrorProvider errorNota;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label lblcontador;
     }
 }

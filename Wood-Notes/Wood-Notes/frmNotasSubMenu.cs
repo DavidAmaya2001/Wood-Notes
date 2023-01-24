@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.Entity.ModelConfiguration.Configuration;
 
 namespace Wood_Notes
 {
@@ -25,7 +26,7 @@ namespace Wood_Notes
             dtpNewDate.CustomFormat = "yyyy/MM/dd";
         }
 
-        #region Menu desplegable
+        #region Menu desplegable (Agregar, Copiar, Crear txt)
         // Acciones del menu desplegable
         private void btnMenu_Click(object sender, EventArgs e)
         {
@@ -63,7 +64,7 @@ namespace Wood_Notes
                 // Verificacion de campos vacios de una nueva nota
                 if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
                 {
-                    conexion.InsertarNotas(txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text);
+                    conexion.InsertarNotas(txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text,Convert.ToInt32(lblcontador.Text));
                     txtTitulo.Text = "";
                     rtxtNota.Text = "";
                     dtpNewDate.Value = DateTime.Now;
@@ -193,8 +194,14 @@ namespace Wood_Notes
         }
 
 
+
         #endregion
 
-        
+        #region Contador de caracteres
+        private void rtxtNota_TextChanged(object sender, EventArgs e)
+        {
+            lblcontador.Text = rtxtNota.TextLength.ToString();
+        }
+        #endregion
     }
 }

@@ -12,6 +12,9 @@ namespace Wood_Notes
         private string TituloNota { get; set; }
         private string ContenidoNota { get; set; }
         private string FechaNota { get; set; }
+        private string FechaModificacion { get; set; }
+        private int Caracteres { get; set; }
+        private int Peso { get; set; }
         
         public int getIdNota()
         {
@@ -47,6 +50,33 @@ namespace Wood_Notes
         public void setFechaNota(string FechaNota)
         {
             this.FechaNota = FechaNota;
+        }
+
+        public string getFechaModificacion()
+        {
+            return FechaModificacion;
+        }
+        public void setFechaModificacion(string FechaModificacion)
+        {
+            this.FechaModificacion = FechaModificacion;
+        }
+
+        public int getCaracteres()
+        {
+            return Caracteres;
+        }
+        public void setCaracteres(int Caracteres)
+        {
+            this.Caracteres = Caracteres;
+        }
+
+        public int getPeso()
+        {
+            return Peso;
+        }
+        public void setPeso(int Peso)
+        {
+            this.Peso = Peso;
         }
         
     }

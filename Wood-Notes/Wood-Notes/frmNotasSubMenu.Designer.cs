@@ -35,6 +35,9 @@
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelInfNew = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblcontador = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpNewDate = new System.Windows.Forms.DateTimePicker();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -45,8 +48,8 @@
             this.errorTitulo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNota = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnPortapapeles = new System.Windows.Forms.Button();
             this.btnFile = new System.Windows.Forms.Button();
+            this.btnPortapapeles = new System.Windows.Forms.Button();
             this.panelSupNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -106,6 +109,9 @@
             // 
             // panelInfNew
             // 
+            this.panelInfNew.Controls.Add(this.label4);
+            this.panelInfNew.Controls.Add(this.label3);
+            this.panelInfNew.Controls.Add(this.lblcontador);
             this.panelInfNew.Controls.Add(this.label2);
             this.panelInfNew.Controls.Add(this.dtpNewDate);
             this.panelInfNew.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -113,6 +119,36 @@
             this.panelInfNew.Name = "panelInfNew";
             this.panelInfNew.Size = new System.Drawing.Size(805, 52);
             this.panelInfNew.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(542, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 15);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Limite de Caracteres:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(733, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "/  2000";
+            // 
+            // lblcontador
+            // 
+            this.lblcontador.AutoSize = true;
+            this.lblcontador.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcontador.Location = new System.Drawing.Point(700, 21);
+            this.lblcontador.Name = "lblcontador";
+            this.lblcontador.Size = new System.Drawing.Size(14, 15);
+            this.lblcontador.TabIndex = 3;
+            this.lblcontador.Text = "0";
             // 
             // label2
             // 
@@ -179,6 +215,7 @@
             this.rtxtNota.Size = new System.Drawing.Size(707, 421);
             this.rtxtNota.TabIndex = 1;
             this.rtxtNota.Text = "Escribe una nota";
+            this.rtxtNota.TextChanged += new System.EventHandler(this.rtxtNota_TextChanged);
             this.rtxtNota.Enter += new System.EventHandler(this.rtxtNota_Enter);
             this.rtxtNota.Leave += new System.EventHandler(this.rtxtNota_Leave);
             // 
@@ -221,20 +258,6 @@
             this.panelMenu.TabIndex = 9;
             this.panelMenu.Visible = false;
             // 
-            // btnPortapapeles
-            // 
-            this.btnPortapapeles.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnPortapapeles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPortapapeles.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPortapapeles.ForeColor = System.Drawing.Color.White;
-            this.btnPortapapeles.Location = new System.Drawing.Point(3, 41);
-            this.btnPortapapeles.Name = "btnPortapapeles";
-            this.btnPortapapeles.Size = new System.Drawing.Size(171, 32);
-            this.btnPortapapeles.TabIndex = 1;
-            this.btnPortapapeles.Text = "Copiar al portapapeles";
-            this.btnPortapapeles.UseVisualStyleBackColor = false;
-            this.btnPortapapeles.Click += new System.EventHandler(this.btnPortapapeles_Click);
-            // 
             // btnFile
             // 
             this.btnFile.BackColor = System.Drawing.Color.RoyalBlue;
@@ -248,6 +271,20 @@
             this.btnFile.Text = "Crear Archivo";
             this.btnFile.UseVisualStyleBackColor = false;
             this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
+            // 
+            // btnPortapapeles
+            // 
+            this.btnPortapapeles.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnPortapapeles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPortapapeles.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPortapapeles.ForeColor = System.Drawing.Color.White;
+            this.btnPortapapeles.Location = new System.Drawing.Point(3, 41);
+            this.btnPortapapeles.Name = "btnPortapapeles";
+            this.btnPortapapeles.Size = new System.Drawing.Size(171, 32);
+            this.btnPortapapeles.TabIndex = 1;
+            this.btnPortapapeles.Text = "Copiar al portapapeles";
+            this.btnPortapapeles.UseVisualStyleBackColor = false;
+            this.btnPortapapeles.Click += new System.EventHandler(this.btnPortapapeles_Click);
             // 
             // frmNotasSubMenu
             // 
@@ -296,5 +333,8 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnPortapapeles;
         private System.Windows.Forms.Button btnFile;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblcontador;
     }
 }

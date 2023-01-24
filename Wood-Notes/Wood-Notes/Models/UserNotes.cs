@@ -18,5 +18,8 @@ namespace Wood_Notes.Models
         public string Titulo { get; set; }
         public string Contenido { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<System.DateTime> Modificacion { get; set; }
+        public Nullable<int> Caracteres { get; set; }
+        public Nullable<int> Peso { get; set; }
     }
 }

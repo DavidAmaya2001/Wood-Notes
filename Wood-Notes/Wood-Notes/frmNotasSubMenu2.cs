@@ -17,6 +17,8 @@ namespace Wood_Notes
             InitializeComponent();
             LoadData Data = new LoadData();
             txtId.Visible = false;
+            dtpNewDate.Format = DateTimePickerFormat.Custom; // Modificando formato de DateTimePicker
+            dtpNewDate.CustomFormat = "yyyy/MM/dd";
             /*txtTitulo.Text = Data.TituloNota;
             rtxtNota.Text = Data.ContenidoNota;
             dtpNewDate.Value = Convert.ToDateTime(Data.FechaNota);*/
@@ -121,18 +123,86 @@ namespace Wood_Notes
         // Boton que ejecuta la funcion de la clase Conexion para poder modificar los datos en la base de datos
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            dtpNewDate.Value = DateTime.Now;
+            // Mensaje de confirmación
+            DialogResult result = MessageBox.Show("¿Desea modificar la siguiente nota?", "Modificar", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+
+            if(result == DialogResult.OK)
+            {
+                dtpNewDate.Value = DateTime.Now;
+                // Verificación de campos vacios en los textbox
+                if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
+                {
+                    conexion.AbrirConexion();
+                    // Modificar para agregar el campo de ultimo cambio aparte del cambo de fecha de creación
+                    conexion.ModificarDato(Convert.ToInt32(txtId.Text), txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text, Convert.ToInt32(lblcontador.Text));
+                    conexion.CerrarConexion();
+                    MessageBox.Show("El cambio se realizó correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    if (txtTitulo.ForeColor == Color.Silver)
+                    {
+                        errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
+                        errorNota.Clear();
+                    }
+                    else if (rtxtNota.ForeColor == Color.Silver)
+                    {
+                        errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
+                        errorTitulo.Clear();
+                    }
+                    else
+                    {
+                        errorTitulo.Clear();
+                        errorNota.Clear();
+                    }
+                }
+            }
+            
             conexion.AbrirConexion();
-            conexion.ModificarDato(Convert.ToInt32(formulariodetalles.txtId.Text), txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text);
+            
             conexion.CerrarConexion();
         }
 
         // Boton que ejecuta la funcion de la clase Conexion para poder eliminar los datos de la base de datos
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
-            conexion.AbrirConexion();
-            conexion.EliminarDato(Convert.ToInt32(formulariodetalles.txtId.Text));
-            conexion.CerrarConexion();
+            // Mensaje de confirmación
+            DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar la siguiente nota?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                // Verificación de campos vacios en los textbox
+                if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
+                {
+                    conexion.AbrirConexion();
+                    conexion.EliminarDato(Convert.ToInt32(txtId.Text));
+                    txtTitulo.Text = "";
+                    rtxtNota.Text = "";
+                    dtpNewDate.Value = DateTime.Now;
+                    conexion.CerrarConexion();
+                    MessageBox.Show("La nota se ha eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    if (txtTitulo.ForeColor == Color.Silver)
+                    {
+                        errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
+                        errorNota.Clear();
+                    }
+                    else if (rtxtNota.ForeColor == Color.Silver)
+                    {
+                        errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
+                        errorTitulo.Clear();
+                    }
+                    else
+                    {
+                        errorTitulo.Clear();
+                        errorNota.Clear();
+                    }
+                }
+            }
+
         }
 
         // Boton que abre el formulario de detalles
@@ -145,8 +215,12 @@ namespace Wood_Notes
             panelMenu.Visible = false;
             formulariodetalles.ShowDialog();
         }
+
         #endregion
 
-
+        private void rtxtNota_TextChanged(object sender, EventArgs e)
+        {
+            lblcontador.Text = rtxtNota.TextLength.ToString();
+        }
     }
 }

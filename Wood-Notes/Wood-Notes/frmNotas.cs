@@ -20,14 +20,30 @@ namespace Wood_Notes
             InitializeComponent();
             DataTable Tabla = conexion.ConsultaNotas();
             dgvContenedor.DataSource = Tabla;
-            dgvContenedor.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[0].FillWeight = 30;
-            dgvContenedor.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[1].FillWeight = 80;
-            dgvContenedor.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[2].FillWeight = 150;
-            dgvContenedor.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[3].FillWeight = 50;
+            //dgvContenedor.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvContenedor.Columns[0].Width = 10;
+            dgvContenedor.Columns[0].Visible = false;
+            //dgvContenedor.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvContenedor.Columns[1].Width = 317;
+            //dgvContenedor.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvContenedor.Columns[2].Width = 635;
+            //dgvContenedor.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvContenedor.Columns[3].Width = 10;
+            dgvContenedor.Columns[3].Visible = false;
+            //dgvContenedor.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvContenedor.Columns[4].Width = 106;
+            dgvContenedor.Columns[5].Visible = false;
+            dgvContenedor.Columns[6].Visible = false;
+
+            DataGridViewCellStyle stylegeneral = new DataGridViewCellStyle();
+            stylegeneral.ForeColor = Color.White;
+            stylegeneral.BackColor = Color.CornflowerBlue;
+            stylegeneral.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+            
+                dgvContenedor.Rows[0].DefaultCellStyle = stylegeneral;
+            
 
         }
 
@@ -116,7 +132,7 @@ namespace Wood_Notes
                                 usernotes.IdNota,
                                 usernotes.Titulo,
                                 usernotes.Contenido,
-                                usernotes.Fecha
+                                usernotes.Modificacion
                             }).ToList();
 
             dgvContenedor.DataSource = consulta;
@@ -128,30 +144,70 @@ namespace Wood_Notes
         private void dgvContenedor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             /* Toma de datos de la celda seleccionada del datagridview y compartiendolas al formulario secundario
-               donde se realizarán los cambios */ 
-            int idNota = Convert.ToInt32(dgvContenedor.SelectedRows[0].Cells[0].Value);
-            string Titulo = dgvContenedor.SelectedRows[0].Cells[1].Value.ToString();
-            string Contenido = dgvContenedor.SelectedRows[0].Cells[2].Value.ToString();
-            string Fecha = dgvContenedor.SelectedRows[0].Cells[3].Value.ToString();
+               donde se realizarán los cambios */
+            if (e.RowIndex >= 0)
+            {
+                int idNota = Convert.ToInt32(dgvContenedor.SelectedRows[0].Cells[0].Value);
+                string Titulo = dgvContenedor.SelectedRows[0].Cells[1].Value.ToString();
+                string Contenido = dgvContenedor.SelectedRows[0].Cells[2].Value.ToString();
+                string Fecha = dgvContenedor.SelectedRows[0].Cells[4].Value.ToString();
+                int Caracteres = Convert.ToInt32(dgvContenedor.SelectedRows[0].Cells[5].Value);
 
-            //MessageBox.Show(idNota + " " + Titulo + " " + Contenido + "" + Fecha);
+                //MessageBox.Show(idNota + " " + Titulo + " " + Contenido + "" + Fecha);
 
-            LoadData Load = new LoadData();
-            Load.setIdNota(idNota);
-            Load.setTituloNota(Titulo);
-            Load.setContenidoNota(Contenido);
-            Load.setFechaNota(Fecha);
+                LoadData Load = new LoadData();
+                Load.setIdNota(idNota);
+                Load.setTituloNota(Titulo);
+                Load.setContenidoNota(Contenido);
+                Load.setFechaNota(Fecha);
+                Load.setCaracteres(Caracteres);
 
-            frmNotasSubMenu2 formulario = new frmNotasSubMenu2();
-            frmDetalles formulariodetalles = new frmDetalles();
-            //MessageBox.Show(" " + Load.IdNota + " " + Load.TituloNota + " " + Load.ContenidoNota);
-            //formulario.txtbaboso.Text = dgvContenedor.CurrentRow.Cells[1].Value.ToString();
-            formulario.txtId.Text = Convert.ToString(Load.getIdNota());
-            formulario.txtTitulo.Text = Load.getTituloNota();
-            formulario.rtxtNota.Text = Load.getContenidoNota();
-            formulario.dtpNewDate.Value = Convert.ToDateTime(Load.getFechaNota());
-            formulario.ShowDialog();
+                frmNotasSubMenu2 formulario = new frmNotasSubMenu2();
+                frmDetalles formulariodetalles = new frmDetalles();
+                //MessageBox.Show(" " + Load.IdNota + " " + Load.TituloNota + " " + Load.ContenidoNota);
+                //formulario.txtbaboso.Text = dgvContenedor.CurrentRow.Cells[1].Value.ToString();
+                formulario.txtId.Text = Convert.ToString(Load.getIdNota());
+                formulario.txtTitulo.Text = Load.getTituloNota();
+                formulario.rtxtNota.Text = Load.getContenidoNota();
+                formulario.dtpNewDate.Value = Convert.ToDateTime(Load.getFechaNota());
+                formulario.lblcontador.Text = Load.getCaracteres().ToString();
+                formulario.ShowDialog();
+            }
+
         }
         #endregion
+
+        private void dgvContenedor_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            return;
+        }
+
+        private void dgvContenedor_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.ForeColor = Color.White;
+            style.BackColor = Color.RoyalBlue;
+            style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+            if (e.RowIndex > -1)
+            {
+                dgvContenedor.Rows[e.RowIndex].DefaultCellStyle = style;
+            }
+        }
+
+        private void dgvContenedor_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+
+            DataGridViewCellStyle style2 = new DataGridViewCellStyle();
+            style2.ForeColor = Color.White;
+            style2.BackColor = Color.CornflowerBlue;
+            style2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            if (e.RowIndex > -1)
+            {
+                dgvContenedor.Rows[e.RowIndex].DefaultCellStyle = style2;
+            }
+        }
     }
 }
