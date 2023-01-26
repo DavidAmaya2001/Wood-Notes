@@ -39,6 +39,9 @@
             this.rtxtNota = new System.Windows.Forms.RichTextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.panelInfNew = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblcontador = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpNewDate = new System.Windows.Forms.DateTimePicker();
@@ -50,9 +53,8 @@
             this.btnPortapapeles = new System.Windows.Forms.Button();
             this.errorTitulo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNota = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblcontador = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtCreacion = new System.Windows.Forms.Label();
+            this.txtMod = new System.Windows.Forms.Label();
             this.panelSupNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -164,6 +166,8 @@
             // 
             // panelInfNew
             // 
+            this.panelInfNew.Controls.Add(this.txtMod);
+            this.panelInfNew.Controls.Add(this.txtCreacion);
             this.panelInfNew.Controls.Add(this.label3);
             this.panelInfNew.Controls.Add(this.lblcontador);
             this.panelInfNew.Controls.Add(this.label4);
@@ -175,6 +179,36 @@
             this.panelInfNew.Name = "panelInfNew";
             this.panelInfNew.Size = new System.Drawing.Size(805, 54);
             this.panelInfNew.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(733, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "/  2000";
+            // 
+            // lblcontador
+            // 
+            this.lblcontador.AutoSize = true;
+            this.lblcontador.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcontador.Location = new System.Drawing.Point(691, 21);
+            this.lblcontador.Name = "lblcontador";
+            this.lblcontador.Size = new System.Drawing.Size(14, 15);
+            this.lblcontador.TabIndex = 11;
+            this.lblcontador.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(542, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Limite de Caracteres:";
             // 
             // txtId
             // 
@@ -292,35 +326,23 @@
             this.errorNota.ContainerControl = this;
             this.errorNota.Icon = ((System.Drawing.Icon)(resources.GetObject("errorNota.Icon")));
             // 
-            // label4
+            // txtCreacion
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(542, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 15);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Limite de Caracteres:";
+            this.txtCreacion.AutoSize = true;
+            this.txtCreacion.Location = new System.Drawing.Point(448, 21);
+            this.txtCreacion.Name = "txtCreacion";
+            this.txtCreacion.Size = new System.Drawing.Size(0, 13);
+            this.txtCreacion.TabIndex = 13;
+            this.txtCreacion.Visible = false;
             // 
-            // lblcontador
+            // txtMod
             // 
-            this.lblcontador.AutoSize = true;
-            this.lblcontador.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcontador.Location = new System.Drawing.Point(691, 21);
-            this.lblcontador.Name = "lblcontador";
-            this.lblcontador.Size = new System.Drawing.Size(14, 15);
-            this.lblcontador.TabIndex = 11;
-            this.lblcontador.Text = "0";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(733, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 15);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "/  2000";
+            this.txtMod.AutoSize = true;
+            this.txtMod.Location = new System.Drawing.Point(410, 21);
+            this.txtMod.Name = "txtMod";
+            this.txtMod.Size = new System.Drawing.Size(0, 13);
+            this.txtMod.TabIndex = 14;
+            this.txtMod.Visible = false;
             // 
             // frmNotasSubMenu2
             // 
@@ -375,5 +397,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblcontador;
+        public System.Windows.Forms.Label txtCreacion;
+        public System.Windows.Forms.Label txtMod;
     }
 }

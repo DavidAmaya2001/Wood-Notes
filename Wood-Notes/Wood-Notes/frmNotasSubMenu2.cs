@@ -19,9 +19,7 @@ namespace Wood_Notes
             txtId.Visible = false;
             dtpNewDate.Format = DateTimePickerFormat.Custom; // Modificando formato de DateTimePicker
             dtpNewDate.CustomFormat = "yyyy/MM/dd";
-            /*txtTitulo.Text = Data.TituloNota;
-            rtxtNota.Text = Data.ContenidoNota;
-            dtpNewDate.Value = Convert.ToDateTime(Data.FechaNota);*/
+
         }
 
         frmDetalles formulariodetalles = new frmDetalles();
@@ -136,6 +134,7 @@ namespace Wood_Notes
                     // Modificar para agregar el campo de ultimo cambio aparte del cambo de fecha de creación
                     conexion.ModificarDato(Convert.ToInt32(txtId.Text), txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text, Convert.ToInt32(lblcontador.Text));
                     conexion.CerrarConexion();
+                    panelMenu.Visible = false;
                     MessageBox.Show("El cambio se realizó correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -210,6 +209,9 @@ namespace Wood_Notes
         {
             // Paso de datos hacia el formulario detalles
             formulariodetalles.txtId.Text = txtId.Text;
+            formulariodetalles.txtCreacion.Text = txtCreacion.Text.Substring(0,10);
+            formulariodetalles.txtModificacion.Text = txtMod.Text.Substring(0,10);
+            formulariodetalles.txtCaracteres.Text = lblcontador.Text;
 
             // Abriendo formulario detalles
             panelMenu.Visible = false;
@@ -218,9 +220,11 @@ namespace Wood_Notes
 
         #endregion
 
+        #region Contador de caracteres y Peso
         private void rtxtNota_TextChanged(object sender, EventArgs e)
         {
             lblcontador.Text = rtxtNota.TextLength.ToString();
         }
+        #endregion
     }
 }

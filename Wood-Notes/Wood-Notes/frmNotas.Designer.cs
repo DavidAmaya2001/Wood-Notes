@@ -45,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.dgvContenedor = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelSuperior.SuspendLayout();
             this.panelBuscadorNotas.SuspendLayout();
             this.panelToolsNotas.SuspendLayout();
@@ -175,13 +174,14 @@
             // 
             // panelPrincipal
             // 
+            this.panelPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panelPrincipal.Controls.Add(this.dgvContenedor);
             this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPrincipal.Location = new System.Drawing.Point(0, 117);
             this.panelPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Padding = new System.Windows.Forms.Padding(0, 0, 2, 2);
-            this.panelPrincipal.Size = new System.Drawing.Size(1060, 569);
+            this.panelPrincipal.Size = new System.Drawing.Size(1060, 603);
             this.panelPrincipal.TabIndex = 1;
             // 
             // dgvContenedor
@@ -212,7 +212,7 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvContenedor.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvContenedor.EnableHeadersVisualStyles = false;
             this.dgvContenedor.GridColor = System.Drawing.Color.LightCyan;
@@ -226,7 +226,6 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvContenedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
@@ -242,34 +241,25 @@
             this.dgvContenedor.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.CornflowerBlue;
             this.dgvContenedor.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvContenedor.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvContenedor.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            this.dgvContenedor.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             this.dgvContenedor.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvContenedor.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvContenedor.RowTemplate.Height = 100;
             this.dgvContenedor.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvContenedor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvContenedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvContenedor.Size = new System.Drawing.Size(1058, 567);
+            this.dgvContenedor.Size = new System.Drawing.Size(1058, 603);
             this.dgvContenedor.TabIndex = 2;
             this.dgvContenedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContenedor_CellClick);
             this.dgvContenedor.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContenedor_CellMouseLeave);
             this.dgvContenedor.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContenedor_CellMouseMove);
             this.dgvContenedor.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContenedor_ColumnHeaderMouseClick);
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 686);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1060, 34);
-            this.panel1.TabIndex = 2;
-            // 
             // frmNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1060, 720);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panelSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -302,7 +292,6 @@
         private System.Windows.Forms.PictureBox btnReload;
         private System.Windows.Forms.PictureBox btnAddNew;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label2;
     }

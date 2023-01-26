@@ -9,6 +9,8 @@ using System.Text;
 using Wood_Notes.Models;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Versioning;
+using System.Globalization;
 
 namespace Wood_Notes
 {
@@ -26,23 +28,22 @@ namespace Wood_Notes
             //dgvContenedor.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContenedor.Columns[1].Width = 317;
             //dgvContenedor.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[2].Width = 635;
+            dgvContenedor.Columns[2].Width = 605;
             //dgvContenedor.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContenedor.Columns[3].Width = 10;
             dgvContenedor.Columns[3].Visible = false;
             //dgvContenedor.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[4].Width = 106;
+            dgvContenedor.Columns[4].Width = 136;
             dgvContenedor.Columns[5].Visible = false;
             dgvContenedor.Columns[6].Visible = false;
 
+            // Diseño por defecto del DataGridView
             DataGridViewCellStyle stylegeneral = new DataGridViewCellStyle();
             stylegeneral.ForeColor = Color.White;
             stylegeneral.BackColor = Color.CornflowerBlue;
             stylegeneral.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-
-            
-                dgvContenedor.Rows[0].DefaultCellStyle = stylegeneral;
+            dgvContenedor.Rows[0].DefaultCellStyle = stylegeneral;
             
 
         }
@@ -147,29 +148,35 @@ namespace Wood_Notes
                donde se realizarán los cambios */
             if (e.RowIndex >= 0)
             {
+                // Guardado de datos en variables para almacenarlos en la clase Load
                 int idNota = Convert.ToInt32(dgvContenedor.SelectedRows[0].Cells[0].Value);
                 string Titulo = dgvContenedor.SelectedRows[0].Cells[1].Value.ToString();
                 string Contenido = dgvContenedor.SelectedRows[0].Cells[2].Value.ToString();
+                string Creacion = dgvContenedor.SelectedRows[0].Cells[3].Value.ToString();
                 string Fecha = dgvContenedor.SelectedRows[0].Cells[4].Value.ToString();
                 int Caracteres = Convert.ToInt32(dgvContenedor.SelectedRows[0].Cells[5].Value);
 
                 //MessageBox.Show(idNota + " " + Titulo + " " + Contenido + "" + Fecha);
 
+                // Guardado de datos en la clase Load
                 LoadData Load = new LoadData();
                 Load.setIdNota(idNota);
                 Load.setTituloNota(Titulo);
                 Load.setContenidoNota(Contenido);
-                Load.setFechaNota(Fecha);
+                Load.setFechaNota(Creacion);
+                Load.setFechaModificacion(Fecha);
                 Load.setCaracteres(Caracteres);
 
                 frmNotasSubMenu2 formulario = new frmNotasSubMenu2();
                 frmDetalles formulariodetalles = new frmDetalles();
-                //MessageBox.Show(" " + Load.IdNota + " " + Load.TituloNota + " " + Load.ContenidoNota);
-                //formulario.txtbaboso.Text = dgvContenedor.CurrentRow.Cells[1].Value.ToString();
+                
+                // Moviendo a segundo formulario los datos para usarse tanto para modificar, eliminar o ver detalles
                 formulario.txtId.Text = Convert.ToString(Load.getIdNota());
+                formulario.txtCreacion.Text = Load.getFechaNota();
+                formulario.txtMod.Text = Load.getFechaModificacion();
                 formulario.txtTitulo.Text = Load.getTituloNota();
                 formulario.rtxtNota.Text = Load.getContenidoNota();
-                formulario.dtpNewDate.Value = Convert.ToDateTime(Load.getFechaNota());
+                formulario.dtpNewDate.Value = Convert.ToDateTime(Load.getFechaModificacion());
                 formulario.lblcontador.Text = Load.getCaracteres().ToString();
                 formulario.ShowDialog();
             }
@@ -177,11 +184,14 @@ namespace Wood_Notes
         }
         #endregion
 
+        #region Apariencia y diseño del DataGridView
+
+        //Limitador de emergencia al click del Header de las columnas
         private void dgvContenedor_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             return;
         }
-
+        // Hover de las filas al sobrepasar el mouse sobre las celdas
         private void dgvContenedor_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridViewCellStyle style = new DataGridViewCellStyle();
@@ -195,7 +205,7 @@ namespace Wood_Notes
                 dgvContenedor.Rows[e.RowIndex].DefaultCellStyle = style;
             }
         }
-
+        // Regreso al color por defecto luego de ejecutar el evento del MouseMove (Hover)
         private void dgvContenedor_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -209,5 +219,6 @@ namespace Wood_Notes
                 dgvContenedor.Rows[e.RowIndex].DefaultCellStyle = style2;
             }
         }
+        #endregion
     }
 }

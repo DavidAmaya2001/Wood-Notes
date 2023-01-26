@@ -68,6 +68,8 @@ namespace Wood_Notes
                     txtTitulo.Text = "";
                     rtxtNota.Text = "";
                     dtpNewDate.Value = DateTime.Now;
+                    panelMenu.Visible = false;
+                    MessageBox.Show("La nota se agrego correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
