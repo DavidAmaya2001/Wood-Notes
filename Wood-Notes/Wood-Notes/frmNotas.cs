@@ -102,26 +102,32 @@ namespace Wood_Notes
         // Recarga Manual de formulario
         private void btnReload_Click(object sender, EventArgs e)
         {
-            if (txtSearch.ForeColor == Color.Silver)
+            if (txtSearch.ForeColor == Color.Silver)    // Si no tiene contenido solo consulta los datos
             {
                 DataTable Tabla = conexion.ConsultaNotas();
                 dgvContenedor.DataSource = Tabla;
 
             }
-            else if (txtSearch.ForeColor == Color.Black)
+            else if (txtSearch.ForeColor == Color.Black)     // Accede si tiene contenido
             {
-                if (txtSearch.Text == "")
+                if (txtSearch.Text == "")                    // Si el campo esta con contenido pero vacio se le asigna el placeholder y carga los datos
                 {
-                    DataTable Tabla = conexion.ConsultaNotas();
-                    dgvContenedor.DataSource = Tabla;
-                }
-                else
-                {
-                    DataTable Tabla = conexion.BusquedaNotas(txtSearch.Text);
-                    dgvContenedor.DataSource = Tabla;
-                    dgvContenedor.Focus();
                     txtSearch.Text = "Buscar por título";
                     txtSearch.ForeColor = Color.Silver;
+                    DataTable Tabla = conexion.ConsultaNotas();
+                    dgvContenedor.DataSource = Tabla;
+                    dgvContenedor.Focus();
+                }
+                else                                         // Si no esta vacio se busca los datos y luego se filtra segun lo que contenga el textbox
+                {
+                    /*DataTable Tabla = conexion.BusquedaNotas(txtSearch.Text);
+                    dgvContenedor.DataSource = Tabla;*/
+                    DataTable Tabla = conexion.ConsultaNotas();
+                    dgvContenedor.DataSource = Tabla;         // Carga los datos con nuevas actualizaciones si es que las hay
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = dgvContenedor.DataSource;
+                    bs.Filter = "Titulo Like '%" + txtSearch.Text + "%'";    // Filtra el dato segun lo que este en el buscador
+                    dgvContenedor.DataSource = bs;
                 }
             }
         }
@@ -141,7 +147,7 @@ namespace Wood_Notes
         // Placeholder del buscador
         private void txtSearch_Leave(object sender, EventArgs e)
         {
-            if (txtSearch.ForeColor == Color.Black)
+            if (txtSearch.ForeColor == Color.Black && txtSearch.Text == "")
             {
                 txtSearch.Text = "Buscar por título";
                 txtSearch.ForeColor = Color.Silver;
@@ -160,23 +166,32 @@ namespace Wood_Notes
 
         #endregion
 
+
         #region Buscador Automatico y Dinamico
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string Variable = txtSearch.Text;
+            /*string Variable = txtSearch.Text;
             WoodNotesDBEntities1 objetoDataBase = new WoodNotesDBEntities1();
 
             var consulta = (from usernotes in objetoDataBase.UserNotes
                             where usernotes.Titulo.Contains(Variable)
                             select new
                             {
-                                usernotes.IdNota,
                                 usernotes.Titulo,
-                                usernotes.Contenido,
-                                usernotes.Modificacion
+                                usernotes.Modificacion,
+
                             }).ToList();
 
             dgvContenedor.DataSource = consulta;
+            dgvContenedor.Columns["Titulo"].DisplayIndex = 0;
+            dgvContenedor.Columns["Modificacion"].DisplayIndex = 1;
+            */
+
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dgvContenedor.DataSource;
+            bs.Filter = "Titulo Like '%" + txtSearch.Text + "%'";  // Encapsulamiento del DataSource para el filtrado de los datos
+            dgvContenedor.DataSource = bs;                         // Reasignación de los datos filtrados que se mostraran en el datagridview
+
         }
 
         #endregion
@@ -235,6 +250,7 @@ namespace Wood_Notes
                     conexion.CerrarConexion();
                 }
             }
+            dgvContenedor.Visible = true;
 
         }
         #endregion
