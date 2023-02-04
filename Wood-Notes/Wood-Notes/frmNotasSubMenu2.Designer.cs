@@ -39,6 +39,8 @@
             this.rtxtNota = new System.Windows.Forms.RichTextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.panelInfNew = new System.Windows.Forms.Panel();
+            this.txtMod = new System.Windows.Forms.Label();
+            this.txtCreacion = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblcontador = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.btnPortapapeles = new System.Windows.Forms.Button();
             this.errorTitulo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNota = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtCreacion = new System.Windows.Forms.Label();
-            this.txtMod = new System.Windows.Forms.Label();
             this.panelSupNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -108,9 +108,9 @@
             this.label2.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(24, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 21);
+            this.label2.Size = new System.Drawing.Size(123, 21);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Agregar nueva nota";
+            this.label2.Text = "Modificar nota";
             // 
             // panelCenNew
             // 
@@ -179,6 +179,24 @@
             this.panelInfNew.Name = "panelInfNew";
             this.panelInfNew.Size = new System.Drawing.Size(805, 54);
             this.panelInfNew.TabIndex = 14;
+            // 
+            // txtMod
+            // 
+            this.txtMod.AutoSize = true;
+            this.txtMod.Location = new System.Drawing.Point(410, 21);
+            this.txtMod.Name = "txtMod";
+            this.txtMod.Size = new System.Drawing.Size(0, 13);
+            this.txtMod.TabIndex = 14;
+            this.txtMod.Visible = false;
+            // 
+            // txtCreacion
+            // 
+            this.txtCreacion.AutoSize = true;
+            this.txtCreacion.Location = new System.Drawing.Point(448, 21);
+            this.txtCreacion.Name = "txtCreacion";
+            this.txtCreacion.Size = new System.Drawing.Size(0, 13);
+            this.txtCreacion.TabIndex = 13;
+            this.txtCreacion.Visible = false;
             // 
             // label3
             // 
@@ -325,24 +343,6 @@
             // 
             this.errorNota.ContainerControl = this;
             this.errorNota.Icon = ((System.Drawing.Icon)(resources.GetObject("errorNota.Icon")));
-            // 
-            // txtCreacion
-            // 
-            this.txtCreacion.AutoSize = true;
-            this.txtCreacion.Location = new System.Drawing.Point(448, 21);
-            this.txtCreacion.Name = "txtCreacion";
-            this.txtCreacion.Size = new System.Drawing.Size(0, 13);
-            this.txtCreacion.TabIndex = 13;
-            this.txtCreacion.Visible = false;
-            // 
-            // txtMod
-            // 
-            this.txtMod.AutoSize = true;
-            this.txtMod.Location = new System.Drawing.Point(410, 21);
-            this.txtMod.Name = "txtMod";
-            this.txtMod.Size = new System.Drawing.Size(0, 13);
-            this.txtMod.TabIndex = 14;
-            this.txtMod.Visible = false;
             // 
             // frmNotasSubMenu2
             // 

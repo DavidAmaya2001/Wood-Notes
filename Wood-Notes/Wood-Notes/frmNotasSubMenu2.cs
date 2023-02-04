@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -165,6 +166,9 @@ namespace Wood_Notes
         // Boton que ejecuta la funcion de la clase Conexion para poder eliminar los datos de la base de datos
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
+
+            
+
             // Mensaje de confirmación
             DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar la siguiente nota?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
@@ -173,6 +177,16 @@ namespace Wood_Notes
                 // Verificación de campos vacios en los textbox
                 if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
                 {
+                    frmNotas formularionotas = new frmNotas();
+                    formularionotas.btnReload.Size = new Size(43, 43);
+                    string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
+                    byte[] bufferdefaultreload = File.ReadAllBytes(Location);
+                    using (MemoryStream ms = new MemoryStream(bufferdefaultreload))
+                    {
+                        formularionotas.btnReload.Image = Image.FromStream(ms);
+                    }
+
+
                     conexion.AbrirConexion();
                     conexion.EliminarDato(Convert.ToInt32(txtId.Text));
                     txtTitulo.Text = "";
@@ -180,7 +194,10 @@ namespace Wood_Notes
                     dtpNewDate.Value = DateTime.Now;
                     conexion.CerrarConexion();
                     MessageBox.Show("La nota se ha eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     this.Close();
+
+                    
                 }
                 else
                 {
@@ -209,8 +226,33 @@ namespace Wood_Notes
         {
             // Paso de datos hacia el formulario detalles
             formulariodetalles.txtId.Text = txtId.Text;
-            formulariodetalles.txtCreacion.Text = txtCreacion.Text.Substring(0,10);
-            formulariodetalles.txtModificacion.Text = txtMod.Text.Substring(0,10);
+            if(txtCreacion.Text.Length == 19)
+            {
+                formulariodetalles.txtCreacion.Text = txtCreacion.Text.Substring(0, 11);
+            }
+            else if(txtCreacion.Text.Length == 18)
+            {
+                formulariodetalles.txtCreacion.Text = txtCreacion.Text.Substring(0, 10);
+            }
+            else
+            {
+                formulariodetalles.txtCreacion.Text = txtCreacion.Text.Substring(0, 9);
+            }
+
+            if(txtMod.Text.Length == 19)
+            {
+                formulariodetalles.txtModificacion.Text = txtMod.Text.Substring(0,11);
+            }
+            else if(txtMod.Text.Length == 18)
+            {
+                formulariodetalles.txtModificacion.Text = txtMod.Text.Substring(0, 10);
+            }
+            else
+            {
+                formulariodetalles.txtModificacion.Text = txtMod.Text.Substring(0, 9);
+            }
+            
+            
             formulariodetalles.txtCaracteres.Text = lblcontador.Text;
 
             // Abriendo formulario detalles

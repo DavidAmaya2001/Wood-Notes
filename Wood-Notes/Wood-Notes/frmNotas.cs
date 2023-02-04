@@ -29,7 +29,8 @@ namespace Wood_Notes
             dgvContenedor.Columns[0].Width = 100;
             dgvContenedor.Columns[0].Visible = false;
             //dgvContenedor.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[1].Width = 400;
+            dgvContenedor.Columns[1].Width = 700;
+            dgvContenedor.Columns[1].Visible = true;
             //dgvContenedor.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContenedor.Columns[2].Width = 605;
             dgvContenedor.Columns[2].Visible = false;
@@ -37,8 +38,11 @@ namespace Wood_Notes
             dgvContenedor.Columns[3].Width = 10;
             dgvContenedor.Columns[3].Visible = false;
             //dgvContenedor.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[4].Width = 136;
+            dgvContenedor.Columns[4].Width = 186;
+            dgvContenedor.Columns[4].Visible = true;
+            //dgvContenedor.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContenedor.Columns[5].Visible = false;
+            //dgvContenedor.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContenedor.Columns[6].Visible = false;
 
             
@@ -83,7 +87,7 @@ namespace Wood_Notes
             stylegeneral.BackColor = Color.CornflowerBlue;
             stylegeneral.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            dgvContenedor.Rows[0].DefaultCellStyle = stylegeneral;
+            //dgvContenedor.Rows[0].DefaultCellStyle = stylegeneral;
             
 
         }
@@ -130,6 +134,14 @@ namespace Wood_Notes
                     dgvContenedor.DataSource = bs;
                 }
             }
+            // Reconfigurando tamaño e imagen por defecto del boton reload en caso de cambio
+            string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\Reload.png";
+            byte[] bufferdefaultreload = File.ReadAllBytes(Location);
+            using (MemoryStream ms = new MemoryStream(bufferdefaultreload))
+            {
+                btnReload.Image = Image.FromStream(ms);
+            }
+            btnReload.Size = new Size(39, 39);
         }
         #endregion
 
@@ -248,6 +260,16 @@ namespace Wood_Notes
                     conexion.AbrirConexion();
                     conexion.EliminarDato(idNota);
                     conexion.CerrarConexion();
+                    MessageBox.Show("La nota se ha eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    // Redimensionando Reload por cambio realizado
+                    btnReload.Size = new Size(43,43);
+                    string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
+                    byte[] bufferdefaultreload = File.ReadAllBytes(Location);
+                    using (MemoryStream ms = new MemoryStream(bufferdefaultreload))
+                    {
+                        btnReload.Image = Image.FromStream(ms);
+                    }
                 }
             }
             dgvContenedor.Visible = true;
