@@ -14,12 +14,15 @@ namespace Wood_Notes.Models
     
     public partial class UserNotes
     {
-        public int IdNota { get; set; }
-        public string Titulo { get; set; }
-        public string Contenido { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
-        public Nullable<System.DateTime> Modificacion { get; set; }
-        public Nullable<int> Caracteres { get; set; }
-        public Nullable<int> Peso { get; set; }
+        public int idNota { get; set; }
+        public string titulo { get; set; }
+        public string contenido { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
+        public Nullable<System.DateTime> modificacion { get; set; }
+        public Nullable<int> caracteres { get; set; }
+        public Nullable<int> peso { get; set; }
+        public int idUsers { get; set; }
+    
+        public virtual Users Users { get; set; }
     }
 }

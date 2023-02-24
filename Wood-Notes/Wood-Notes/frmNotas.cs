@@ -77,17 +77,6 @@ namespace Wood_Notes
 
             dgvContenedor.Columns.Add(columna_delete);
             dgvContenedor.Columns["Eliminar"].DisplayIndex = 8;
-
-            
-
-
-            // Diseño por defecto del DataGridView
-            DataGridViewCellStyle stylegeneral = new DataGridViewCellStyle();
-            stylegeneral.ForeColor = Color.White;
-            stylegeneral.BackColor = Color.CornflowerBlue;
-            stylegeneral.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            //dgvContenedor.Rows[0].DefaultCellStyle = stylegeneral;
             
 
         }
@@ -289,7 +278,7 @@ namespace Wood_Notes
         {
             DataGridViewCellStyle style = new DataGridViewCellStyle();
             style.ForeColor = Color.White;
-            style.BackColor = Color.RoyalBlue;
+            style.BackColor = Color.FromArgb(50, 95, 255);
             style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
 
@@ -304,7 +293,7 @@ namespace Wood_Notes
 
             DataGridViewCellStyle style2 = new DataGridViewCellStyle();
             style2.ForeColor = Color.White;
-            style2.BackColor = Color.CornflowerBlue;
+            style2.BackColor = Color.RoyalBlue;
             style2.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             if (e.RowIndex > -1)

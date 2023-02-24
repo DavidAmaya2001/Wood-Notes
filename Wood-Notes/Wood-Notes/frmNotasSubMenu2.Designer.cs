@@ -55,6 +55,7 @@
             this.btnPortapapeles = new System.Windows.Forms.Button();
             this.errorTitulo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorNota = new System.Windows.Forms.ErrorProvider(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelSupNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
@@ -320,6 +321,7 @@
             this.btnFile.TabIndex = 2;
             this.btnFile.Text = "Crear Archivo";
             this.btnFile.UseVisualStyleBackColor = false;
+            this.btnFile.Click += new System.EventHandler(this.btnFile_Click);
             // 
             // btnPortapapeles
             // 
@@ -399,5 +401,6 @@
         public System.Windows.Forms.Label lblcontador;
         public System.Windows.Forms.Label txtCreacion;
         public System.Windows.Forms.Label txtMod;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

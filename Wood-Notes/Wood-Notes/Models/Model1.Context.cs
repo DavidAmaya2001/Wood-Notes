@@ -13,10 +13,10 @@ namespace Wood_Notes.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WoodNotesDBEntities1 : DbContext
+    public partial class WoodNotesDBEntities2 : DbContext
     {
-        public WoodNotesDBEntities1()
-            : base("name=WoodNotesDBEntities1")
+        public WoodNotesDBEntities2()
+            : base("name=WoodNotesDBEntities2")
         {
         }
     
@@ -25,6 +25,8 @@ namespace Wood_Notes.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UserNotes> UserNotes { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

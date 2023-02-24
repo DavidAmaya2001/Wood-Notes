@@ -226,7 +226,7 @@
             this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.ForeColor = System.Drawing.Color.Silver;
             this.txtTitulo.Location = new System.Drawing.Point(49, 6);
-            this.txtTitulo.MaxLength = 80;
+            this.txtTitulo.MaxLength = 50;
             this.txtTitulo.Multiline = true;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(707, 37);

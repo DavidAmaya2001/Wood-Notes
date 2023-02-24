@@ -167,8 +167,6 @@ namespace Wood_Notes
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
 
-            
-
             // Mensaje de confirmación
             DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar la siguiente nota?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
@@ -180,8 +178,8 @@ namespace Wood_Notes
                     frmNotas formularionotas = new frmNotas();
                     formularionotas.btnReload.Size = new Size(43, 43);
                     string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
-                    byte[] bufferdefaultreload = File.ReadAllBytes(Location);
-                    using (MemoryStream ms = new MemoryStream(bufferdefaultreload))
+                    byte[] buffereload = File.ReadAllBytes(Location);
+                    using (MemoryStream ms = new MemoryStream(buffereload))
                     {
                         formularionotas.btnReload.Image = Image.FromStream(ms);
                     }
@@ -219,6 +217,79 @@ namespace Wood_Notes
                 }
             }
 
+        }
+
+        // Creador de archivos Txt
+        private void btnFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
+                {
+
+                    // FileName y Filter colocan parametros por defecto a la hora de crear el archivo
+                    saveFileDialog1.FileName = "Nueva Nota";
+                    saveFileDialog1.Filter = "Archivos | *.txt";
+
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)       // Verificacion de guardado
+                    {
+                        panelMenu.Visible = false; // Ocultando el panel despues de crear txt
+
+                        if (File.Exists(saveFileDialog1.FileName))             // Verifica si existe para sobreescribirlo
+                        {
+
+                            string txtsave = saveFileDialog1.FileName;
+
+                            StreamWriter txtsaving = File.CreateText(txtsave);
+                            txtsaving.WriteLine(txtTitulo.Text);
+                            txtsaving.WriteLine("----------------------------------------");
+                            txtsaving.WriteLine(rtxtNota.Text);
+                            txtsaving.Flush();
+                            txtsaving.Close();
+
+                            MessageBox.Show("El archivo de texto se ha creado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        else                                                    // En caso de no existir este se creara de igual manera 
+                        {
+                            string txtsave = saveFileDialog1.FileName;
+
+                            StreamWriter txtsaving = File.CreateText(txtsave);
+                            txtsaving.WriteLine(txtTitulo.Text);
+                            txtsaving.WriteLine("----------------------------------------");
+                            txtsaving.WriteLine(rtxtNota.Text);
+                            txtsaving.Flush();
+                            txtsaving.Close();
+
+                            MessageBox.Show("El archivo de texto se ha creado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                else
+                {
+                    if (txtTitulo.ForeColor == Color.Silver)                                    // Verificacion de campos vacios
+                    {
+                        errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
+                        errorNota.Clear();
+                    }
+                    else if (rtxtNota.ForeColor == Color.Silver)
+                    {
+                        errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
+                        errorTitulo.Clear();
+                    }
+                    else
+                    {
+                        errorTitulo.Clear();
+                        errorNota.Clear();
+                    }
+                }
+            }
+            catch (Exception)          // En caso de algun error
+            {
+                MessageBox.Show("Ocurrio un error al guardar");
+            }
+
+            
         }
 
         // Boton que abre el formulario de detalles
@@ -268,5 +339,7 @@ namespace Wood_Notes
             lblcontador.Text = rtxtNota.TextLength.ToString();
         }
         #endregion
+
+        
     }
 }
