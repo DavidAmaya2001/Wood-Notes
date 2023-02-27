@@ -39,7 +39,7 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelDetalles = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblIdUser = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
@@ -49,6 +49,7 @@
             this.panelEsc = new System.Windows.Forms.Panel();
             this.btnMaximized = new System.Windows.Forms.PictureBox();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.lblId = new System.Windows.Forms.Label();
             this.PanelLateral.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -190,21 +191,22 @@
             // 
             // panelDetalles
             // 
-            this.panelDetalles.Controls.Add(this.label1);
+            this.panelDetalles.Controls.Add(this.lblId);
+            this.panelDetalles.Controls.Add(this.lblIdUser);
             this.panelDetalles.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDetalles.Location = new System.Drawing.Point(0, 674);
             this.panelDetalles.Name = "panelDetalles";
             this.panelDetalles.Size = new System.Drawing.Size(260, 114);
             this.panelDetalles.TabIndex = 3;
             // 
-            // label1
+            // lblIdUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "detalles y mas";
+            this.lblIdUser.AutoSize = true;
+            this.lblIdUser.Location = new System.Drawing.Point(110, 44);
+            this.lblIdUser.Name = "lblIdUser";
+            this.lblIdUser.Size = new System.Drawing.Size(57, 13);
+            this.lblIdUser.TabIndex = 0;
+            this.lblIdUser.Text = "UserName";
             // 
             // textBox1
             // 
@@ -308,6 +310,15 @@
             this.panelContenido.Size = new System.Drawing.Size(1061, 720);
             this.panelContenido.TabIndex = 14;
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(110, 66);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(38, 13);
+            this.lblId.TabIndex = 1;
+            this.lblId.Text = "IdUser";
+            // 
             // frmWorkStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,7 +360,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox btnClose;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnMinimized;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnNotas;
@@ -363,6 +373,8 @@
         private System.Windows.Forms.PictureBox btnMaximized;
         private System.Windows.Forms.Panel panelEsc;
         private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.Label lblIdUser;
+        public System.Windows.Forms.Label lblId;
     }
 }
 

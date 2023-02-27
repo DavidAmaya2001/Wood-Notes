@@ -56,7 +56,7 @@ namespace Wood_Notes
                 timer1.Enabled = false;
                 
                 // Aqui se modificará por el Login Form --------------------------------------
-                frmWorkStation formChange = new frmWorkStation();
+                frmLogin formChange = new frmLogin();
                 formChange.Show();
                 this.Hide();
             }    
