@@ -16,12 +16,14 @@ namespace Wood_Notes
         public frmWorkStation()
         {
             InitializeComponent();
+            
         }
 
         Conexion conexion = new Conexion();
 
         private void frmWorkStation_Load(object sender, EventArgs e)
         {
+
             btnInicio.Size = new System.Drawing.Size(180, 55);
             AbrirForm<frmInicio>();
             conexion.AbrirConexion();

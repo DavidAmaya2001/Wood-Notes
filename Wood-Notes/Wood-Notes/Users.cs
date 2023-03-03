@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Wood_Notes
 {
-    public class Users:Conexion
+    public class Users : Conexion
     {
         // Apertura de conexion 
         static string conexionstring = "server= DESKTOP-DGI3QEQ\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
@@ -19,6 +19,8 @@ namespace Wood_Notes
         private int id { get; set; }
         private string usuario { get; set; }
         private string password { get; set; }
+
+        private string email { get; set; }
 
         public int getId()
         {
@@ -46,6 +48,68 @@ namespace Wood_Notes
             password = password.Trim();
             this.password = password;
         }
+        public string getEmail()
+        {
+            return email;
+        }
+        public void setEmail(string email)
+        {
+            email = email.Trim();
+            this.email = email;
+        }
+
+        // Guardado de datos adicionales de la cuenta
+
+        private string nombre {get;set;}
+        private string apellido { get; set; }
+        private string pais { get; set; }
+        private string telefono { get; set; }
+        private string fecha_union { get; set; }
+
+        public string getNombre()
+        {
+            return nombre;
+        }
+        public void setNombre(string nombre)
+        {
+            nombre = nombre.Trim();
+            this.nombre = nombre;
+        }
+        public string getApellido()
+        {
+            return apellido;
+        }
+        public void setApellido(string apellido)
+        {
+            apellido = apellido.Trim();
+            this.apellido = apellido;
+        }
+        public string getPais()
+        {
+            return pais;
+        }
+        public void setPais(string pais)
+        {
+            this.pais = pais;
+        }
+        public string getTelefono()
+        {
+            return telefono;
+        }
+        public void setTelefono(string telefono)
+        {
+            telefono = telefono.Trim();
+            this.telefono = telefono;
+        }
+        public string getFecha_union()
+        {
+            return fecha_union;
+        }
+        public void setFecha_union(string fecha)
+        {
+            this.fecha_union = fecha;
+        }
+
 
         #region Verificacion de Usuarios
         public bool Verificador()
@@ -55,7 +119,7 @@ namespace Wood_Notes
             bool result = false;
 
             //Lectura de cadena SQL donde con ayuda del SQLDataReader verifica si existe usuario
-            string cadena = "select idCredencial from UserCredentials where nickname = '" + getUsuario() + "' and pPassword = '" + getPassword() + "'";
+            string cadena = "select idCredencial,nickname,pPassword from UserCredentials where nickname = '" + getUsuario() + "' and pPassword = '" + getPassword() + "'";
             SqlCommand comando = new SqlCommand(cadena, conexion);
             SqlDataReader reader = null;
             reader = comando.ExecuteReader();
@@ -63,22 +127,28 @@ namespace Wood_Notes
             // Usuario verificado == true
             if (reader.Read())
             {
+                // Guardado de datos en variables 
                 string credential = reader["idCredencial"].ToString();
-                setId(int.Parse(credential));
-                //setId(int.Parse(cadena));
-                result = true;
+                string username = reader["nickname"].ToString();
+                string password = reader["pPassword"].ToString();
 
+                // Guradado de datos en clase para llamarlos en el frmWorkStation
+                setId(int.Parse(credential)); 
+                setUsuario(username);
+                setPassword(password);
+                
+                result = true;
             }
             // Usuario no encontrado == false
             else
             {
                 result = false;
-
             }
             conexion.Close();
             return result;
 
         }
+
         #endregion
     }
 }

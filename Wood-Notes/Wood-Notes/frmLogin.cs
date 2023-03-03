@@ -18,7 +18,7 @@ namespace Wood_Notes
             InitializeComponent();
         }
         Conexion conexion = new Conexion();
-
+        #region Ingreso con usuario
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             // Conexion a la clase de Users por medio del objeto ingresoUsers
@@ -31,8 +31,10 @@ namespace Wood_Notes
             // Verifica el resultado y da el accaso al programa con el usuario
             if(result == true)
             {   
+                // if verificador de que la cuenta ingresada no sea la de invitado
                 if (ingresoUsers.getId() != 1)
                 {
+                    // Mandado de datos al frmWorkStation y dando el pase al usuario
                     frmWorkStation frmMain = new frmWorkStation();
                     frmMain.lblIdUser.Text = ingresoUsers.getUsuario();
                     frmMain.lblId.Text = ingresoUsers.getId().ToString();
@@ -50,7 +52,8 @@ namespace Wood_Notes
                 MessageBox.Show("Credenciales incorrectas", "Error de Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        #endregion
+        #region Ingreso como invitado
         private void btnInvitado_Click(object sender, EventArgs e)
         {
             Invitado();
@@ -80,10 +83,23 @@ namespace Wood_Notes
                 this.Hide();
             }
         }
+        #endregion
+        #region Creacion de Cuenta en frmRegister
+        private void label3_Click(object sender, EventArgs e)
+        {
+            frmRegister register = new frmRegister();
+            register.Show();
+            this.Hide();
+        }
+        #endregion
 
+        #region Salir del rpograma
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+        #endregion
+
+
     }
 }
