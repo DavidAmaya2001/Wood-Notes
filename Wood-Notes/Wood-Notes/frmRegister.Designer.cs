@@ -47,13 +47,15 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtRePassword = new System.Windows.Forms.TextBox();
             this.txtPictureSource = new System.Windows.Forms.TextBox();
-            this.pbProfilePicture = new System.Windows.Forms.PictureBox();
             this.btnNuevoRegistro = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.cmbPais = new System.Windows.Forms.ComboBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.btnImage = new System.Windows.Forms.Button();
+            this.pbProfilePicture = new Wood_Notes.RoundedPictureBox();
+            this.dtpNewUser = new System.Windows.Forms.DateTimePicker();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
@@ -246,14 +248,6 @@
             this.txtPictureSource.Size = new System.Drawing.Size(166, 25);
             this.txtPictureSource.TabIndex = 26;
             // 
-            // pbProfilePicture
-            // 
-            this.pbProfilePicture.Location = new System.Drawing.Point(376, 539);
-            this.pbProfilePicture.Name = "pbProfilePicture";
-            this.pbProfilePicture.Size = new System.Drawing.Size(82, 74);
-            this.pbProfilePicture.TabIndex = 27;
-            this.pbProfilePicture.TabStop = false;
-            // 
             // btnNuevoRegistro
             // 
             this.btnNuevoRegistro.BackColor = System.Drawing.Color.RoyalBlue;
@@ -330,19 +324,48 @@
             this.btnImage.UseVisualStyleBackColor = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
+            // pbProfilePicture
+            // 
+            this.pbProfilePicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pbProfilePicture.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.pbProfilePicture.BorderColor2 = System.Drawing.Color.HotPink;
+            this.pbProfilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.pbProfilePicture.BorderSize = 3;
+            this.pbProfilePicture.Location = new System.Drawing.Point(358, 534);
+            this.pbProfilePicture.Name = "pbProfilePicture";
+            this.pbProfilePicture.Size = new System.Drawing.Size(100, 100);
+            this.pbProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfilePicture.TabIndex = 35;
+            this.pbProfilePicture.TabStop = false;
+            // 
+            // dtpNewUser
+            // 
+            this.dtpNewUser.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNewUser.Location = new System.Drawing.Point(41, 665);
+            this.dtpNewUser.Name = "dtpNewUser";
+            this.dtpNewUser.Size = new System.Drawing.Size(92, 20);
+            this.dtpNewUser.TabIndex = 36;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Archivos JPG|*.jpg|Archivos PNG|*.png";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(563, 716);
+            this.Controls.Add(this.dtpNewUser);
+            this.Controls.Add(this.pbProfilePicture);
             this.Controls.Add(this.btnImage);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.cmbPais);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnNuevoRegistro);
-            this.Controls.Add(this.pbProfilePicture);
             this.Controls.Add(this.txtPictureSource);
             this.Controls.Add(this.txtRePassword);
             this.Controls.Add(this.txtPassword);
@@ -393,12 +416,14 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtRePassword;
         private System.Windows.Forms.TextBox txtPictureSource;
-        private System.Windows.Forms.PictureBox pbProfilePicture;
         private System.Windows.Forms.Button btnNuevoRegistro;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.ComboBox cmbPais;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button btnImage;
+        private RoundedPictureBox pbProfilePicture;
+        private System.Windows.Forms.DateTimePicker dtpNewUser;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

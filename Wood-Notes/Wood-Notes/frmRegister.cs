@@ -27,24 +27,41 @@ namespace Wood_Notes
         #endregion
 
         #region Inserción de nuevo Usuario
+        Users newUser = new Users();
         private void btnNuevoRegistro_Click(object sender, EventArgs e)
         {
-            Users newUser = new Users();
+            dtpNewUser.Format = DateTimePickerFormat.Custom;
+            dtpNewUser.CustomFormat = "yyyy/MM/dd";
+            dtpNewUser.Value = DateTime.Now;
+            dtpNewUser.Visible = false;
+
+
             newUser.setNombre(txtName.Text);
             newUser.setApellido(txtLastName.Text);
             newUser.setPais(cmbPais.Text);
-            newUser.setTelefono(txtPhone.Text); // Agregarle el prefijo al numero despues
-            newUser.setFecha_union(DateTime.Now.ToString());
-            // Agregar la imagen a la base de datos despues
+            newUser.setTelefono(txtCodigo.Text + "" + txtPhone.Text);
+            newUser.setFecha_union(dtpNewUser.Text);
             newUser.setUsuario(txtNickname.Text);
             newUser.setPassword(txtPassword.Text);
             newUser.setEmail(txtEmail.Text);
+
+            // Linea de insersion
+            if (newUser.NewRegister(this.pbProfilePicture))
+            {
+                MessageBox.Show("Registro agregad correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Registro no agregado");
+            }
+            
         }
 
         // Inserción de imagen solo en el programa
         private void btnImage_Click(object sender, EventArgs e)
         {
-            // Abriendo OpenFileDialog para la selección de la imagen en los formatos establecidos
+            openFileDialog1.ShowDialog();
+            /* Abriendo OpenFileDialog para la selección de la imagen en los formatos establecidos
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Archivos |*.jpeg;*jpg;*png";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -61,7 +78,12 @@ namespace Wood_Notes
                     pbProfilePicture.Image = Image.FromStream(ms);
                     pbProfilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
-            }
+            }*/
+
+        }
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            pbProfilePicture.Image = Image.FromFile(openFileDialog1.FileName);
         }
         #endregion
 
@@ -184,6 +206,7 @@ namespace Wood_Notes
                 txtPhone.ReadOnly = true;
             }
         }
+
 
 
         #endregion

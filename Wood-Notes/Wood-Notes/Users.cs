@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -149,6 +150,36 @@ namespace Wood_Notes
 
         }
 
+        #endregion
+        #region Nuevo Registro Usuarios
+        SqlCommand cmd = new SqlCommand();
+        public bool NewRegister(PictureBox imagen)
+        {
+            cmd.Connection = conexion;
+            cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[telefono],[foto],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getTelefono() + "','@foto','" + getFecha_union() + "')";
+            cmd.Parameters.Add("@foto", SqlDbType.Image);
+
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            imagen.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            cmd.Parameters["@foto"].Value = ms.GetBuffer();
+
+            string cadena2 = "insert into UserCredentials([nickname],[pPassword],[correo]) values('" + getUsuario() + "','" + getPassword() + "','" + getEmail() + "')";
+            SqlCommand comando2 = new SqlCommand(cadena2, conexion);
+
+            conexion.Open();
+            int i = cmd.ExecuteNonQuery();
+            int i2 = comando2.ExecuteNonQuery();
+            conexion.Close();
+
+            if(i>0 && i2 > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
     }
 }
