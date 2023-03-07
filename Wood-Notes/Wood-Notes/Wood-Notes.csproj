@@ -206,6 +206,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
@@ -231,13 +232,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\belice.png" />
+    <None Include="Images\costa-rica.png" />
+    <None Include="Images\el-salvador.png" />
+    <None Include="Images\guatemala.png" />
+    <None Include="Images\honduras.png" />
+    <None Include="Images\nicaragua.png" />
+    <None Include="Images\panama.png" />
+    <None Include="Images\userverified.png" />
+    <None Include="Images\passwordverified.png" />
+    <None Include="Images\warning.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

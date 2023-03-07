@@ -61,7 +61,7 @@ namespace Wood_Notes
 
         // Guardado de datos adicionales de la cuenta
 
-        private string nombre {get;set;}
+        private string nombre { get; set; }
         private string apellido { get; set; }
         private string pais { get; set; }
         private string telefono { get; set; }
@@ -134,10 +134,10 @@ namespace Wood_Notes
                 string password = reader["pPassword"].ToString();
 
                 // Guradado de datos en clase para llamarlos en el frmWorkStation
-                setId(int.Parse(credential)); 
+                setId(int.Parse(credential));
                 setUsuario(username);
                 setPassword(password);
-                
+
                 result = true;
             }
             // Usuario no encontrado == false
@@ -151,27 +151,35 @@ namespace Wood_Notes
         }
 
         #endregion
+
         #region Nuevo Registro Usuarios
+
+        // Creacion de SQLCommand para trabajar el ingreso de la imagen a la base de datos
         SqlCommand cmd = new SqlCommand();
         public bool NewRegister(PictureBox imagen)
         {
+            // Linea de codigo SQL de tabla Users
             cmd.Connection = conexion;
             cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[telefono],[foto],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getTelefono() + "','@foto','" + getFecha_union() + "')";
+            // Declaracion del campo foto con un parametro de tipo Image
             cmd.Parameters.Add("@foto", SqlDbType.Image);
 
+            // Uso de MmeoryStream para la conversion del dato a binario
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
             imagen.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             cmd.Parameters["@foto"].Value = ms.GetBuffer();
 
+            // Linea de codigo SQL de la tabla relacionada de UserCredentials
             string cadena2 = "insert into UserCredentials([nickname],[pPassword],[correo]) values('" + getUsuario() + "','" + getPassword() + "','" + getEmail() + "')";
             SqlCommand comando2 = new SqlCommand(cadena2, conexion);
 
+            // Apertura, ejecución de comandos y cierre de conexión
             conexion.Open();
             int i = cmd.ExecuteNonQuery();
             int i2 = comando2.ExecuteNonQuery();
             conexion.Close();
 
-            if(i>0 && i2 > 0)
+            if (i > 0 && i2 > 0)
             {
                 return true;
             }
@@ -179,6 +187,62 @@ namespace Wood_Notes
             {
                 return false;
             }
+        }
+        #endregion
+
+        #region Comprobador de Usuarios creados
+        public bool VerificadorDeCuentas(string nickname)
+        {
+            // Apertura de la conexión
+            conexion.Open();
+            bool result = false;
+
+            // Lectura de cadena SQL donde con ayuda del SQLDataReader verifica si ya hay usuarios con ese nickname
+            string cadena = "select nickname from UserCredentials where nickname = '" + nickname + "'";
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            SqlDataReader reader = null;
+            reader = comando.ExecuteReader();
+
+            // Verificador que comprueba si existe ya un nickname como el ingresado 
+            if (reader.Read())
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            conexion.Close();
+            return result;
+        }
+        #endregion
+
+        #region Verificador de correos
+        public bool VerificadorDeCorreos(string correo)
+        {
+            // Apertura de la conexión
+            conexion.Open();
+            bool result = false;
+
+            // Lectura de cadena SQL donde con ayuda del SQLDataReader verifica si ya se creo cuenta con ese correo
+            string cadena = "select correo from UserCredentials where correo = '" + correo + "'";
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            SqlDataReader reader = null;
+            reader = comando.ExecuteReader();
+
+            // Verifica si ya hay cuenta con ese correo
+            if (reader.Read())
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+
+            conexion.Close();
+            return result;
+
         }
         #endregion
     }

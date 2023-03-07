@@ -93,7 +93,7 @@ namespace Wood_Notes
         }
         #endregion
 
-        #region Salir del rpograma
+        #region Salir del programa
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
