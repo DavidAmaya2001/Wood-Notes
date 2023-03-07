@@ -10,8 +10,8 @@ use WoodNotesDB
 
 create table Users(
 idUsers int identity(1,1),
-nombre varchar(30) not null,
-apellido varchar(30),
+nombre varchar(25) not null,
+apellido varchar(25),
 pais varchar(20),
 telefono varchar(15),
 foto image,
