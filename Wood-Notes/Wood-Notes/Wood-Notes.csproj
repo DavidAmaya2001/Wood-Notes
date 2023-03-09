@@ -247,6 +247,9 @@
     <None Include="Images\userverified.png" />
     <None Include="Images\passwordverified.png" />
     <None Include="Images\warning.png" />
+    <None Include="Images\RedCircle.png" />
+    <None Include="Images\orangeCircle.png" />
+    <None Include="Images\greenCircle.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

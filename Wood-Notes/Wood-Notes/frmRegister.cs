@@ -120,16 +120,43 @@ namespace Wood_Notes
                 E.Handled = true;
             }
         }
-        // Habilitador de campo telefonico
 
+        // Verificadoes de Nombre
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
         }
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            if (txtName.Text.Length == 0)
+            {
+                errorName.SetError(txtName, "Campo vacio");
+            }
+            else if (txtName.Text.Length <= 2)
+            {
+                errorName.SetError(txtName, "Nombre demasiado corto");
+            }
+            else
+            {
+                errorName.Clear();
+            }
+        }
 
+        // Verificadores de Apellido
         private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
+        }
+        private void txtLastName_Leave(object sender, EventArgs e)
+        {
+            if (txtLastName.Text.Length == 0 || txtLastName.Text.Length > 2)
+            {
+                errorLastName.Clear();
+            }
+            else if (txtLastName.Text.Length <= 2)
+            {
+                errorLastName.SetError(txtLastName, "Apellido demasiado corto");
+            }
         }
 
         // Validaciones del Nickname
@@ -226,6 +253,7 @@ namespace Wood_Notes
             }
         }
 
+        // Validación del Password y la confirmación del Passwrd
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetrasyDigitos(e);
@@ -235,7 +263,130 @@ namespace Wood_Notes
         {
             SoloLetrasyDigitos(e);
         }
-        
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            int lenght = txtPassword.Text.Length;
+
+            switch (lenght)
+            {
+                case 0:
+                    btnPassAdv1.Visible = false;
+                    btnPassAdv2.Visible = false;
+                    btnPassAdv3.Visible = false;
+                    btnPassAdv4.Visible = false;
+                    btnPassAdv5.Visible = false;
+                    btnPassAdv6.Visible = false;
+                    lblPassSecure.Text = "";
+                    btnSecurePass.Visible = false;
+                    break;
+                case 1:
+                    btnPassAdv1.Visible = true;
+                    btnPassAdv2.Visible = false;
+                    btnPassAdv3.Visible = false;
+                    btnPassAdv4.Visible = false;
+                    btnPassAdv5.Visible = false;
+                    btnPassAdv6.Visible = false;
+                    lblPassSecure.Text = "La contraseña es demasiado corta";
+                    btnSecurePass.Visible = false;
+                    break;
+                case 2:
+                    btnPassAdv1.Visible = true;
+                    btnPassAdv2.Visible = true;
+                    btnPassAdv3.Visible = false;
+                    btnPassAdv4.Visible = false;
+                    btnPassAdv5.Visible = false;
+                    btnPassAdv6.Visible = false;
+                    lblPassSecure.Text = "La contraseña es demasiado corta";
+                    btnSecurePass.Visible = false;
+                    break;
+                case 3:
+                    btnPassAdv1.Visible = true;
+                    btnPassAdv2.Visible = true;
+                    btnPassAdv3.Visible = true;
+                    btnPassAdv4.Visible = false;
+                    btnPassAdv5.Visible = false;
+                    btnPassAdv6.Visible = false;
+                    btnPassAdv1.Image = Wood_Notes.Properties.Resources.RedCircle;
+                    btnPassAdv2.Image = Wood_Notes.Properties.Resources.RedCircle;
+                    btnPassAdv3.Image = Wood_Notes.Properties.Resources.RedCircle;
+                    lblPassSecure.Text = "La contraseña es demasiado corta";
+                    btnSecurePass.Visible = false;
+                    break;
+                case 4:
+                    btnPassAdv1.Visible = true;
+                    btnPassAdv2.Visible = true;
+                    btnPassAdv3.Visible = true;
+                    btnPassAdv4.Visible = true;
+                    btnPassAdv5.Visible = false;
+                    btnPassAdv6.Visible = false;
+                    btnPassAdv1.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    btnPassAdv2.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    btnPassAdv3.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    lblPassSecure.Text = "La contraseña es demasiado corta";
+                    btnSecurePass.Visible = false;
+                    break;
+                case 5:
+                    btnPassAdv1.Visible = true;
+                    btnPassAdv2.Visible = true;
+                    btnPassAdv3.Visible = true;
+                    btnPassAdv4.Visible = true;
+                    btnPassAdv5.Visible = true;
+                    btnPassAdv6.Visible = false;
+                    lblPassSecure.Text = "La contraseña es demasiado corta";
+                    btnSecurePass.Visible = false;
+                    break;
+                case 6:
+                    btnPassAdv1.Visible = true;
+                    btnPassAdv2.Visible = true;
+                    btnPassAdv3.Visible = true;
+                    btnPassAdv4.Visible = true;
+                    btnPassAdv5.Visible = true;
+                    btnPassAdv6.Visible = true;
+                    btnPassAdv1.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    btnPassAdv2.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    btnPassAdv3.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    btnPassAdv4.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    btnPassAdv5.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    btnPassAdv6.Image = Wood_Notes.Properties.Resources.orangeCircle;
+                    lblPassSecure.Text = "La contraseña es demasiado corta";
+                    btnSecurePass.Visible = false;
+                    txtRePassword.Text = "";
+                    pbRePass.Visible = false;
+                    txtRePassword.Enabled = false;
+                    break;
+                default:
+                    btnPassAdv1.Visible = true;
+                    btnPassAdv2.Visible = true;
+                    btnPassAdv3.Visible = true;
+                    btnPassAdv4.Visible = true;
+                    btnPassAdv5.Visible = true;
+                    btnPassAdv6.Visible = true;
+                    lblPassSecure.Text = "¡La contraseña es segura!";
+                    btnPassAdv1.Image = Wood_Notes.Properties.Resources.greenCircle;
+                    btnPassAdv2.Image = Wood_Notes.Properties.Resources.greenCircle;
+                    btnPassAdv3.Image = Wood_Notes.Properties.Resources.greenCircle;
+                    btnPassAdv4.Image = Wood_Notes.Properties.Resources.greenCircle;
+                    btnPassAdv5.Image = Wood_Notes.Properties.Resources.greenCircle;
+                    btnPassAdv6.Image = Wood_Notes.Properties.Resources.greenCircle;
+                    btnSecurePass.Visible = true;
+                    txtRePassword.Enabled = true;
+                    break;
+            }
+        }
+        private void txtRePassword_Leave(object sender, EventArgs e)
+        {
+            if (txtRePassword.Text == txtPassword.Text)
+            {
+                lblRePass.Text = "";
+                pbRePass.Visible = true;
+            }
+            else
+            {
+                lblRePass.Text = "¡Las contraseñas no coinciden!";
+                pbRePass.Visible = false;
+            }
+        }
+
         // Validaciones del telefono en los campos de cmbPais y txtPhone
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -332,7 +483,6 @@ namespace Wood_Notes
                 txtPhone.Enabled = false;
             }
         }
-
 
 
 
