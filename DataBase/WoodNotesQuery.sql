@@ -12,8 +12,8 @@ create table Users(
 idUsers int identity(1,1),
 nombre varchar(25) not null,
 apellido varchar(25),
-pais varchar(20),
-telefono varchar(15),
+pais varchar(20) not null,
+telefono varchar(15) not null,
 foto image,
 fecha_union date not null,
 --Llave primaria --
@@ -61,7 +61,7 @@ drop table UserNotes   /*Ojo a la linea*/
 select * from Users
 select*from UserCredentials
 
-insert into Users values('Invitado',null,null,null,null,'2023-02-26')
+insert into Users values('Invitado',null,'Default','Default',null,'2023-02-26')
 insert into UserCredentials values ('Invitado','Invitado','example@gmail.com')
 insert into Users values('Juan Francisco','Perez Muñoz','El Salvador','2273-6000',null,'2023-02-23')
 insert into UserCredentials values('El pepe','12345678','elpepe@gmail.com')
@@ -72,8 +72,8 @@ insert into UserCredentials values('Tilin','87654321','tilinsupremo@gmail.com')
 delete from Users where idUsers = 3
 delete from UserCredentials where idCredencial = 3
 -- Reset de Identity --
-DBCC CHECKIDENT ('Users',RESEED,2)
-DBCC CHECKIDENT ('UserCredentials',RESEED,2)
+DBCC CHECKIDENT ('Users',RESEED,1)
+DBCC CHECKIDENT ('UserCredentials',RESEED,1)
 
 ----Tabla UserNotes ----
 select * from UserNotes
