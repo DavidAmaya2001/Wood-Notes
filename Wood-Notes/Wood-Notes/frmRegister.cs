@@ -37,25 +37,47 @@ namespace Wood_Notes
             dtpNewUser.Value = DateTime.Now;
             dtpNewUser.Visible = false;
 
-
-            newUser.setNombre(txtName.Text);
-            newUser.setApellido(txtLastName.Text);
-            newUser.setPais(cmbPais.Text);
-            newUser.setTelefono(txtCodigo.Text + "" + txtPhone.Text);
-            newUser.setFecha_union(dtpNewUser.Text);
-            newUser.setUsuario(txtNickname.Text);
-            newUser.setPassword(txtPassword.Text);
-            newUser.setEmail(txtEmail.Text);
-
-            // Linea de insersion
-            if (newUser.NewRegister(this.pbProfilePicture))
+            // Verificacion de los campos totalmente verificados
+            if (
+                txtName.Text != "" &&
+                cmbPais.SelectedIndex != 0 &&
+                txtPhone.Text != "" &&
+                lblnickname.Text == "¡El nombre de usuario se encuentra disponible!" &&
+                lblEmail.Text == "¡Correo verificado exitosamente!" &&
+                lblPassSecure.Text == "¡La contraseña es segura!" &&
+                lblRePass.Text == "¡Las contraseñas coinciden!"
+                )
             {
-                MessageBox.Show("Registro agregad correctamente");
+                // Inserción de datos a la clase con sus respectivas eliminaciones de espacios adelante y atras de los campos de los controladores
+                newUser.setNombre(txtName.Text);
+                newUser.setApellido(txtLastName.Text);
+                newUser.setPais(cmbPais.Text);
+                newUser.setTelefono(txtCodigo.Text + "" + txtPhone.Text);
+                newUser.setFecha_union(dtpNewUser.Text);
+                newUser.setUsuario(txtNickname.Text);
+                newUser.setPassword(txtPassword.Text);
+                newUser.setEmail(txtEmail.Text);
+
+                DialogResult result = MessageBox.Show("¿Esta seguro/a que desea agregar el siguiente usuario?","Agregar",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                // Linea de insersion
+                if (result == DialogResult.OK)
+                {
+                    // Funcion de la clase para agregar al nuevo usuario
+                    newUser.NewRegister(this.pbProfilePicture);
+                    MessageBox.Show("Registro agregad correctamente","Bienvenido",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+                else
+                {
+                    //MessageBox.Show("Registro no agregado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Registro no agregado");
+                MessageBox.Show("Aun quedan campos obligatorios por validar.","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+
+
+            
             
         }
 
@@ -377,7 +399,7 @@ namespace Wood_Notes
         {
             if (txtRePassword.Text == txtPassword.Text)
             {
-                lblRePass.Text = "";
+                lblRePass.Text = "¡Las contraseñas coinciden!";
                 pbRePass.Visible = true;
             }
             else

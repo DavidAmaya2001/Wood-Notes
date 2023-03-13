@@ -159,15 +159,26 @@ namespace Wood_Notes
         public bool NewRegister(PictureBox imagen)
         {
             // Linea de codigo SQL de tabla Users
-            cmd.Connection = conexion;
-            cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[telefono],[foto],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getTelefono() + "','@foto','" + getFecha_union() + "')";
-            // Declaracion del campo foto con un parametro de tipo Image
-            cmd.Parameters.Add("@foto", SqlDbType.Image);
 
             // Uso de MmeoryStream para la conversion del dato a binario
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-            imagen.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            cmd.Parameters["@foto"].Value = ms.GetBuffer();
+            if(imagen.Image != null)
+            {
+                cmd.Connection = conexion;
+                cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[telefono],[foto],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getTelefono() + "','@foto','" + getFecha_union() + "')";
+
+                // Declaracion del campo foto con un parametro de tipo Image
+                cmd.Parameters.Add("@foto", SqlDbType.Image);
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                imagen.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                cmd.Parameters["@foto"].Value = ms.GetBuffer();
+            }
+            else
+            {
+                cmd.Connection = conexion;
+                cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[telefono],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getTelefono() + "','" + getFecha_union() + "')";
+            }
+
+            
 
             // Linea de codigo SQL de la tabla relacionada de UserCredentials
             string cadena2 = "insert into UserCredentials([nickname],[pPassword],[correo]) values('" + getUsuario() + "','" + getPassword() + "','" + getEmail() + "')";
