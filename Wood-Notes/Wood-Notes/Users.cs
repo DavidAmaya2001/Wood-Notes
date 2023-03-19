@@ -15,6 +15,7 @@ namespace Wood_Notes
         // Apertura de conexion 
         static string conexionstring = "server= DESKTOP-DGI3QEQ\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);
+        private string hashpass = "wood-pass";
 
         // Clase de guardado de datos de usuario y contraseña
         private int id { get; set; }
@@ -64,6 +65,7 @@ namespace Wood_Notes
         private string nombre { get; set; }
         private string apellido { get; set; }
         private string pais { get; set; }
+        private string codigo { get; set; }
         private string telefono { get; set; }
         private string fecha_union { get; set; }
 
@@ -93,6 +95,14 @@ namespace Wood_Notes
         {
             this.pais = pais;
         }
+        public string getCodigo()
+        {
+            return codigo;
+        }
+        public void setCodigo(string codigo)
+        {
+            this.codigo = codigo;
+        }
         public string getTelefono()
         {
             return telefono;
@@ -119,8 +129,9 @@ namespace Wood_Notes
             conexion.Open();
             bool result = false;
 
-            //Lectura de cadena SQL donde con ayuda del SQLDataReader verifica si existe usuario
-            string cadena = "select idCredencial,nickname,pPassword from UserCredentials where nickname = '" + getUsuario() + "' and pPassword = '" + getPassword() + "'";
+            //Lectura de cadena SQL donde con ayuda del SQLDataReader verifica si existe usuario en el Login
+            // Usando Encriptación para ocultar contraseñas en la base de datos
+            string cadena = "select idCredencial,nickname,pPassword from UserCredentials where nickname = '" + getUsuario() + "' and CONVERT(varchar(max),DECRYPTBYPASSPHRASE('" + hashpass + "',pPassword)) = '" + getPassword() + "'";
             SqlCommand comando = new SqlCommand(cadena, conexion);
             SqlDataReader reader = null;
             reader = comando.ExecuteReader();
@@ -164,7 +175,7 @@ namespace Wood_Notes
             if(imagen.Image != null)
             {
                 cmd.Connection = conexion;
-                cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[telefono],[foto],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getTelefono() + "','@foto','" + getFecha_union() + "')";
+                cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[codigo],[telefono],[foto],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getCodigo() + "','" + getTelefono() + "','@foto','" + getFecha_union() + "')";
 
                 // Declaracion del campo foto con un parametro de tipo Image
                 cmd.Parameters.Add("@foto", SqlDbType.Image);
@@ -175,13 +186,13 @@ namespace Wood_Notes
             else
             {
                 cmd.Connection = conexion;
-                cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[telefono],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getTelefono() + "','" + getFecha_union() + "')";
+                cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[codigo],[telefono],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getCodigo() + "','" + getTelefono() + "','" + getFecha_union() + "')";
             }
 
             
 
-            // Linea de codigo SQL de la tabla relacionada de UserCredentials
-            string cadena2 = "insert into UserCredentials([nickname],[pPassword],[correo]) values('" + getUsuario() + "','" + getPassword() + "','" + getEmail() + "')";
+            // Linea de codigo SQL de la tabla relacionada de UserCredentials con encryptado de Password (lo encripta el comando)
+            string cadena2 = "insert into UserCredentials([nickname],[pPassword],[correo]) values('" + getUsuario() + "',ENCRYPTBYPASSPHRASE('" + hashpass + "','" + getPassword() + "'),'" + getEmail() + "')";
             SqlCommand comando2 = new SqlCommand(cadena2, conexion);
 
             // Apertura, ejecución de comandos y cierre de conexión

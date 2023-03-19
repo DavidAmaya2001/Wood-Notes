@@ -53,20 +53,24 @@ namespace Wood_Notes
             }
         }
         #endregion
+
         #region Ingreso como invitado
+
+        // Botones de dan acceso al usuario para ingresar como Invitado en base a una misma función de Invitado()
         private void btnInvitado_Click(object sender, EventArgs e)
         {
             Invitado();
 
         }
-
         private void btnInvitado2_Click(object sender, EventArgs e)
         {
             Invitado();
         }
 
+        // Funcion para ingresar como invitado con parametros ya establecidos y solo accesibles desde el boton de Invitado
         private void Invitado()
         {
+            // Ingreso de los datos de Invitado a la clase para dar el acceso como usuario Invitado
             Users ingresoInvitado = new Users();
 
             ingresoInvitado.setUsuario("Invitado");
@@ -84,7 +88,10 @@ namespace Wood_Notes
             }
         }
         #endregion
+
         #region Creacion de Cuenta en frmRegister
+
+        // Label que linkea al formulario de Registro para poder crear una nueva cuenta
         private void label3_Click(object sender, EventArgs e)
         {
             frmRegister register = new frmRegister();
@@ -94,6 +101,8 @@ namespace Wood_Notes
         #endregion
 
         #region Salir del programa
+
+        // Boton que permite poder salir del programa desde el Login
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();

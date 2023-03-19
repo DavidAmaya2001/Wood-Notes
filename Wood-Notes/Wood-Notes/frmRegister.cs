@@ -19,6 +19,7 @@ namespace Wood_Notes
             InitializeComponent();
         }
         #region Salir del registro
+        // Funcion para salir del registro de usuario y regresar al formulario de Login
         private void btnSalir_Click(object sender, EventArgs e)
         {
             frmLogin logueo = new frmLogin();
@@ -28,20 +29,32 @@ namespace Wood_Notes
         #endregion
 
         #region Inserción de nuevo Usuario
+
+        // Validación de Campos llenos y que el usuario sea nuevo e Inserción de los datos a la Base de datos
+        // Campos obligatorios:
+        // - nombre
+        // - país
+        // - teléfono
+        // - nickname
+        // - correo electronico
+        // - contraseña
+        // - contraseña repetida correctamente
+
         Users newUser = new Users();
         private void btnNuevoRegistro_Click(object sender, EventArgs e)
         {
-            // Falta verificar y establecer restricciones a los datos 
+            // Corrección del DatTimePicker y ajustes de valores predeterminados como el formato, asignación de hora y ser invisible al usuario
             dtpNewUser.Format = DateTimePickerFormat.Custom;
             dtpNewUser.CustomFormat = "yyyy/MM/dd";
             dtpNewUser.Value = DateTime.Now;
             dtpNewUser.Visible = false;
 
-            // Verificacion de los campos totalmente verificados
+            // Validación de los campos totalmente verificados y llenos
             if (
-                txtName.Text != "" &&
-                cmbPais.SelectedIndex != 0 &&
-                txtPhone.Text != "" &&
+                lblNameVerified.Text == "" &&
+                lblLastNameVerified.Text == "" &&
+                cmbPais.SelectedIndex != 0 && 
+                txtPhone.Text != "" && 
                 lblnickname.Text == "¡El nombre de usuario se encuentra disponible!" &&
                 lblEmail.Text == "¡Correo verificado exitosamente!" &&
                 lblPassSecure.Text == "¡La contraseña es segura!" &&
@@ -52,22 +65,25 @@ namespace Wood_Notes
                 newUser.setNombre(txtName.Text);
                 newUser.setApellido(txtLastName.Text);
                 newUser.setPais(cmbPais.Text);
-                newUser.setTelefono(txtCodigo.Text + "" + txtPhone.Text);
+                newUser.setCodigo(txtCodigo.Text);
+                newUser.setTelefono(txtPhone.Text);
                 newUser.setFecha_union(dtpNewUser.Text);
                 newUser.setUsuario(txtNickname.Text);
                 newUser.setPassword(txtPassword.Text);
                 newUser.setEmail(txtEmail.Text);
 
                 DialogResult result = MessageBox.Show("¿Esta seguro/a que desea agregar el siguiente usuario?","Agregar",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
-                // Linea de insersion
+                
+                // Linea de insersion a la base de datos despues del ok del OpenFileDialog
                 if (result == DialogResult.OK)
                 {
                     // Funcion de la clase para agregar al nuevo usuario
                     newUser.NewRegister(this.pbProfilePicture);
-                    MessageBox.Show("Registro agregad correctamente","Bienvenido",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Registro agregado correctamente","Bienvenido",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 else
                 {
+                    // No hará nada el programa
                     //MessageBox.Show("Registro no agregado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -81,12 +97,33 @@ namespace Wood_Notes
             
         }
 
-        // Inserción de imagen solo en el programa
+        // Inserción de imagen solo en el PictureBox para luego ser procesada a la base de datos
+        // Validación para que todos los controladores dentro del PictureBox funcionen como OpenFileDialog
+
+        // Subregion
+        #region FileDialogs
         private void btnImage_Click(object sender, EventArgs e)
         {
             // Apertura del OpenFileDialog
             openFileDialog1.ShowDialog();
         }
+        private void pbProfilePicture_Click(object sender, EventArgs e)
+        {
+            // Apertura del OpenFileDialog
+            openFileDialog1.ShowDialog();
+        }
+        private void lblagregarimg_Click(object sender, EventArgs e)
+        {
+            // Apertura del OpenFileDialog
+            openFileDialog1.ShowDialog();
+        }
+        private void lblagregarimg2_Click(object sender, EventArgs e)
+        {
+            // Apertura del OpenFileDialog
+            openFileDialog1.ShowDialog();
+        }
+
+        // Funcion principal del OpenFileDialog para insertar la imagen al PiictureBox
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             // Guardado de la imagen en el PictureBox segun lo elegido en el openFileDialog
@@ -95,8 +132,14 @@ namespace Wood_Notes
             lblagregarimg2.Visible = false;
         }
         #endregion
+        // Fin de Subregion
 
-        #region Validación de campos 
+        #endregion
+
+        #region Validación de Campos del formulario y restricciones de teclas 
+
+        // Subregion
+        #region Restricciones de las teclas en los controladores
         // Validación de solo letras, controles y separadores
         public void SoloLetras(KeyPressEventArgs E)
         {
@@ -142,8 +185,11 @@ namespace Wood_Notes
                 E.Handled = true;
             }
         }
+        #endregion
+        // Fin de Subregion
 
-        // Verificadoes de Nombre
+
+        // Verificadoes del controlador para el campo de Nombre ( Obligatorio )
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
@@ -152,32 +198,48 @@ namespace Wood_Notes
         {
             if (txtName.Text.Length == 0)
             {
-                errorName.SetError(txtName, "Campo vacio");
+                pbNameVerified.Visible = true;
+                pbNameVerified.Image = Wood_Notes.Properties.Resources.warning;
+                lblNameVerified.Text = "Campo Vacio";
             }
             else if (txtName.Text.Length <= 2)
             {
-                errorName.SetError(txtName, "Nombre demasiado corto");
+                pbNameVerified.Visible = true;
+                pbNameVerified.Image = Wood_Notes.Properties.Resources.warning;
+                lblNameVerified.Text = "Nombre demasiado corto";
             }
             else
             {
-                errorName.Clear();
+                pbNameVerified.Visible = true;
+                pbNameVerified.Image = Wood_Notes.Properties.Resources.userverified;
+                lblNameVerified.Text = "";
             }
+            btnNuevoRegistro.Enabled = true;
         }
 
-        // Verificadores de Apellido
+        // Verificadores del controlador para el campo Apellido ( No obligatorio )
         private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
         }
         private void txtLastName_Leave(object sender, EventArgs e)
         {
-            if (txtLastName.Text.Length == 0 || txtLastName.Text.Length > 2)
+            if (txtLastName.Text.Length == 0)
             {
-                errorLastName.Clear();
+                pbLastNameVerified.Visible = false;
+                lblLastNameVerified.Text = "";
+            }
+            else if (txtLastName.Text.Length > 2)
+            {
+                pbLastNameVerified.Visible = true;
+                pbLastNameVerified.Image = Wood_Notes.Properties.Resources.userverified;
+                lblLastNameVerified.Text = "";
             }
             else if (txtLastName.Text.Length <= 2)
             {
-                errorLastName.SetError(txtLastName, "Apellido demasiado corto");
+                pbLastNameVerified.Visible = true;
+                pbLastNameVerified.Image = Wood_Notes.Properties.Resources.warning;
+                lblLastNameVerified.Text = "Apellido demasiado corto";
             }
         }
 
@@ -420,16 +482,22 @@ namespace Wood_Notes
             if (phoneNumber.Length == 8)
             {
                 txtPhone.Text = phoneNumber.Substring(0, 4) + "-" + phoneNumber.Substring(4, 4);
-                errorPhone.Clear();
+                pbPhoneVerified.Visible = true;
+                pbPhoneVerified.Image = Wood_Notes.Properties.Resources.userverified;
+                lblPhoneVerified.Text = "";
             }
             else if (phoneNumber == null)
             {
-                errorPhone.Clear();
+                pbPhoneVerified.Image = Wood_Notes.Properties.Resources.warning;
+                pbPhoneVerified.Visible = true;
+                lblPhoneVerified.Text = "Campo se encuentra vacio";
                 // Caso que no ingrese numero telefonico no se agrega guion 
             }
             else
             {
-                errorPhone.SetError(txtPhone, "El campo no contiene el formato adecuado");
+                pbPhoneVerified.Image = Wood_Notes.Properties.Resources.warning;
+                pbPhoneVerified.Visible = true;
+                lblPhoneVerified.Text = "¡El campo no contiene el formato correcto!";
             }
         }
 
@@ -505,6 +573,9 @@ namespace Wood_Notes
                 txtPhone.Enabled = false;
             }
         }
+
+
+
 
 
 
