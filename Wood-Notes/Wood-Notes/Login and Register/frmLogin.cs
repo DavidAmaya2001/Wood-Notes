@@ -17,7 +17,7 @@ namespace Wood_Notes
         {
             InitializeComponent();
         }
-        Conexion conexion = new Conexion();
+
         #region Ingreso con usuario
         private void btnAcceder_Click(object sender, EventArgs e)
         {
@@ -26,6 +26,10 @@ namespace Wood_Notes
 
             ingresoUsers.setUsuario(txtUsuario.Text);
             ingresoUsers.setPassword(txtPassword.Text);
+
+            // Declaración de Point para las posiciones de los mensajes de alerta
+            Point credentialsposition = new Point(308,296);
+            Point invitadoposition = new Point(244, 296);
 
             bool result = ingresoUsers.Verificador();
             // Verifica el resultado y da el accaso al programa con el usuario
@@ -43,13 +47,19 @@ namespace Wood_Notes
                 }
                 else
                 {
-                    MessageBox.Show("Para ingresar como invitado debe acceder en el boton de ''Invitado''", "Error de Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Saltará una alerta por ingresar al invitado con credenciales
+                    lblCredenciales.Visible = true;
+                    lblCredenciales.Location = invitadoposition;
+                    lblCredenciales.Text = "No se puede ingresar como 'Invitado' usando credenciales";
                 }
             }
             // Verifica y niega el accaso al programa por usuario ingresado incorrectamente
             else
             {
-                MessageBox.Show("Credenciales incorrectas", "Error de Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Saltará una alerta por ingresar con credenciales incorrectas
+                lblCredenciales.Visible = true;
+                lblCredenciales.Location = credentialsposition;
+                lblCredenciales.Text = "Usuario y/o contraseña incorrecta";
             }
         }
         #endregion
@@ -107,6 +117,28 @@ namespace Wood_Notes
         {
             Application.Exit();
         }
+        #endregion
+
+        #region Funciones UI del Login
+
+        // Bool para comprobar si esta activa la visualización de la clave o no lo esta
+        bool eyeUI = true;
+        private void pbEyePass_Click(object sender, EventArgs e)
+        {
+            if (eyeUI)
+            {
+                eyeUI = false;
+                pbEyePass.Image = Wood_Notes.Properties.Resources.iconeyeImage;
+                txtPassword.PasswordChar = default;
+            }
+            else
+            {
+                eyeUI = true;
+                pbEyePass.Image = Wood_Notes.Properties.Resources.iconcloseeyeImage;
+                txtPassword.PasswordChar = Convert.ToChar("*");
+            }
+        }
+
         #endregion
 
 

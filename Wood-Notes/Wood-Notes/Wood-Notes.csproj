@@ -62,10 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
-    <Compile Include="Detalles.cs">
+    <Compile Include="Notas SubForm\Detalles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Detalles.Designer.cs">
+    <Compile Include="Notas SubForm\Detalles.Designer.cs">
       <DependentUpon>Detalles.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -74,61 +74,61 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCalendario.cs">
+    <Compile Include="SubForms Wood-Notes\frmCalendario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCalendario.Designer.cs">
+    <Compile Include="SubForms Wood-Notes\frmCalendario.Designer.cs">
       <DependentUpon>frmCalendario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConfig.cs">
+    <Compile Include="SubForms Wood-Notes\frmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConfig.Designer.cs">
+    <Compile Include="SubForms Wood-Notes\frmConfig.Designer.cs">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCuenta.cs">
+    <Compile Include="SubForms Wood-Notes\frmCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCuenta.Designer.cs">
+    <Compile Include="SubForms Wood-Notes\frmCuenta.Designer.cs">
       <DependentUpon>frmCuenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInicio.cs">
+    <Compile Include="SubForms Wood-Notes\frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInicio.Designer.cs">
+    <Compile Include="SubForms Wood-Notes\frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Login and Register\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Login and Register\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNotas.cs">
+    <Compile Include="SubForms Wood-Notes\frmNotas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNotas.Designer.cs">
+    <Compile Include="SubForms Wood-Notes\frmNotas.Designer.cs">
       <DependentUpon>frmNotas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNotasSubMenu.cs">
+    <Compile Include="Notas SubForm\frmNotasSubMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNotasSubMenu.Designer.cs">
+    <Compile Include="Notas SubForm\frmNotasSubMenu.Designer.cs">
       <DependentUpon>frmNotasSubMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNotasSubMenu2.cs">
+    <Compile Include="Notas SubForm\frmNotasSubMenu2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNotasSubMenu2.Designer.cs">
+    <Compile Include="Notas SubForm\frmNotasSubMenu2.Designer.cs">
       <DependentUpon>frmNotasSubMenu2.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegister.cs">
+    <Compile Include="Login and Register\frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegister.Designer.cs">
+    <Compile Include="Login and Register\frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadData.cs" />
+    <Compile Include="Notas SubForm\LoadData.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,38 +164,38 @@
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users.cs" />
-    <EmbeddedResource Include="Detalles.resx">
+    <Compile Include="Login and Register\Users.cs" />
+    <EmbeddedResource Include="Notas SubForm\Detalles.resx">
       <DependentUpon>Detalles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCalendario.resx">
+    <EmbeddedResource Include="SubForms Wood-Notes\frmCalendario.resx">
       <DependentUpon>frmCalendario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConfig.resx">
+    <EmbeddedResource Include="SubForms Wood-Notes\frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCuenta.resx">
+    <EmbeddedResource Include="SubForms Wood-Notes\frmCuenta.resx">
       <DependentUpon>frmCuenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInicio.resx">
+    <EmbeddedResource Include="SubForms Wood-Notes\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Login and Register\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNotas.resx">
+    <EmbeddedResource Include="SubForms Wood-Notes\frmNotas.resx">
       <DependentUpon>frmNotas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNotasSubMenu.resx">
+    <EmbeddedResource Include="Notas SubForm\frmNotasSubMenu.resx">
       <DependentUpon>frmNotasSubMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNotasSubMenu2.resx">
+    <EmbeddedResource Include="Notas SubForm\frmNotasSubMenu2.resx">
       <DependentUpon>frmNotasSubMenu2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegister.resx">
+    <EmbeddedResource Include="Login and Register\frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -250,6 +250,11 @@
     <None Include="Images\RedCircle.png" />
     <None Include="Images\orangeCircle.png" />
     <None Include="Images\greenCircle.png" />
+    <None Include="Images\userimage.png" />
+    <None Include="Images\iconuserImage.png" />
+    <None Include="Images\iconpassImage.png" />
+    <None Include="Images\iconeyeImage.png" />
+    <None Include="Images\iconcloseeyeImage.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

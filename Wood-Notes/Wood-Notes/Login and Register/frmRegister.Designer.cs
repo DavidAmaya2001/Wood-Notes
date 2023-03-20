@@ -88,12 +88,12 @@
             this.pbLastNameVerified = new System.Windows.Forms.PictureBox();
             this.pbNameVerified = new System.Windows.Forms.PictureBox();
             this.panelimg = new System.Windows.Forms.Panel();
-            this.pbProfilePicture = new Wood_Notes.RoundedPictureBox();
             this.panelPhone = new System.Windows.Forms.Panel();
             this.lblPhoneVerified = new System.Windows.Forms.Label();
             this.pbPhoneVerified = new System.Windows.Forms.PictureBox();
             this.panelInfoOk = new System.Windows.Forms.Panel();
             this.panelInfo2 = new System.Windows.Forms.Panel();
+            this.pbProfilePicture = new Wood_Notes.RoundedPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnPassAdv6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPassAdv5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPassAdv4)).BeginInit();
@@ -114,11 +114,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLastNameVerified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameVerified)).BeginInit();
             this.panelimg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             this.panelPhone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneVerified)).BeginInit();
             this.panelInfoOk.SuspendLayout();
             this.panelInfo2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -238,7 +238,7 @@
             this.txtPhone.Location = new System.Drawing.Point(403, 43);
             this.txtPhone.MaxLength = 8;
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(62, 23);
+            this.txtPhone.Size = new System.Drawing.Size(86, 23);
             this.txtPhone.TabIndex = 22;
             this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
@@ -785,21 +785,6 @@
             this.panelimg.Size = new System.Drawing.Size(250, 174);
             this.panelimg.TabIndex = 40;
             // 
-            // pbProfilePicture
-            // 
-            this.pbProfilePicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pbProfilePicture.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.pbProfilePicture.BorderColor2 = System.Drawing.Color.HotPink;
-            this.pbProfilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            this.pbProfilePicture.BorderSize = 3;
-            this.pbProfilePicture.Location = new System.Drawing.Point(47, 18);
-            this.pbProfilePicture.Name = "pbProfilePicture";
-            this.pbProfilePicture.Size = new System.Drawing.Size(138, 138);
-            this.pbProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbProfilePicture.TabIndex = 35;
-            this.pbProfilePicture.TabStop = false;
-            this.pbProfilePicture.Click += new System.EventHandler(this.pbProfilePicture_Click);
-            // 
             // panelPhone
             // 
             this.panelPhone.Controls.Add(this.lblPhoneVerified);
@@ -831,7 +816,7 @@
             // pbPhoneVerified
             // 
             this.pbPhoneVerified.Image = global::Wood_Notes.Properties.Resources.userverified;
-            this.pbPhoneVerified.Location = new System.Drawing.Point(471, 46);
+            this.pbPhoneVerified.Location = new System.Drawing.Point(495, 48);
             this.pbPhoneVerified.Name = "pbPhoneVerified";
             this.pbPhoneVerified.Size = new System.Drawing.Size(18, 18);
             this.pbPhoneVerified.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -884,6 +869,21 @@
             this.panelInfo2.Size = new System.Drawing.Size(537, 284);
             this.panelInfo2.TabIndex = 67;
             // 
+            // pbProfilePicture
+            // 
+            this.pbProfilePicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pbProfilePicture.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.pbProfilePicture.BorderColor2 = System.Drawing.Color.HotPink;
+            this.pbProfilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.pbProfilePicture.BorderSize = 3;
+            this.pbProfilePicture.Location = new System.Drawing.Point(47, 18);
+            this.pbProfilePicture.Name = "pbProfilePicture";
+            this.pbProfilePicture.Size = new System.Drawing.Size(138, 138);
+            this.pbProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfilePicture.TabIndex = 35;
+            this.pbProfilePicture.TabStop = false;
+            this.pbProfilePicture.Click += new System.EventHandler(this.pbProfilePicture_Click);
+            // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -922,13 +922,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameVerified)).EndInit();
             this.panelimg.ResumeLayout(false);
             this.panelimg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).EndInit();
             this.panelPhone.ResumeLayout(false);
             this.panelPhone.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneVerified)).EndInit();
             this.panelInfoOk.ResumeLayout(false);
             this.panelInfo2.ResumeLayout(false);
             this.panelInfo2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }

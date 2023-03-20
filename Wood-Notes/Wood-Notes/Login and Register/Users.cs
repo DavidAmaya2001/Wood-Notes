@@ -12,11 +12,12 @@ namespace Wood_Notes
 {
     public class Users : Conexion
     {
-        // Apertura de conexion 
+        // Apertura de conexion con la base de datos WoodNotesDB
         static string conexionstring = "server= DESKTOP-DGI3QEQ\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);
         private string hashpass = "wood-pass";
 
+        #region Encapsulamiento de Credenciales
         // Clase de guardado de datos de usuario y contraseña
         private int id { get; set; }
         private string usuario { get; set; }
@@ -59,7 +60,9 @@ namespace Wood_Notes
             email = email.Trim();
             this.email = email;
         }
+        #endregion
 
+        #region Encapsulamiento de Datos Adicionales
         // Guardado de datos adicionales de la cuenta
 
         private string nombre { get; set; }
@@ -120,7 +123,7 @@ namespace Wood_Notes
         {
             this.fecha_union = fecha;
         }
-
+        #endregion
 
         #region Verificacion de Usuarios
         public bool Verificador()

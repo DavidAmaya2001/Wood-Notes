@@ -123,6 +123,46 @@ namespace Wood_Notes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconcloseeyeImage {
+            get {
+                object obj = ResourceManager.GetObject("iconcloseeyeImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconeyeImage {
+            get {
+                object obj = ResourceManager.GetObject("iconeyeImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconpassImage {
+            get {
+                object obj = ResourceManager.GetObject("iconpassImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconuserImage {
+            get {
+                object obj = ResourceManager.GetObject("iconuserImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nicaragua {
             get {
                 object obj = ResourceManager.GetObject("nicaragua", resourceCulture);
@@ -166,6 +206,16 @@ namespace Wood_Notes.Properties {
         internal static System.Drawing.Bitmap RedCircle {
             get {
                 object obj = ResourceManager.GetObject("RedCircle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap userimage {
+            get {
+                object obj = ResourceManager.GetObject("userimage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
