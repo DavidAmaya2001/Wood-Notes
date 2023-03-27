@@ -163,6 +163,16 @@ namespace Wood_Notes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minimized {
+            get {
+                object obj = ResourceManager.GetObject("minimized", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nicaragua {
             get {
                 object obj = ResourceManager.GetObject("nicaragua", resourceCulture);

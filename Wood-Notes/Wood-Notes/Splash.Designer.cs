@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Splash));
             this.progressBar = new CircularProgressBar.CircularProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblLoading = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -42,10 +42,10 @@
             // 
             this.progressBar.AnimationFunction = ((WinFormAnimation.AnimationFunctions.Function)(resources.GetObject("progressBar.AnimationFunction")));
             this.progressBar.AnimationSpeed = 500;
-            this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
+            this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
             this.progressBar.Font = new System.Drawing.Font("Malgun Gothic", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressBar.ForeColor = System.Drawing.Color.White;
-            this.progressBar.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
+            this.progressBar.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
             this.progressBar.InnerMargin = 2;
             this.progressBar.InnerWidth = -1;
             this.progressBar.Location = new System.Drawing.Point(149, 276);
@@ -80,16 +80,16 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblLoading
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(153, 463);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 32);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Cargando...";
+            this.lblLoading.AutoSize = true;
+            this.lblLoading.Font = new System.Drawing.Font("Malgun Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoading.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblLoading.Location = new System.Drawing.Point(142, 461);
+            this.lblLoading.Name = "lblLoading";
+            this.lblLoading.Size = new System.Drawing.Size(166, 32);
+            this.lblLoading.TabIndex = 2;
+            this.lblLoading.Text = "Cargando . . .";
             // 
             // label2
             // 
@@ -111,10 +111,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(449, 623);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblLoading);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.progressBar);
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
@@ -134,7 +134,7 @@
 
         private CircularProgressBar.CircularProgressBar progressBar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblLoading;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
     }

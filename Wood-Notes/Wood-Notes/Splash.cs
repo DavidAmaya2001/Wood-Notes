@@ -48,18 +48,26 @@ namespace Wood_Notes
         {
             // Aumentador de %
             progressBar.Value += 1;
+            string LabelCiclic = "3"; 
             progressBar.Text = progressBar.Value.ToString() + "%";
 
             // Comprueba que al llegar al 100 el timer se detenga y de paso al Form de Login
-            if(progressBar.Value == 100)
+            LabelCiclic = "0";
+            lblLoading.Text = "Cargando . . .";
+            if (progressBar.Value == 100)
             {
-                timer1.Enabled = false;
-                
-                // Aqui se modificará por el Login Form --------------------------------------
-                frmLogin formChange = new frmLogin();
-                formChange.Show();
-                this.Hide();
-            }    
+                TimerChanged();
+            }
+
+        }
+        private void TimerChanged()
+        {
+            timer1.Enabled = false;
+
+            // Aqui se modificará por el Login Form --------------------------------------
+            frmLogin formChange = new frmLogin();
+            formChange.Show();
+            this.Hide();
         }
     }
 }

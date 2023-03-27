@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +44,9 @@ namespace Wood_Notes
                     frmWorkStation frmMain = new frmWorkStation();
                     frmMain.lblIdUser.Text = ingresoUsers.getUsuario();
                     frmMain.lblId.Text = ingresoUsers.getId().ToString();
-                    frmMain.Show();
+
+
+                    frmMain.ShowDialog();
                     this.Hide();
                 }
                 else
@@ -110,12 +114,17 @@ namespace Wood_Notes
         }
         #endregion
 
-        #region Salir del programa
+        #region Funciones de la barra de herramientas del form
 
         // Boton que permite poder salir del programa desde el Login
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        // Boton para minimizar la ventana del Login
+        private void btnMinimized_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
         #endregion
 
@@ -139,6 +148,29 @@ namespace Wood_Notes
             }
         }
 
+
+        #endregion
+
+        #region Movimiento del Form en la pantalla
+
+        // Estableciendo posiciones iniciales en CenterScreen
+        int PointY = 0;
+        int PointX = 0;
+        private void panelSup_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Mientras el mouse este presionado sobre el panel este le entregará nuevas coordenadas al form para moverse
+            if(e.Button != MouseButtons.Left)
+            {
+                PointX = e.X;
+                PointY = e.Y;
+            }
+            // Cuando se deje de mover el form este conservara su ultima posición
+            else
+            {
+                Left = Left + (e.X - PointX);
+                Top = Top + (e.Y - PointY);
+            }
+        }
         #endregion
 
 

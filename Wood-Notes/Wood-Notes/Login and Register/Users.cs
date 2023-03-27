@@ -7,6 +7,10 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Security.Cryptography;
+using System.Runtime.Remoting.Contexts;
+using System.Drawing;
 
 namespace Wood_Notes
 {
@@ -71,6 +75,7 @@ namespace Wood_Notes
         private string codigo { get; set; }
         private string telefono { get; set; }
         private string fecha_union { get; set; }
+        private Image foto { get; set; }
 
         public string getNombre()
         {
@@ -123,6 +128,14 @@ namespace Wood_Notes
         {
             this.fecha_union = fecha;
         }
+        public Image getFoto()
+        {
+            return foto;
+        }
+        public void setFoto(Image foto)
+        {
+            this.foto = foto;
+        }
         #endregion
 
         #region Verificacion de Usuarios
@@ -134,7 +147,9 @@ namespace Wood_Notes
 
             //Lectura de cadena SQL donde con ayuda del SQLDataReader verifica si existe usuario en el Login
             // Usando Encriptación para ocultar contraseñas en la base de datos
-            string cadena = "select idCredencial,nickname,pPassword from UserCredentials where nickname = '" + getUsuario() + "' and CONVERT(varchar(max),DECRYPTBYPASSPHRASE('" + hashpass + "',pPassword)) = '" + getPassword() + "'";
+            //string cadena = "select idCredencial,nickname,pPassword from UserCredentials where nickname = '" + getUsuario() + "' and CONVERT(varchar(max),DECRYPTBYPASSPHRASE('" + hashpass + "',pPassword)) = '" + getPassword() + "'";
+            string cadena = "select UserCredentials.idCredencial, UserCredentials.nickname, UserCredentials.pPassword, Users.foto from Users JOIN UserCredentials ON Users.idUsers = UserCredentials.idCredencial where nickname = '" + getUsuario() + "' and CONVERT(varchar(max),DECRYPTBYPASSPHRASE('" + hashpass + "',pPassword)) = '" + getPassword() + "'";
+
             SqlCommand comando = new SqlCommand(cadena, conexion);
             SqlDataReader reader = null;
             reader = comando.ExecuteReader();
@@ -142,16 +157,35 @@ namespace Wood_Notes
             // Usuario verificado == true
             if (reader.Read())
             {
+
                 // Guardado de datos en variables 
                 string credential = reader["idCredencial"].ToString();
                 string username = reader["nickname"].ToString();
                 string password = reader["pPassword"].ToString();
+
+                //byte[] imgByn = (byte[])reader["foto"];
+
+                /*MessageBox.Show(imgByn.ToString());
+                if (imgByn == null)
+                {
+                    // Colocar imagen por
+                    frmWorkStation form = new frmWorkStation();
+                    ConvertByteArrayToImage(imgByn);
+                }
+                else
+                {
+                    frmWorkStation form = new frmWorkStation();
+                    ConvertByteArrayToImage(imgByn);
+                    //pictureBox3.Image = Image.FromStream(ms);
+                    //pictureBox3.Image = Image.FromStream(ms);
+                }*/
 
                 // Guradado de datos en clase para llamarlos en el frmWorkStation
                 setId(int.Parse(credential));
                 setUsuario(username);
                 setPassword(password);
 
+                reader.Close();
                 result = true;
             }
             // Usuario no encontrado == false
@@ -164,28 +198,50 @@ namespace Wood_Notes
 
         }
 
+        public Image ConvertByteArrayToImage(byte[] data)
+        {
+            /*using(MemoryStream ms = new MemoryStream(data))
+            {
+                setFoto(Image.FromStream(ms));
+                return Image.FromStream(ms);
+            }*/
+            MemoryStream convert = new MemoryStream(data);
+            Image converted = Image.FromStream(convert);
+            setFoto(converted);
+            return converted;
+        }
+
         #endregion
 
         #region Nuevo Registro Usuarios
 
         // Creacion de SQLCommand para trabajar el ingreso de la imagen a la base de datos
         SqlCommand cmd = new SqlCommand();
-        public bool NewRegister(PictureBox imagen)
+        public bool NewRegister(string imgLocation)
         {
             // Linea de codigo SQL de tabla Users
 
             // Uso de MmeoryStream para la conversion del dato a binario
-            if(imagen.Image != null)
+            // Verifica si el usuario a ingresar cuenta con una imagen y si la tiene la ingresa a la base de datos
+            if (imgLocation != "")
             {
-                cmd.Connection = conexion;
-                cmd.CommandText = "insert into Users([nombre],[apellido],[pais],[codigo],[telefono],[foto],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getCodigo() + "','" + getTelefono() + "','@foto','" + getFecha_union() + "')";
+                // Declaracion de un Array de Byte vacio
+                byte[] img = null;
+
+                // Conversión de una imagen a byte
+                FileStream streem = new FileStream(imgLocation,FileMode.Open,FileAccess.Read);
+                BinaryReader brs = new BinaryReader(streem);
+                img = brs.ReadBytes((int)streem.Length);
+
+                string sqlcommand = "insert into Users([nombre],[apellido],[pais],[codigo],[telefono],[foto],[fecha_union]) values('" + getNombre() + "','" + getApellido() + "','" + getPais() + "','" + getCodigo() + "','" + getTelefono() + "',@foto,'" + getFecha_union() + "')";
+                cmd = new SqlCommand(sqlcommand, conexion);
 
                 // Declaracion del campo foto con un parametro de tipo Image
-                cmd.Parameters.Add("@foto", SqlDbType.Image);
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                imagen.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                cmd.Parameters["@foto"].Value = ms.GetBuffer();
+                cmd.Parameters.Add(new SqlParameter("@foto", img));
+
+
             }
+            // Si el usuario nuevo crea la cuenta sin imagen, esta no se agregara a la base de datos
             else
             {
                 cmd.Connection = conexion;

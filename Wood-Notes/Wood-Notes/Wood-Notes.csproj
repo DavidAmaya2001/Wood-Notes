@@ -255,6 +255,7 @@
     <None Include="Images\iconpassImage.png" />
     <None Include="Images\iconeyeImage.png" />
     <None Include="Images\iconcloseeyeImage.png" />
+    <None Include="Images\minimized.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

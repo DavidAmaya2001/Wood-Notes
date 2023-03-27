@@ -18,13 +18,17 @@ namespace Wood_Notes
         {
             InitializeComponent();
         }
-        #region Salir del registro
+        #region Barra de herramientas del formulario
         // Funcion para salir del registro de usuario y regresar al formulario de Login
         private void btnSalir_Click(object sender, EventArgs e)
         {
             frmLogin logueo = new frmLogin();
             logueo.Show();
             this.Close();
+        }
+        private void btnMinimized_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
         #endregion
 
@@ -41,6 +45,7 @@ namespace Wood_Notes
         // - contraseña repetida correctamente
 
         Users newUser = new Users();
+        string imgLocation = "";
         private void btnNuevoRegistro_Click(object sender, EventArgs e)
         {
             // Corrección del DatTimePicker y ajustes de valores predeterminados como el formato, asignación de hora y ser invisible al usuario
@@ -53,8 +58,8 @@ namespace Wood_Notes
             if (
                 lblNameVerified.Text == "" &&
                 lblLastNameVerified.Text == "" &&
-                cmbPais.SelectedIndex != 0 && 
-                txtPhone.Text != "" && 
+                cmbPais.SelectedIndex != 0 &&
+                txtPhone.Text != "" &&
                 lblnickname.Text == "¡El nombre de usuario se encuentra disponible!" &&
                 lblEmail.Text == "¡Correo verificado exitosamente!" &&
                 lblPassSecure.Text == "¡La contraseña es segura!" &&
@@ -72,13 +77,13 @@ namespace Wood_Notes
                 newUser.setPassword(txtPassword.Text);
                 newUser.setEmail(txtEmail.Text);
 
-                DialogResult result = MessageBox.Show("¿Esta seguro/a que desea agregar el siguiente usuario?","Agregar",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
-                
+                DialogResult result = MessageBox.Show("¿Esta seguro/a que desea agregar el siguiente usuario?", "Agregar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
                 // Linea de insersion a la base de datos despues del ok del OpenFileDialog
                 if (result == DialogResult.OK)
                 {
                     // Funcion de la clase para agregar al nuevo usuario
-                    newUser.NewRegister(this.pbProfilePicture);
+                    newUser.NewRegister(imgLocation);
                     MessageBox.Show("Registro agregado correctamente","Bienvenido",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 else
@@ -128,6 +133,7 @@ namespace Wood_Notes
         {
             // Guardado de la imagen en el PictureBox segun lo elegido en el openFileDialog
             pbProfilePicture.Image = Image.FromFile(openFileDialog1.FileName);
+            imgLocation = openFileDialog1.FileName.ToString();
             lblagregarimg.Visible = false;
             lblagregarimg2.Visible = false;
         }
@@ -435,6 +441,7 @@ namespace Wood_Notes
                     lblPassSecure.Text = "La contraseña es demasiado corta";
                     btnSecurePass.Visible = false;
                     txtRePassword.Text = "";
+                    lblRePass.Text = "";
                     pbRePass.Visible = false;
                     txtRePassword.Enabled = false;
                     break;
@@ -462,12 +469,14 @@ namespace Wood_Notes
             if (txtRePassword.Text == txtPassword.Text)
             {
                 lblRePass.Text = "¡Las contraseñas coinciden!";
+                pbRePass.Image = Wood_Notes.Properties.Resources.passwordverified;
                 pbRePass.Visible = true;
             }
             else
             {
                 lblRePass.Text = "¡Las contraseñas no coinciden!";
-                pbRePass.Visible = false;
+                pbRePass.Image = Wood_Notes.Properties.Resources.warning;
+                pbRePass.Visible = true;
             }
         }
 
@@ -580,8 +589,8 @@ namespace Wood_Notes
 
 
 
-        #endregion
 
+        #endregion
 
     }
 }
