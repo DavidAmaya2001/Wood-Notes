@@ -67,9 +67,11 @@ drop table UserNotes
 --------------------------- Tabla Users y UserCredentials ------------------------------------------
 
 /* Seleccion de tablas de Usuario */
-
-select * from Users
-select*from UserCredentials
+select* from Users
+select * from UserCredentials
+select foto from Users where idUsers = 3
+select UserCredentials.idCredencial, UserCredentials.nickname, UserCredentials.pPassword, Users.foto from Users JOIN UserCredentials ON Users.idUsers = UserCredentials.idCredencial where idCredencial = 3
+select Users.foto from Users JOIN UserCredentials ON Users.idUsers = UserCredentials.idCredencial where nickname = 'WAZAAA'
 
 /* Creacion de usuarios [Invitado] y pruebas para la base de datos */
 declare @hashkey varchar(25)
@@ -88,8 +90,8 @@ insert into Users values('Pedro Melgar','Perez Bermudez','El Salvador','6163-164
 insert into UserCredentials values('Tilin',ENCRYPTBYPASSPHRASE(@hashkey,'contrasenasecreta','tilinsupremo@gmail.com')
 
 /* Eliminacion de usuarios de pruebas */
-delete from Users where idUsers = 4
-delete from UserCredentials where idCredencial = 4
+delete from UserCredentials where idCredencial = 2
+delete from Users where idUsers = 2
 
 -- Reset de Identity --
 DBCC CHECKIDENT ('Users',RESEED,1)
