@@ -73,6 +73,16 @@ namespace Wood_Notes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap closeWindow {
+            get {
+                object obj = ResourceManager.GetObject("closeWindow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap costa_rica {
             get {
                 object obj = ResourceManager.GetObject("costa-rica", resourceCulture);
@@ -86,16 +96,6 @@ namespace Wood_Notes.Properties {
         internal static System.Drawing.Bitmap el_salvador {
             get {
                 object obj = ResourceManager.GetObject("el-salvador", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap greenCircle {
-            get {
-                object obj = ResourceManager.GetObject("greenCircle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,16 +213,6 @@ namespace Wood_Notes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RedCircle {
-            get {
-                object obj = ResourceManager.GetObject("RedCircle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap userimage {
             get {
                 object obj = ResourceManager.GetObject("userimage", resourceCulture);
@@ -246,6 +236,26 @@ namespace Wood_Notes.Properties {
         internal static System.Drawing.Bitmap warning {
             get {
                 object obj = ResourceManager.GetObject("warning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap warningpass {
+            get {
+                object obj = ResourceManager.GetObject("warningpass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wood_Notes_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Wood_Notes_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

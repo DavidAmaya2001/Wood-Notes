@@ -8,6 +8,7 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Resources;
 using System.Text.RegularExpressions;
 
 namespace Wood_Notes
@@ -207,6 +208,7 @@ namespace Wood_Notes
                 pbNameVerified.Visible = true;
                 pbNameVerified.Image = Wood_Notes.Properties.Resources.warning;
                 lblNameVerified.Text = "Campo Vacio";
+                lblNameVerified.TextAlign = ContentAlignment.MiddleCenter;
             }
             else if (txtName.Text.Length <= 2)
             {
@@ -360,110 +362,45 @@ namespace Wood_Notes
             switch (lenght)
             {
                 case 0:
-                    btnPassAdv1.Visible = false;
-                    btnPassAdv2.Visible = false;
-                    btnPassAdv3.Visible = false;
-                    btnPassAdv4.Visible = false;
-                    btnPassAdv5.Visible = false;
-                    btnPassAdv6.Visible = false;
+                    panelBarPass.BackColor = Color.Transparent;
                     lblPassSecure.Text = "";
                     btnSecurePass.Visible = false;
                     break;
                 case 1:
-                    btnPassAdv1.Visible = true;
-                    btnPassAdv2.Visible = false;
-                    btnPassAdv3.Visible = false;
-                    btnPassAdv4.Visible = false;
-                    btnPassAdv5.Visible = false;
-                    btnPassAdv6.Visible = false;
+                    panelBarPass.BackColor = Color.Red;
+                    panelBarPass.Size = new System.Drawing.Size(74, 3);
                     lblPassSecure.Text = "La contraseña es demasiado corta";
-                    btnSecurePass.Visible = false;
-                    break;
-                case 2:
-                    btnPassAdv1.Visible = true;
-                    btnPassAdv2.Visible = true;
-                    btnPassAdv3.Visible = false;
-                    btnPassAdv4.Visible = false;
-                    btnPassAdv5.Visible = false;
-                    btnPassAdv6.Visible = false;
-                    lblPassSecure.Text = "La contraseña es demasiado corta";
-                    btnSecurePass.Visible = false;
-                    break;
-                case 3:
-                    btnPassAdv1.Visible = true;
-                    btnPassAdv2.Visible = true;
-                    btnPassAdv3.Visible = true;
-                    btnPassAdv4.Visible = false;
-                    btnPassAdv5.Visible = false;
-                    btnPassAdv6.Visible = false;
-                    btnPassAdv1.Image = Wood_Notes.Properties.Resources.RedCircle;
-                    btnPassAdv2.Image = Wood_Notes.Properties.Resources.RedCircle;
-                    btnPassAdv3.Image = Wood_Notes.Properties.Resources.RedCircle;
-                    lblPassSecure.Text = "La contraseña es demasiado corta";
-                    btnSecurePass.Visible = false;
+                    btnSecurePass.Visible = true;
+                    btnSecurePass.Image = Wood_Notes.Properties.Resources.warningpass;
                     break;
                 case 4:
-                    btnPassAdv1.Visible = true;
-                    btnPassAdv2.Visible = true;
-                    btnPassAdv3.Visible = true;
-                    btnPassAdv4.Visible = true;
-                    btnPassAdv5.Visible = false;
-                    btnPassAdv6.Visible = false;
-                    btnPassAdv1.Image = Wood_Notes.Properties.Resources.orangeCircle;
-                    btnPassAdv2.Image = Wood_Notes.Properties.Resources.orangeCircle;
-                    btnPassAdv3.Image = Wood_Notes.Properties.Resources.orangeCircle;
-                    lblPassSecure.Text = "La contraseña es demasiado corta";
-                    btnSecurePass.Visible = false;
-                    break;
-                case 5:
-                    btnPassAdv1.Visible = true;
-                    btnPassAdv2.Visible = true;
-                    btnPassAdv3.Visible = true;
-                    btnPassAdv4.Visible = true;
-                    btnPassAdv5.Visible = true;
-                    btnPassAdv6.Visible = false;
-                    lblPassSecure.Text = "La contraseña es demasiado corta";
-                    btnSecurePass.Visible = false;
+                    panelBarPass.BackColor = Color.Orange;
+                    panelBarPass.Size = new System.Drawing.Size(124, 3);
                     break;
                 case 6:
-                    btnPassAdv1.Visible = true;
-                    btnPassAdv2.Visible = true;
-                    btnPassAdv3.Visible = true;
-                    btnPassAdv4.Visible = true;
-                    btnPassAdv5.Visible = true;
-                    btnPassAdv6.Visible = true;
-                    btnPassAdv1.Image = Wood_Notes.Properties.Resources.orangeCircle;
-                    btnPassAdv2.Image = Wood_Notes.Properties.Resources.orangeCircle;
-                    btnPassAdv3.Image = Wood_Notes.Properties.Resources.orangeCircle;
-                    btnPassAdv4.Image = Wood_Notes.Properties.Resources.orangeCircle;
-                    btnPassAdv5.Image = Wood_Notes.Properties.Resources.orangeCircle;
-                    btnPassAdv6.Image = Wood_Notes.Properties.Resources.orangeCircle;
+
                     lblPassSecure.Text = "La contraseña es demasiado corta";
-                    btnSecurePass.Visible = false;
+                    panelBarPass.BackColor = Color.Orange;
+                    panelBarPass.Size = new System.Drawing.Size(124, 3);
+                    btnSecurePass.Visible = true;
+                    btnSecurePass.Image = Wood_Notes.Properties.Resources.warningpass;
                     txtRePassword.Text = "";
                     lblRePass.Text = "";
                     pbRePass.Visible = false;
                     txtRePassword.Enabled = false;
                     break;
-                default:
-                    btnPassAdv1.Visible = true;
-                    btnPassAdv2.Visible = true;
-                    btnPassAdv3.Visible = true;
-                    btnPassAdv4.Visible = true;
-                    btnPassAdv5.Visible = true;
-                    btnPassAdv6.Visible = true;
+                case 7:
+
                     lblPassSecure.Text = "¡La contraseña es segura!";
-                    btnPassAdv1.Image = Wood_Notes.Properties.Resources.greenCircle;
-                    btnPassAdv2.Image = Wood_Notes.Properties.Resources.greenCircle;
-                    btnPassAdv3.Image = Wood_Notes.Properties.Resources.greenCircle;
-                    btnPassAdv4.Image = Wood_Notes.Properties.Resources.greenCircle;
-                    btnPassAdv5.Image = Wood_Notes.Properties.Resources.greenCircle;
-                    btnPassAdv6.Image = Wood_Notes.Properties.Resources.greenCircle;
+                    panelBarPass.BackColor = Color.Green;
+                    panelBarPass.Size = new System.Drawing.Size(184, 3);
+                    btnSecurePass.Image = Wood_Notes.Properties.Resources.passwordverified;
                     btnSecurePass.Visible = true;
                     txtRePassword.Enabled = true;
                     break;
             }
-        }
+        } /*--------------------------------------------------------------------------------------------------------------------*/
+
         private void txtRePassword_Leave(object sender, EventArgs e)
         {
             if (txtRePassword.Text == txtPassword.Text)
@@ -475,7 +412,7 @@ namespace Wood_Notes
             else
             {
                 lblRePass.Text = "¡Las contraseñas no coinciden!";
-                pbRePass.Image = Wood_Notes.Properties.Resources.warning;
+                pbRePass.Image = Wood_Notes.Properties.Resources.warningpass;
                 pbRePass.Visible = true;
             }
         }
@@ -495,7 +432,7 @@ namespace Wood_Notes
                 pbPhoneVerified.Image = Wood_Notes.Properties.Resources.userverified;
                 lblPhoneVerified.Text = "";
             }
-            else if (phoneNumber == null)
+            else if (phoneNumber.Length == 0)
             {
                 pbPhoneVerified.Image = Wood_Notes.Properties.Resources.warning;
                 pbPhoneVerified.Visible = true;

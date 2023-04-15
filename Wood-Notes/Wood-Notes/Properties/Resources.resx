@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="minimized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\minimized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="closeWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\closeWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="userimage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\userimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,14 +139,17 @@
   <data name="iconeyeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\iconeyeImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Wood_Notes_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Wood_Notes_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="honduras" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\honduras.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="panama" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\panama.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="greenCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\greenCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="el-salvador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\el-salvador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,19 +169,13 @@
   <data name="costa-rica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\costa-rica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RedCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\RedCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="iconpassImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\iconpassImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="userverified" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\userverified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="el-salvador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\el-salvador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimized" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\minimized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="warningpass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\warningpass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

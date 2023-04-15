@@ -35,7 +35,7 @@ namespace Wood_Notes
             SqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
             
-            // Filtro para saber si se ha ingresado con Usuario o Invitado y parasaber si el campo de SQLDataReader tiene campos
+            // Filtro para saber si se ha ingresado con Usuario o Invitado y para saber si el campo de SQLDataReader tiene campos
             if (reader.HasRows && id != 1)
             {
                 // Filtro para saber si el usuario posee una imagen o por el contrario colocar una por default

@@ -12,8 +12,8 @@ use WoodNotesDB /* Uso de la base de datos */
 
 create table Users(
 idUsers int identity(1,1),
-nombre varchar(25) not null,
-apellido varchar(25),
+nombre varchar(20) not null,
+apellido varchar(20),
 pais varchar(15) not null,
 codigo varchar(6) not null,
 telefono varchar(9) not null,
