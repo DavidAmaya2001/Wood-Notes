@@ -16,7 +16,8 @@ namespace Wood_Notes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmWorkStation());
+            //Application.Run(new frmWorkStation());
+            Application.Run(new Splash());
         }
     }
 }

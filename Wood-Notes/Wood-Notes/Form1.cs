@@ -8,22 +8,74 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Wood_Notes
 {
     public partial class frmWorkStation : Form
     {
+        Conexion conexion = new Conexion();
+        Users objUsers = new Users();
         public frmWorkStation()
         {
             InitializeComponent();
         }
 
-        Conexion conexion = new Conexion();
+        private void ConseguirFoto(int id)
+        {
+            // Apertura de la conexión con la base de datos 
+            string conexionstring = "server= DESKTOP-DGI3QEQ\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
+            SqlConnection conexion = new SqlConnection(conexionstring);
+
+            // Apertura de la conexión y ejecución de la linea SQL para extraer imagen del usuario ( en el caso tenga )
+            conexion.Open();
+            //string sql = "select Users.foto from Users JOIN UserCredentials ON Users.idUsers = UserCredentials.idCredencial where nickname = '" + nick.ToString() + "'";
+            string sql = "select Users.foto from Users JOIN UserCredentials ON Users.idUsers = UserCredentials.idCredencial where idCredencial = " + id + "";
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            
+            // Filtro para saber si se ha ingresado con Usuario o Invitado y para saber si el campo de SQLDataReader tiene campos
+            if (reader.HasRows && id != 1)
+            {
+                // Filtro para saber si el usuario posee una imagen o por el contrario colocar una por default
+                if (reader[0].ToString() != "")
+                {
+                    byte[] img = (byte[])(reader[0]);
+
+                    // Conversión de byte a dato tipo imagen para colocar en el ProfilePictureBox
+                    if (img != null)
+                    {
+                        MemoryStream ms = new MemoryStream(img);
+                        pbProfilePicture.Image = Image.FromStream(ms);
+                    }
+                }
+                // Imagen por default para usuario sin imagen 
+                else
+                {
+                    pbProfilePicture.Image = Wood_Notes.Properties.Resources.guatemala;
+                    MessageBox.Show("No hay imagen");
+                }
+            }
+
+            // Si es invitado colocara la imagen por defecto
+            else
+            {
+                pbProfilePicture.Image = Wood_Notes.Properties.Resources.guatemala;
+                MessageBox.Show("Invitado");
+            }
+            conexion.Close();
+        }
+        
+
+
 
         private void frmWorkStation_Load(object sender, EventArgs e)
         {
+
             btnInicio.Size = new System.Drawing.Size(180, 55);
             AbrirForm<frmInicio>();
+            ConseguirFoto(int.Parse(lblId.Text));
             conexion.AbrirConexion();
         }
         #region Animación de Secciones
