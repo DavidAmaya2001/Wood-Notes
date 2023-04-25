@@ -75,23 +75,23 @@ select Users.foto from Users JOIN UserCredentials ON Users.idUsers = UserCredent
 
 /* Creacion de usuarios [Invitado] y pruebas para la base de datos */
 declare @hashkey varchar(25)
-set @hashkey = 'wood-notes'
+set @hashkey = 'wood-pass'
 insert into Users values('Invitado',null,'Default','Def','Default',null,'2023-02-26')
 insert into UserCredentials values ('Invitado',ENCRYPTBYPASSPHRASE(@hashkey,'Invitado'),'example@gmail.com')
 
 declare @hashkey varchar(25)
-set @hashkey = 'wood-notes'
+set @hashkey = 'wood-pass'
 insert into Users values('Juan Francisco','Perez Muñoz','El Salvador','+(503)','2273-6000',null,'2023-02-23')
 insert into UserCredentials values('El pepe',ENCRYPTBYPASSPHRASE(@hashkey,'87654321'),'elpepe@gmail.com')
 
 declare @hashkey varchar(25)
-set @hashkey = 'wood-notes'
+set @hashkey = 'wood-pass'
 insert into Users values('Pedro Melgar','Perez Bermudez','El Salvador','6163-1643',null,'2023-02-23')
 insert into UserCredentials values('Tilin',ENCRYPTBYPASSPHRASE(@hashkey,'contrasenasecreta','tilinsupremo@gmail.com')
 
 /* Eliminacion de usuarios de pruebas */
-delete from UserCredentials where idCredencial = 2
-delete from Users where idUsers = 2
+delete from UserCredentials where idCredencial = 1
+delete from Users where idUsers = 1
 
 -- Reset de Identity --
 DBCC CHECKIDENT ('Users',RESEED,1)

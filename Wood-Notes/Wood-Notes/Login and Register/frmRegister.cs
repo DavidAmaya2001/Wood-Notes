@@ -302,7 +302,7 @@ namespace Wood_Notes
         {
             Users userEmail = new Users();
             // Patrón que debe tener el textbox para ser considerado un correo valido
-            string pattern = "^([0-9a-zA-Z]([-\\.\\w])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+            string pattern = "^([0-9a-zA-Z]([-\\.\\w])*@([0-9a-z][-\\w]*[0-9a-z]\\.)+[a-z]{2,9})$";
             // Metodo para verificar si ya existe el correo
             bool result = userEmail.VerificadorDeCorreos(txtEmail.Text);
 
@@ -318,14 +318,12 @@ namespace Wood_Notes
                         btnEmailVerified.Visible = true;
                         btnEmailVerified.Image = Wood_Notes.Properties.Resources.warning;
                         lblEmail.Text = "El correo ya esta en uso";
-                        lblEmail2.Text = "";
                     }
                     else
                     {
                         btnEmailVerified.Visible = true;
                         btnEmailVerified.Image = Wood_Notes.Properties.Resources.userverified;
                         lblEmail.Text = "¡Correo verificado exitosamente!";
-                        lblEmail2.Text = "";
                     }
                 }
                 else
@@ -333,7 +331,6 @@ namespace Wood_Notes
                     btnEmailVerified.Visible = true;
                     btnEmailVerified.Image = Wood_Notes.Properties.Resources.warning;
                     lblEmail.Text = "Debe ingresar el formato correcto de un correo";
-                    lblEmail2.Text = "Ejemplo: example@gmail.com";
                 }
             }
             else
@@ -341,7 +338,6 @@ namespace Wood_Notes
                 btnEmailVerified.Visible = false;
                 btnEmailVerified.Image = Wood_Notes.Properties.Resources.userverified;
                 lblEmail.Text = "";
-                lblEmail2.Text = "";
             }
         }
 
@@ -520,14 +516,47 @@ namespace Wood_Notes
             }
         }
 
+        #endregion
 
-
-
-
-
-
+        #region UI del Form Register
 
         #endregion
 
+        // UI del boton de visor de contraseña
+        bool eyeUI = false;
+        private void pbEyePass_Click(object sender, EventArgs e)
+        {
+            if (eyeUI)
+            {
+                eyeUI = false;
+                pbEyePass.Image = Wood_Notes.Properties.Resources.iconeyeImage;
+                txtPassword.PasswordChar = default;
+            }
+            else
+            {
+                eyeUI = true;
+                pbEyePass.Image = Wood_Notes.Properties.Resources.iconcloseeyeImage;
+                txtPassword.PasswordChar = Convert.ToChar("*");
+            }
+        }
+
+        // UI del boton de visor de confirmación de contraseña
+        bool eyeReUI = false;
+        private void pbEyeRePass_Click(object sender, EventArgs e)
+        {
+            if (eyeReUI)
+            {
+                eyeReUI = false;
+                pbEyeRePass.Image = Wood_Notes.Properties.Resources.iconeyeImage;
+                txtRePassword.PasswordChar = default;
+            }
+            else
+            {
+                eyeReUI = true;
+                pbEyeRePass.Image = Wood_Notes.Properties.Resources.iconcloseeyeImage;
+                txtRePassword.PasswordChar = Convert.ToChar("*");
+            }
+            
+        }
     }
 }

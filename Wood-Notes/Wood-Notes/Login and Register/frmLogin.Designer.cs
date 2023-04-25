@@ -48,6 +48,8 @@
             this.lblCredenciales = new System.Windows.Forms.Label();
             this.panelSup = new System.Windows.Forms.Panel();
             this.btnMinimized = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEyePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -86,7 +88,7 @@
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.White;
-            this.txtUsuario.Location = new System.Drawing.Point(315, 210);
+            this.txtUsuario.Location = new System.Drawing.Point(1, 1);
             this.txtUsuario.MaxLength = 15;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(335, 18);
@@ -99,7 +101,7 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.White;
-            this.txtPassword.Location = new System.Drawing.Point(315, 262);
+            this.txtPassword.Location = new System.Drawing.Point(1, 1);
             this.txtPassword.MaxLength = 30;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -155,17 +157,19 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel1.Location = new System.Drawing.Point(315, 230);
+            this.panel1.Controls.Add(this.txtUsuario);
+            this.panel1.Location = new System.Drawing.Point(313, 212);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 3);
+            this.panel1.Size = new System.Drawing.Size(337, 20);
             this.panel1.TabIndex = 12;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel2.Location = new System.Drawing.Point(315, 281);
+            this.panel2.Controls.Add(this.txtPassword);
+            this.panel2.Location = new System.Drawing.Point(313, 264);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(335, 3);
+            this.panel2.Size = new System.Drawing.Size(337, 20);
             this.panel2.TabIndex = 13;
             // 
             // pbEyePass
@@ -301,8 +305,6 @@
             this.Controls.Add(this.btnInvitado);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAcceder);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -310,6 +312,10 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEyePass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

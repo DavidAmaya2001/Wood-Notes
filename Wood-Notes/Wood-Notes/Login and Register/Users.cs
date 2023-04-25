@@ -17,7 +17,7 @@ namespace Wood_Notes
     public class Users : Conexion
     {
         // Apertura de conexion con la base de datos WoodNotesDB
-        static string conexionstring = "server= DESKTOP-DGI3QEQ\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
+        static string conexionstring = "server= TUTIOELPOLLO-DE\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);
         private string hashpass = "wood-pass";
 
@@ -163,23 +163,7 @@ namespace Wood_Notes
                 string username = reader["nickname"].ToString();
                 string password = reader["pPassword"].ToString();
 
-                //byte[] imgByn = (byte[])reader["foto"];
-
-                /*MessageBox.Show(imgByn.ToString());
-                if (imgByn == null)
-                {
-                    // Colocar imagen por
-                    frmWorkStation form = new frmWorkStation();
-                    ConvertByteArrayToImage(imgByn);
-                }
-                else
-                {
-                    frmWorkStation form = new frmWorkStation();
-                    ConvertByteArrayToImage(imgByn);
-                    //pictureBox3.Image = Image.FromStream(ms);
-                    //pictureBox3.Image = Image.FromStream(ms);
-                }*/
-
+                MessageBox.Show(credential);
                 // Guradado de datos en clase para llamarlos en el frmWorkStation
                 setId(int.Parse(credential));
                 setUsuario(username);
