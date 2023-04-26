@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Resources;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Wood_Notes
 {
@@ -57,14 +58,7 @@ namespace Wood_Notes
 
             // Validación de los campos totalmente verificados y llenos
             if (
-                lblNameVerified.Text == "" &&
-                lblLastNameVerified.Text == "" &&
-                cmbPais.SelectedIndex != 0 &&
-                txtPhone.Text != "" &&
-                lblnickname.Text == "¡El nombre de usuario se encuentra disponible!" &&
-                lblEmail.Text == "¡Correo verificado exitosamente!" &&
-                lblPassSecure.Text == "¡La contraseña es segura!" &&
-                lblRePass.Text == "¡Las contraseñas coinciden!"
+                nameverified && phoneverified && nicknameverified && emailverified && passverified && repassverified
                 )
             {
                 // Inserción de datos a la clase con sus respectivas eliminaciones de espacios adelante y atras de los campos de los controladores
@@ -84,6 +78,7 @@ namespace Wood_Notes
                 if (result == DialogResult.OK)
                 {
                     // Funcion de la clase para agregar al nuevo usuario
+                    // Se manda el imgLocation aunque no se haya ingresado imagen, en la clase Users se hace la division entre insercion o no de imagen
                     newUser.NewRegister(imgLocation);
                     MessageBox.Show("Registro agregado correctamente","Bienvenido",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
@@ -97,9 +92,6 @@ namespace Wood_Notes
             {
                 MessageBox.Show("Aun quedan campos obligatorios por validar.","Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-
-
-            
             
         }
 
@@ -140,6 +132,18 @@ namespace Wood_Notes
         }
         #endregion
         // Fin de Subregion
+
+        #endregion
+
+        #region Variables de validación de campos
+
+        // Variables verificadoras que los campos obligatorios esten llenos correctamente antes de añadir usuarios
+        bool nameverified = false;
+        bool phoneverified = false;
+        bool nicknameverified = false;
+        bool emailverified = false;
+        bool passverified = false;
+        bool repassverified = false;
 
         #endregion
 
@@ -209,20 +213,22 @@ namespace Wood_Notes
                 pbNameVerified.Image = Wood_Notes.Properties.Resources.warning;
                 lblNameVerified.Text = "Campo Vacio";
                 lblNameVerified.TextAlign = ContentAlignment.MiddleCenter;
+                nameverified = false;
             }
             else if (txtName.Text.Length <= 2)
             {
                 pbNameVerified.Visible = true;
                 pbNameVerified.Image = Wood_Notes.Properties.Resources.warning;
                 lblNameVerified.Text = "Nombre demasiado corto";
+                nameverified = false;
             }
             else
             {
                 pbNameVerified.Visible = true;
                 pbNameVerified.Image = Wood_Notes.Properties.Resources.userverified;
                 lblNameVerified.Text = "";
+                nameverified = true;
             }
-            btnNuevoRegistro.Enabled = true;
         }
 
         // Verificadores del controlador para el campo Apellido ( No obligatorio )
@@ -251,7 +257,7 @@ namespace Wood_Notes
             }
         }
 
-        // Validaciones del Nickname
+        // Verificadores del controlador para el campo de Nickname ( Obligatorio )
         private void txtNickname_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetrasyDigitos(e);
@@ -269,6 +275,7 @@ namespace Wood_Notes
                     pbNicknameverified.Visible = true;
                     pbNicknameverified.Image = Wood_Notes.Properties.Resources.warning;
                     lblnickname.Text = "El nombre de usuario ya esta ocupado, intente con otro";
+                    nicknameverified = false;
                 }
                 // Si el usuario no existe le dara la aprobación
                 else
@@ -276,6 +283,7 @@ namespace Wood_Notes
                     pbNicknameverified.Visible = true;
                     pbNicknameverified.Image = Wood_Notes.Properties.Resources.userverified;
                     lblnickname.Text = "¡El nombre de usuario se encuentra disponible!";
+                    nicknameverified = true;
                 }
             }
             // Verificar si el campo tiene menos de 5 caracteres y no este vacio
@@ -284,6 +292,7 @@ namespace Wood_Notes
                 pbNicknameverified.Visible = true;
                 pbNicknameverified.Image = Wood_Notes.Properties.Resources.warning;
                 lblnickname.Text = "El nombre de usuario no puede ser menor a 5 caracteres";
+                nicknameverified = false;
             }
             // Verificar si el campo esta vacio
             else if (txtNickname.Text.Length == 0)
@@ -291,9 +300,10 @@ namespace Wood_Notes
                 pbNicknameverified.Visible = false;
                 pbNicknameverified.Image = Wood_Notes.Properties.Resources.userverified;
                 lblnickname.Text = "";
+                nicknameverified = false;
             }
         }
-        // Validación del Email
+        // Verificadores del controlador para el campo de Email ( Obligatorio )
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Sin restricciones
@@ -318,12 +328,14 @@ namespace Wood_Notes
                         btnEmailVerified.Visible = true;
                         btnEmailVerified.Image = Wood_Notes.Properties.Resources.warning;
                         lblEmail.Text = "El correo ya esta en uso";
+                        emailverified = false;
                     }
                     else
                     {
                         btnEmailVerified.Visible = true;
                         btnEmailVerified.Image = Wood_Notes.Properties.Resources.userverified;
                         lblEmail.Text = "¡Correo verificado exitosamente!";
+                        emailverified = true;
                     }
                 }
                 else
@@ -331,6 +343,7 @@ namespace Wood_Notes
                     btnEmailVerified.Visible = true;
                     btnEmailVerified.Image = Wood_Notes.Properties.Resources.warning;
                     lblEmail.Text = "Debe ingresar el formato correcto de un correo";
+                    emailverified = false;
                 }
             }
             else
@@ -338,10 +351,11 @@ namespace Wood_Notes
                 btnEmailVerified.Visible = false;
                 btnEmailVerified.Image = Wood_Notes.Properties.Resources.userverified;
                 lblEmail.Text = "";
+                emailverified = false;
             }
         }
 
-        // Validación del Password y la confirmación del Passwrd
+        // Verificador de los controladores para los campos de Contraseña y Confirmación de Contraseña ( Obligatorios )
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetrasyDigitos(e);
@@ -351,6 +365,7 @@ namespace Wood_Notes
         {
             SoloLetrasyDigitos(e);
         }
+        // UI de la barra de progreso de la seguridad de la contraseña y verificador de contraseña
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
             int lenght = txtPassword.Text.Length;
@@ -361,29 +376,33 @@ namespace Wood_Notes
                     panelBarPass.BackColor = Color.Transparent;
                     lblPassSecure.Text = "";
                     btnSecurePass.Visible = false;
+                    DesabilitadortxtRePassword();
                     break;
                 case 1:
-                    panelBarPass.BackColor = Color.Red;
-                    panelBarPass.Size = new System.Drawing.Size(74, 3);
-                    lblPassSecure.Text = "La contraseña es demasiado corta";
+                    BarraRoja();
                     btnSecurePass.Visible = true;
-                    btnSecurePass.Image = Wood_Notes.Properties.Resources.warningpass;
+                    DesabilitadortxtRePassword();
+                    break;
+                case 2:
+                    BarraRoja();
+                    DesabilitadortxtRePassword();
+                    break;
+                case 3:
+                    BarraRoja();
+                    DesabilitadortxtRePassword();
                     break;
                 case 4:
-                    panelBarPass.BackColor = Color.Orange;
-                    panelBarPass.Size = new System.Drawing.Size(124, 3);
+                    BarraNaranja();
+                    DesabilitadortxtRePassword();
+                    break;
+                case 5:
+                    BarraNaranja();
+                    DesabilitadortxtRePassword();
                     break;
                 case 6:
-
-                    lblPassSecure.Text = "La contraseña es demasiado corta";
-                    panelBarPass.BackColor = Color.Orange;
-                    panelBarPass.Size = new System.Drawing.Size(124, 3);
+                    BarraNaranja();
                     btnSecurePass.Visible = true;
-                    btnSecurePass.Image = Wood_Notes.Properties.Resources.warningpass;
-                    txtRePassword.Text = "";
-                    lblRePass.Text = "";
-                    pbRePass.Visible = false;
-                    txtRePassword.Enabled = false;
+                    DesabilitadortxtRePassword();
                     break;
                 case 7:
 
@@ -393,10 +412,35 @@ namespace Wood_Notes
                     btnSecurePass.Image = Wood_Notes.Properties.Resources.passwordverified;
                     btnSecurePass.Visible = true;
                     txtRePassword.Enabled = true;
+                    passverified = true;
                     break;
             }
+
+            
         } /*--------------------------------------------------------------------------------------------------------------------*/
 
+        public void DesabilitadortxtRePassword()
+        {
+            lblPassSecure.Text = "La contraseña es demasiado corta";
+            btnSecurePass.Image = Wood_Notes.Properties.Resources.warningpass;
+            txtRePassword.Text = "";
+            lblRePass.Text = "";
+            pbRePass.Visible = false;
+            txtRePassword.Enabled = false;
+            passverified = false;
+        }
+        public void BarraNaranja()
+        {
+            panelBarPass.BackColor = Color.Orange;
+            panelBarPass.Size = new System.Drawing.Size(124, 3);
+        }
+        public void BarraRoja()
+        {
+            panelBarPass.BackColor = Color.Red;
+            panelBarPass.Size = new System.Drawing.Size(74, 3);
+        }
+
+        // Comprobador de contraseña repetida en ambos campos
         private void txtRePassword_Leave(object sender, EventArgs e)
         {
             if (txtRePassword.Text == txtPassword.Text)
@@ -404,12 +448,14 @@ namespace Wood_Notes
                 lblRePass.Text = "¡Las contraseñas coinciden!";
                 pbRePass.Image = Wood_Notes.Properties.Resources.passwordverified;
                 pbRePass.Visible = true;
+                repassverified = true;
             }
             else
             {
                 lblRePass.Text = "¡Las contraseñas no coinciden!";
                 pbRePass.Image = Wood_Notes.Properties.Resources.warningpass;
                 pbRePass.Visible = true;
+                repassverified = false;
             }
         }
 
@@ -427,12 +473,14 @@ namespace Wood_Notes
                 pbPhoneVerified.Visible = true;
                 pbPhoneVerified.Image = Wood_Notes.Properties.Resources.userverified;
                 lblPhoneVerified.Text = "";
+                phoneverified = true;
             }
             else if (phoneNumber.Length == 0)
             {
                 pbPhoneVerified.Image = Wood_Notes.Properties.Resources.warning;
                 pbPhoneVerified.Visible = true;
                 lblPhoneVerified.Text = "Campo se encuentra vacio";
+                phoneverified = false;
                 // Caso que no ingrese numero telefonico no se agrega guion 
             }
             else
@@ -440,6 +488,7 @@ namespace Wood_Notes
                 pbPhoneVerified.Image = Wood_Notes.Properties.Resources.warning;
                 pbPhoneVerified.Visible = true;
                 lblPhoneVerified.Text = "¡El campo no contiene el formato correcto!";
+                phoneverified = false;
             }
         }
 
@@ -519,9 +568,6 @@ namespace Wood_Notes
         #endregion
 
         #region UI del Form Register
-
-        #endregion
-
         // UI del boton de visor de contraseña
         bool eyeUI = false;
         private void pbEyePass_Click(object sender, EventArgs e)
@@ -556,7 +602,10 @@ namespace Wood_Notes
                 pbEyeRePass.Image = Wood_Notes.Properties.Resources.iconcloseeyeImage;
                 txtRePassword.PasswordChar = Convert.ToChar("*");
             }
-            
+
         }
+        #endregion
+
+
     }
 }

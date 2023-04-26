@@ -78,6 +78,7 @@
             this.pbLastNameVerified = new System.Windows.Forms.PictureBox();
             this.pbNameVerified = new System.Windows.Forms.PictureBox();
             this.panelimg = new System.Windows.Forms.Panel();
+            this.pbProfilePicture = new Wood_Notes.RoundedPictureBox();
             this.panelPhone = new System.Windows.Forms.Panel();
             this.txtCodigo = new System.Windows.Forms.Label();
             this.panelBorderNumber = new System.Windows.Forms.Panel();
@@ -87,20 +88,19 @@
             this.panelInfoOk = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelInfo2 = new System.Windows.Forms.Panel();
-            this.panelBorderNickname = new System.Windows.Forms.Panel();
-            this.pbNicknameverified = new System.Windows.Forms.PictureBox();
-            this.panelBorderEmail = new System.Windows.Forms.Panel();
-            this.btnEmailVerified = new System.Windows.Forms.PictureBox();
-            this.panelBarPass = new System.Windows.Forms.Panel();
-            this.panelBorderPass = new System.Windows.Forms.Panel();
-            this.btnSecurePass = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pbRePass = new System.Windows.Forms.PictureBox();
-            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblRePass = new System.Windows.Forms.Label();
-            this.pbEyePass = new System.Windows.Forms.PictureBox();
             this.pbEyeRePass = new System.Windows.Forms.PictureBox();
-            this.pbProfilePicture = new Wood_Notes.RoundedPictureBox();
+            this.pbEyePass = new System.Windows.Forms.PictureBox();
+            this.lblRePass = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panelBarPass = new System.Windows.Forms.Panel();
+            this.pbRePass = new System.Windows.Forms.PictureBox();
+            this.panelBorderEmail = new System.Windows.Forms.Panel();
+            this.panelBorderPass = new System.Windows.Forms.Panel();
+            this.panelBorderNickname = new System.Windows.Forms.Panel();
+            this.btnSecurePass = new System.Windows.Forms.PictureBox();
+            this.btnEmailVerified = new System.Windows.Forms.PictureBox();
+            this.pbNicknameverified = new System.Windows.Forms.PictureBox();
+            this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelSup.SuspendLayout();
             this.panelExit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
@@ -111,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLastNameVerified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameVerified)).BeginInit();
             this.panelimg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             this.panelPhone.SuspendLayout();
             this.panelBorderNumber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneVerified)).BeginInit();
@@ -118,18 +119,17 @@
             this.panelInfoOk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelInfo2.SuspendLayout();
-            this.panelBorderNickname.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNicknameverified)).BeginInit();
-            this.panelBorderEmail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEmailVerified)).BeginInit();
-            this.panelBorderPass.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSecurePass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEyeRePass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEyePass)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRePass)).BeginInit();
+            this.panelBorderEmail.SuspendLayout();
+            this.panelBorderPass.SuspendLayout();
+            this.panelBorderNickname.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSecurePass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEmailVerified)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNicknameverified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEyePass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEyeRePass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -318,7 +318,6 @@
             // 
             this.btnNuevoRegistro.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnNuevoRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevoRegistro.Enabled = false;
             this.btnNuevoRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoRegistro.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoRegistro.ForeColor = System.Drawing.Color.White;
@@ -702,6 +701,21 @@
             this.panelimg.Size = new System.Drawing.Size(196, 248);
             this.panelimg.TabIndex = 40;
             // 
+            // pbProfilePicture
+            // 
+            this.pbProfilePicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pbProfilePicture.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.pbProfilePicture.BorderColor2 = System.Drawing.Color.HotPink;
+            this.pbProfilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            this.pbProfilePicture.BorderSize = 3;
+            this.pbProfilePicture.Location = new System.Drawing.Point(28, 74);
+            this.pbProfilePicture.Name = "pbProfilePicture";
+            this.pbProfilePicture.Size = new System.Drawing.Size(120, 120);
+            this.pbProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfilePicture.TabIndex = 35;
+            this.pbProfilePicture.TabStop = false;
+            this.pbProfilePicture.Click += new System.EventHandler(this.pbProfilePicture_Click);
+            // 
             // panelPhone
             // 
             this.panelPhone.Controls.Add(this.txtCodigo);
@@ -823,108 +837,16 @@
             this.panelInfo2.Size = new System.Drawing.Size(537, 305);
             this.panelInfo2.TabIndex = 67;
             // 
-            // panelBorderNickname
+            // pbEyeRePass
             // 
-            this.panelBorderNickname.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panelBorderNickname.Controls.Add(this.txtNickname);
-            this.panelBorderNickname.Location = new System.Drawing.Point(200, 13);
-            this.panelBorderNickname.Name = "panelBorderNickname";
-            this.panelBorderNickname.Size = new System.Drawing.Size(288, 20);
-            this.panelBorderNickname.TabIndex = 64;
-            // 
-            // pbNicknameverified
-            // 
-            this.pbNicknameverified.Image = global::Wood_Notes.Properties.Resources.userverified;
-            this.pbNicknameverified.Location = new System.Drawing.Point(498, 15);
-            this.pbNicknameverified.Name = "pbNicknameverified";
-            this.pbNicknameverified.Size = new System.Drawing.Size(18, 18);
-            this.pbNicknameverified.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNicknameverified.TabIndex = 41;
-            this.pbNicknameverified.TabStop = false;
-            this.pbNicknameverified.Visible = false;
-            // 
-            // panelBorderEmail
-            // 
-            this.panelBorderEmail.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panelBorderEmail.Controls.Add(this.txtEmail);
-            this.panelBorderEmail.Location = new System.Drawing.Point(200, 88);
-            this.panelBorderEmail.Name = "panelBorderEmail";
-            this.panelBorderEmail.Size = new System.Drawing.Size(286, 20);
-            this.panelBorderEmail.TabIndex = 65;
-            // 
-            // btnEmailVerified
-            // 
-            this.btnEmailVerified.Image = global::Wood_Notes.Properties.Resources.userverified;
-            this.btnEmailVerified.Location = new System.Drawing.Point(497, 89);
-            this.btnEmailVerified.Name = "btnEmailVerified";
-            this.btnEmailVerified.Size = new System.Drawing.Size(18, 18);
-            this.btnEmailVerified.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnEmailVerified.TabIndex = 44;
-            this.btnEmailVerified.TabStop = false;
-            this.btnEmailVerified.Visible = false;
-            // 
-            // panelBarPass
-            // 
-            this.panelBarPass.BackColor = System.Drawing.Color.Transparent;
-            this.panelBarPass.Location = new System.Drawing.Point(204, 190);
-            this.panelBarPass.Name = "panelBarPass";
-            this.panelBarPass.Size = new System.Drawing.Size(184, 3);
-            this.panelBarPass.TabIndex = 67;
-            // 
-            // panelBorderPass
-            // 
-            this.panelBorderPass.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panelBorderPass.Controls.Add(this.txtPassword);
-            this.panelBorderPass.Location = new System.Drawing.Point(201, 166);
-            this.panelBorderPass.Name = "panelBorderPass";
-            this.panelBorderPass.Size = new System.Drawing.Size(288, 20);
-            this.panelBorderPass.TabIndex = 66;
-            // 
-            // btnSecurePass
-            // 
-            this.btnSecurePass.Image = global::Wood_Notes.Properties.Resources.passwordverified;
-            this.btnSecurePass.Location = new System.Drawing.Point(496, 166);
-            this.btnSecurePass.Name = "btnSecurePass";
-            this.btnSecurePass.Size = new System.Drawing.Size(20, 20);
-            this.btnSecurePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSecurePass.TabIndex = 42;
-            this.btnSecurePass.TabStop = false;
-            this.btnSecurePass.Visible = false;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel7.Controls.Add(this.txtRePassword);
-            this.panel7.Location = new System.Drawing.Point(200, 239);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(288, 20);
-            this.panel7.TabIndex = 67;
-            // 
-            // pbRePass
-            // 
-            this.pbRePass.Image = global::Wood_Notes.Properties.Resources.passwordverified;
-            this.pbRePass.Location = new System.Drawing.Point(495, 231);
-            this.pbRePass.Name = "pbRePass";
-            this.pbRePass.Size = new System.Drawing.Size(20, 20);
-            this.pbRePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbRePass.TabIndex = 55;
-            this.pbRePass.TabStop = false;
-            this.pbRePass.Visible = false;
-            // 
-            // errorName
-            // 
-            this.errorName.ContainerControl = this;
-            this.errorName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorName.Icon")));
-            // 
-            // lblRePass
-            // 
-            this.lblRePass.AutoSize = true;
-            this.lblRePass.Font = new System.Drawing.Font("Malgun Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRePass.ForeColor = System.Drawing.Color.White;
-            this.lblRePass.Location = new System.Drawing.Point(199, 263);
-            this.lblRePass.Name = "lblRePass";
-            this.lblRePass.Size = new System.Drawing.Size(0, 12);
-            this.lblRePass.TabIndex = 53;
+            this.pbEyeRePass.Image = global::Wood_Notes.Properties.Resources.iconcloseeyeImage;
+            this.pbEyeRePass.Location = new System.Drawing.Point(460, 261);
+            this.pbEyeRePass.Name = "pbEyeRePass";
+            this.pbEyeRePass.Size = new System.Drawing.Size(25, 25);
+            this.pbEyeRePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbEyeRePass.TabIndex = 69;
+            this.pbEyeRePass.TabStop = false;
+            this.pbEyeRePass.Click += new System.EventHandler(this.pbEyeRePass_Click);
             // 
             // pbEyePass
             // 
@@ -937,31 +859,108 @@
             this.pbEyePass.TabStop = false;
             this.pbEyePass.Click += new System.EventHandler(this.pbEyePass_Click);
             // 
-            // pbEyeRePass
+            // lblRePass
             // 
-            this.pbEyeRePass.Image = global::Wood_Notes.Properties.Resources.iconcloseeyeImage;
-            this.pbEyeRePass.Location = new System.Drawing.Point(460, 261);
-            this.pbEyeRePass.Name = "pbEyeRePass";
-            this.pbEyeRePass.Size = new System.Drawing.Size(25, 25);
-            this.pbEyeRePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbEyeRePass.TabIndex = 69;
-            this.pbEyeRePass.TabStop = false;
-            this.pbEyeRePass.Click += new System.EventHandler(this.pbEyeRePass_Click);
+            this.lblRePass.AutoSize = true;
+            this.lblRePass.Font = new System.Drawing.Font("Malgun Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRePass.ForeColor = System.Drawing.Color.White;
+            this.lblRePass.Location = new System.Drawing.Point(199, 263);
+            this.lblRePass.Name = "lblRePass";
+            this.lblRePass.Size = new System.Drawing.Size(0, 12);
+            this.lblRePass.TabIndex = 53;
             // 
-            // pbProfilePicture
+            // panel7
             // 
-            this.pbProfilePicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pbProfilePicture.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.pbProfilePicture.BorderColor2 = System.Drawing.Color.HotPink;
-            this.pbProfilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            this.pbProfilePicture.BorderSize = 3;
-            this.pbProfilePicture.Location = new System.Drawing.Point(28, 74);
-            this.pbProfilePicture.Name = "pbProfilePicture";
-            this.pbProfilePicture.Size = new System.Drawing.Size(120, 120);
-            this.pbProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbProfilePicture.TabIndex = 35;
-            this.pbProfilePicture.TabStop = false;
-            this.pbProfilePicture.Click += new System.EventHandler(this.pbProfilePicture_Click);
+            this.panel7.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel7.Controls.Add(this.txtRePassword);
+            this.panel7.Location = new System.Drawing.Point(200, 239);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(288, 20);
+            this.panel7.TabIndex = 67;
+            // 
+            // panelBarPass
+            // 
+            this.panelBarPass.BackColor = System.Drawing.Color.Transparent;
+            this.panelBarPass.Location = new System.Drawing.Point(204, 190);
+            this.panelBarPass.Name = "panelBarPass";
+            this.panelBarPass.Size = new System.Drawing.Size(184, 3);
+            this.panelBarPass.TabIndex = 67;
+            // 
+            // pbRePass
+            // 
+            this.pbRePass.Image = global::Wood_Notes.Properties.Resources.passwordverified;
+            this.pbRePass.Location = new System.Drawing.Point(495, 231);
+            this.pbRePass.Name = "pbRePass";
+            this.pbRePass.Size = new System.Drawing.Size(20, 20);
+            this.pbRePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRePass.TabIndex = 55;
+            this.pbRePass.TabStop = false;
+            this.pbRePass.Visible = false;
+            // 
+            // panelBorderEmail
+            // 
+            this.panelBorderEmail.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelBorderEmail.Controls.Add(this.txtEmail);
+            this.panelBorderEmail.Location = new System.Drawing.Point(200, 88);
+            this.panelBorderEmail.Name = "panelBorderEmail";
+            this.panelBorderEmail.Size = new System.Drawing.Size(286, 20);
+            this.panelBorderEmail.TabIndex = 65;
+            // 
+            // panelBorderPass
+            // 
+            this.panelBorderPass.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelBorderPass.Controls.Add(this.txtPassword);
+            this.panelBorderPass.Location = new System.Drawing.Point(201, 166);
+            this.panelBorderPass.Name = "panelBorderPass";
+            this.panelBorderPass.Size = new System.Drawing.Size(288, 20);
+            this.panelBorderPass.TabIndex = 66;
+            // 
+            // panelBorderNickname
+            // 
+            this.panelBorderNickname.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelBorderNickname.Controls.Add(this.txtNickname);
+            this.panelBorderNickname.Location = new System.Drawing.Point(200, 13);
+            this.panelBorderNickname.Name = "panelBorderNickname";
+            this.panelBorderNickname.Size = new System.Drawing.Size(288, 20);
+            this.panelBorderNickname.TabIndex = 64;
+            // 
+            // btnSecurePass
+            // 
+            this.btnSecurePass.Image = global::Wood_Notes.Properties.Resources.passwordverified;
+            this.btnSecurePass.Location = new System.Drawing.Point(496, 166);
+            this.btnSecurePass.Name = "btnSecurePass";
+            this.btnSecurePass.Size = new System.Drawing.Size(20, 20);
+            this.btnSecurePass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSecurePass.TabIndex = 42;
+            this.btnSecurePass.TabStop = false;
+            this.btnSecurePass.Visible = false;
+            // 
+            // btnEmailVerified
+            // 
+            this.btnEmailVerified.Image = global::Wood_Notes.Properties.Resources.userverified;
+            this.btnEmailVerified.Location = new System.Drawing.Point(497, 89);
+            this.btnEmailVerified.Name = "btnEmailVerified";
+            this.btnEmailVerified.Size = new System.Drawing.Size(18, 18);
+            this.btnEmailVerified.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnEmailVerified.TabIndex = 44;
+            this.btnEmailVerified.TabStop = false;
+            this.btnEmailVerified.Visible = false;
+            // 
+            // pbNicknameverified
+            // 
+            this.pbNicknameverified.Image = global::Wood_Notes.Properties.Resources.userverified;
+            this.pbNicknameverified.Location = new System.Drawing.Point(498, 15);
+            this.pbNicknameverified.Name = "pbNicknameverified";
+            this.pbNicknameverified.Size = new System.Drawing.Size(18, 18);
+            this.pbNicknameverified.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNicknameverified.TabIndex = 41;
+            this.pbNicknameverified.TabStop = false;
+            this.pbNicknameverified.Visible = false;
+            // 
+            // errorName
+            // 
+            this.errorName.ContainerControl = this;
+            this.errorName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorName.Icon")));
             // 
             // frmRegister
             // 
@@ -991,6 +990,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNameVerified)).EndInit();
             this.panelimg.ResumeLayout(false);
             this.panelimg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).EndInit();
             this.panelPhone.ResumeLayout(false);
             this.panelPhone.PerformLayout();
             this.panelBorderNumber.ResumeLayout(false);
@@ -1001,22 +1001,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelInfo2.ResumeLayout(false);
             this.panelInfo2.PerformLayout();
-            this.panelBorderNickname.ResumeLayout(false);
-            this.panelBorderNickname.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNicknameverified)).EndInit();
-            this.panelBorderEmail.ResumeLayout(false);
-            this.panelBorderEmail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEmailVerified)).EndInit();
-            this.panelBorderPass.ResumeLayout(false);
-            this.panelBorderPass.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSecurePass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEyeRePass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEyePass)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRePass)).EndInit();
+            this.panelBorderEmail.ResumeLayout(false);
+            this.panelBorderEmail.PerformLayout();
+            this.panelBorderPass.ResumeLayout(false);
+            this.panelBorderPass.PerformLayout();
+            this.panelBorderNickname.ResumeLayout(false);
+            this.panelBorderNickname.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSecurePass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEmailVerified)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNicknameverified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEyePass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbEyeRePass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
