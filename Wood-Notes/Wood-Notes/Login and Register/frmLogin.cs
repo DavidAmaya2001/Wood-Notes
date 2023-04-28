@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Wood_Notes
             InitializeComponent();
         }
 
+
         #region Ingreso con usuario
         private void btnAcceder_Click(object sender, EventArgs e)
         {
@@ -30,8 +32,8 @@ namespace Wood_Notes
             ingresoUsers.setPassword(txtPassword.Text);
 
             // Declaración de Point para las posiciones de los mensajes de alerta
-            Point credentialsposition = new Point(308,296);
-            Point invitadoposition = new Point(244, 296);
+            Point credentialsposition = new Point(308,306);
+            Point invitadoposition = new Point(234, 306);
 
             bool result = ingresoUsers.Verificador();
             // Verifica el resultado y da el accaso al programa con el usuario
@@ -171,8 +173,8 @@ namespace Wood_Notes
                 Top = Top + (e.Y - PointY);
             }
         }
+
+
         #endregion
-
-
     }
 }

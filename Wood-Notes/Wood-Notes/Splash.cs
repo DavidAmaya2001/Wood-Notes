@@ -50,13 +50,42 @@ namespace Wood_Notes
             progressBar.Value += 1;
             string LabelCiclic = "3"; 
             progressBar.Text = progressBar.Value.ToString() + "%";
+            int timerBar = progressBar.Value;
 
             // Comprueba que al llegar al 100 el timer se detenga y de paso al Form de Login
             LabelCiclic = "0";
-            lblLoading.Text = "Cargando . . .";
-            if (progressBar.Value == 100)
+
+            switch (timerBar)
             {
-                TimerChanged();
+                case 0: lblLoading.Text = "Cargando";
+                    break;
+                case 10: lblLoading.Text = "Cargando .";
+                    break;
+                case 20: lblLoading.Text = "Cargando . .";
+                    break;
+                case 30: lblLoading.Text = "Cargando . . .";
+                    break;
+                case 40:
+                    lblLoading.Text = "Cargando .";
+                    break;
+                case 50:
+                    lblLoading.Text = "Cargando . .";
+                    break;
+                case 60:
+                    lblLoading.Text = "Cargando . . .";
+                    break;
+                case 70:
+                    lblLoading.Text = "Cargando .";
+                    break;
+                case 80:
+                    lblLoading.Text = "Cargando . .";
+                    break;
+                case 90:
+                    lblLoading.Text = "Cargando . . .";
+                    break;
+                case 100:
+                    TimerChanged();
+                    break;
             }
 
         }

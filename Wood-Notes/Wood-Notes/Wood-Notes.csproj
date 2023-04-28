@@ -257,6 +257,9 @@
     <None Include="Images\Wood_Notes_Icon.png" />
     <None Include="Images\closeWindow.png" />
     <None Include="Images\warningpass.png" />
+    <None Include="Images\CloseWindows.png" />
+    <None Include="Images\MinimizeWindow.png" />
+    <None Include="Images\borde.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
