@@ -17,7 +17,7 @@ namespace Wood_Notes
     public class Users : Conexion
     {
         // Apertura de conexion con la base de datos WoodNotesDB
-        static string conexionstring = "server= TUTIOELPOLLO-DE\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
+        static string conexionstring = "server= TUTIOELPOLLO-PC\\SQLSERVER; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);
         private string hashpass = "wood-pass";
 

@@ -24,7 +24,7 @@ namespace Wood_Notes
         private void ConseguirFoto(int id)
         {
             // Apertura de la conexión con la base de datos 
-            string conexionstring = "server= TUTIOELPOLLO-DE\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
+            string conexionstring = "server= TUTIOELPOLLO-PC\\SQLSERVER; database= WoodNotesDB; integrated security= true";
             SqlConnection conexion = new SqlConnection(conexionstring);
 
             // Apertura de la conexión y ejecución de la linea SQL para extraer imagen del usuario ( en el caso tenga )

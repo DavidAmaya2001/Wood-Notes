@@ -81,6 +81,7 @@ namespace Wood_Notes
                     // Se manda el imgLocation aunque no se haya ingresado imagen, en la clase Users se hace la division entre insercion o no de imagen
                     newUser.NewRegister(imgLocation);
                     MessageBox.Show("Registro agregado correctamente","Bienvenido",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    CleanForm();
                 }
                 else
                 {
@@ -129,6 +130,85 @@ namespace Wood_Notes
             imgLocation = openFileDialog1.FileName.ToString();
             lblagregarimg.Visible = false;
             lblagregarimg2.Visible = false;
+        }
+        #endregion
+        // Fin de Subregion
+
+        // Subregion
+        #region Limpieza de datos del Form
+        private void CleanForm()
+        {
+            // Name Default Settings
+            txtName.Text = "";
+            lblNameVerified.Text = "";
+            pbNameVerified.Visible = false;
+            nameverified = false;
+
+            txtLastName.Text = "";
+            lblLastNameVerified.Text = "";
+            pbLastNameVerified.Visible = false;
+
+            // PictureBox Default Settings
+            pbProfilePicture.Image = null;
+
+            // Phone & Region Default Settings 
+            cmbPais.SelectedIndex = 0;
+            pbPais.Visible = false;
+
+            txtPhone.Text = "";
+            lblPhoneVerified.Text = "";
+            pbPhoneVerified.Visible = false;
+
+            // Nickname Default Settings
+            txtNickname.Text = "";
+            lblnickname.Text = "";
+            pbNicknameverified.Visible = false;
+            nicknameverified = false;
+
+            // Email Default Settings
+            txtEmail.Text = "";
+            lblEmail.Text = "";
+            btnEmailVerified.Visible = false;
+            emailverified = false;
+
+            // Password & RePassword Default Settings
+            txtPassword.Text = "";
+            lblPassSecure.Text = "";
+            btnSecurePass.Visible = false;
+            panelBarPass.BackColor = Color.Transparent;
+            passverified = false;
+
+            if (eyeUI)
+            {
+                eyeUI = false;
+                pbEyePass.Image = Wood_Notes.Properties.Resources.iconeyeImage;
+                txtPassword.PasswordChar = default;
+            }
+            else
+            {
+                eyeUI = true;
+                pbEyePass.Image = Wood_Notes.Properties.Resources.iconcloseeyeImage;
+                txtPassword.PasswordChar = Convert.ToChar("*");
+            }
+
+            txtRePassword.Text = "";
+            lblRePass.Text = "";
+            pbRePass.Visible = false;
+            repassverified = false;
+
+            if (eyeReUI)
+            {
+                eyeReUI = false;
+                pbEyeRePass.Image = Wood_Notes.Properties.Resources.iconeyeImage;
+                txtRePassword.PasswordChar = default;
+            }
+            else
+            {
+                eyeReUI = true;
+                pbEyeRePass.Image = Wood_Notes.Properties.Resources.iconcloseeyeImage;
+                txtRePassword.PasswordChar = Convert.ToChar("*");
+            }
+
         }
         #endregion
         // Fin de Subregion

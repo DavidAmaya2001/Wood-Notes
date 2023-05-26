@@ -60,3 +60,34 @@ D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Wood-No
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.CopyComplete
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.exe
 D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.pdb
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\Wood-Notes.exe.config
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\Wood-Notes.exe
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\Wood-Notes.pdb
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\CircularProgressBar.dll
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.dll
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.SqlServer.dll
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\WinFormAnimation.dll
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\CircularProgressBar.xml
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.xml
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\EntityFramework.SqlServer.xml
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\bin\Debug\WinFormAnimation.xml
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.AssemblyReference.cache
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.SuggestedBindingRedirects.cache
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmDetalles.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmWorkStation.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmCalendario.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmConfig.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmCuenta.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmInicio.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmLogin.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotas.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotasSubMenu.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmNotasSubMenu2.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.frmRegister.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.Properties.Resources.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.Splash.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.GenerateResource.cache
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.CoreCompileInputs.cache
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.CopyComplete
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.exe
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.pdb

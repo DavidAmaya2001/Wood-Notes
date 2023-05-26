@@ -11,7 +11,7 @@ namespace Wood_Notes
 {
     public class Conexion
     {
-        static string conexionstring = "server= TUTIOELPOLLO-DE\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
+        static string conexionstring = "server= TUTIOELPOLLO-PC\\SQLSERVER; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);
 
         #region Apertura y cierre de conexion

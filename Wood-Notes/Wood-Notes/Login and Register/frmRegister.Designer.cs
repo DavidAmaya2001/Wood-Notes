@@ -78,7 +78,6 @@
             this.txtCodigo = new System.Windows.Forms.Label();
             this.panelBorderNumber = new System.Windows.Forms.Panel();
             this.lblPhoneVerified = new System.Windows.Forms.Label();
-            this.panelInfoOk = new System.Windows.Forms.Panel();
             this.panelInfo2 = new System.Windows.Forms.Panel();
             this.lblRePass = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -87,17 +86,18 @@
             this.panelBorderPass = new System.Windows.Forms.Panel();
             this.panelBorderNickname = new System.Windows.Forms.Panel();
             this.errorName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbEyeRePass = new System.Windows.Forms.PictureBox();
             this.pbEyePass = new System.Windows.Forms.PictureBox();
             this.pbRePass = new System.Windows.Forms.PictureBox();
             this.btnSecurePass = new System.Windows.Forms.PictureBox();
             this.btnEmailVerified = new System.Windows.Forms.PictureBox();
             this.pbNicknameverified = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbPhoneVerified = new System.Windows.Forms.PictureBox();
             this.pbPais = new System.Windows.Forms.PictureBox();
             this.pbLastNameVerified = new System.Windows.Forms.PictureBox();
             this.pbNameVerified = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbProfilePicture = new Wood_Notes.RoundedPictureBox();
             this.btnMinimized = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.PictureBox();
@@ -109,24 +109,24 @@
             this.panelimg.SuspendLayout();
             this.panelPhone.SuspendLayout();
             this.panelBorderNumber.SuspendLayout();
-            this.panelInfoOk.SuspendLayout();
             this.panelInfo2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panelBorderEmail.SuspendLayout();
             this.panelBorderPass.SuspendLayout();
             this.panelBorderNickname.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEyeRePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEyePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSecurePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmailVerified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNicknameverified)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneVerified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLastNameVerified)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameVerified)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
@@ -148,7 +148,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(41, 96);
+            this.label2.Location = new System.Drawing.Point(41, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 11;
@@ -159,7 +159,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(42, 160);
+            this.label3.Location = new System.Drawing.Point(42, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 17);
             this.label3.TabIndex = 12;
@@ -226,11 +226,11 @@
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(39, 117);
+            this.txtName.Location = new System.Drawing.Point(39, 105);
             this.txtName.MaxLength = 20;
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(262, 18);
+            this.txtName.Size = new System.Drawing.Size(251, 18);
             this.txtName.TabIndex = 19;
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
@@ -245,7 +245,7 @@
             this.txtLastName.MaxLength = 20;
             this.txtLastName.Multiline = true;
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(262, 18);
+            this.txtLastName.Size = new System.Drawing.Size(251, 18);
             this.txtLastName.TabIndex = 20;
             this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName_KeyPress);
             this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
@@ -321,7 +321,7 @@
             this.btnNuevoRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoRegistro.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoRegistro.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoRegistro.Location = new System.Drawing.Point(172, 6);
+            this.btnNuevoRegistro.Location = new System.Drawing.Point(179, 333);
             this.btnNuevoRegistro.Name = "btnNuevoRegistro";
             this.btnNuevoRegistro.Size = new System.Drawing.Size(194, 32);
             this.btnNuevoRegistro.TabIndex = 28;
@@ -381,7 +381,7 @@
             this.btnImage.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImage.ForeColor = System.Drawing.Color.White;
-            this.btnImage.Location = new System.Drawing.Point(124, 190);
+            this.btnImage.Location = new System.Drawing.Point(110, 181);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(35, 23);
             this.btnImage.TabIndex = 34;
@@ -392,7 +392,7 @@
             // dtpNewUser
             // 
             this.dtpNewUser.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNewUser.Location = new System.Drawing.Point(23, 17);
+            this.dtpNewUser.Location = new System.Drawing.Point(433, 345);
             this.dtpNewUser.Name = "dtpNewUser";
             this.dtpNewUser.Size = new System.Drawing.Size(92, 20);
             this.dtpNewUser.TabIndex = 36;
@@ -420,7 +420,7 @@
             this.lblagregarimg.AutoSize = true;
             this.lblagregarimg.Font = new System.Drawing.Font("Malgun Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblagregarimg.ForeColor = System.Drawing.Color.White;
-            this.lblagregarimg.Location = new System.Drawing.Point(65, 91);
+            this.lblagregarimg.Location = new System.Drawing.Point(51, 82);
             this.lblagregarimg.Name = "lblagregarimg";
             this.lblagregarimg.Size = new System.Drawing.Size(49, 50);
             this.lblagregarimg.TabIndex = 38;
@@ -432,7 +432,7 @@
             this.lblagregarimg2.AutoSize = true;
             this.lblagregarimg2.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblagregarimg2.ForeColor = System.Drawing.Color.White;
-            this.lblagregarimg2.Location = new System.Drawing.Point(43, 139);
+            this.lblagregarimg2.Location = new System.Drawing.Point(29, 130);
             this.lblagregarimg2.Name = "lblagregarimg2";
             this.lblagregarimg2.Size = new System.Drawing.Size(92, 13);
             this.lblagregarimg2.TabIndex = 39;
@@ -474,7 +474,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(24, 98);
+            this.label9.Location = new System.Drawing.Point(24, 86);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(12, 15);
             this.label9.TabIndex = 56;
@@ -582,7 +582,7 @@
             this.panelInfo1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInfo1.Location = new System.Drawing.Point(0, 34);
             this.panelInfo1.Name = "panelInfo1";
-            this.panelInfo1.Size = new System.Drawing.Size(537, 248);
+            this.panelInfo1.Size = new System.Drawing.Size(537, 230);
             this.panelInfo1.TabIndex = 64;
             // 
             // panelName
@@ -602,7 +602,7 @@
             this.panelName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelName.Location = new System.Drawing.Point(0, 0);
             this.panelName.Name = "panelName";
-            this.panelName.Size = new System.Drawing.Size(341, 248);
+            this.panelName.Size = new System.Drawing.Size(341, 230);
             this.panelName.TabIndex = 65;
             // 
             // lblNameVerified
@@ -610,7 +610,7 @@
             this.lblNameVerified.AutoSize = true;
             this.lblNameVerified.Font = new System.Drawing.Font("Malgun Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameVerified.ForeColor = System.Drawing.Color.White;
-            this.lblNameVerified.Location = new System.Drawing.Point(37, 139);
+            this.lblNameVerified.Location = new System.Drawing.Point(37, 127);
             this.lblNameVerified.Name = "lblNameVerified";
             this.lblNameVerified.Size = new System.Drawing.Size(0, 12);
             this.lblNameVerified.TabIndex = 67;
@@ -619,17 +619,17 @@
             // 
             this.panelLastNameBorder.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelLastNameBorder.Controls.Add(this.txtLastName);
-            this.panelLastNameBorder.Location = new System.Drawing.Point(39, 180);
+            this.panelLastNameBorder.Location = new System.Drawing.Point(39, 168);
             this.panelLastNameBorder.Name = "panelLastNameBorder";
-            this.panelLastNameBorder.Size = new System.Drawing.Size(264, 20);
+            this.panelLastNameBorder.Size = new System.Drawing.Size(253, 20);
             this.panelLastNameBorder.TabIndex = 66;
             // 
             // panelNameBorder
             // 
             this.panelNameBorder.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panelNameBorder.Location = new System.Drawing.Point(38, 116);
+            this.panelNameBorder.Location = new System.Drawing.Point(38, 104);
             this.panelNameBorder.Name = "panelNameBorder";
-            this.panelNameBorder.Size = new System.Drawing.Size(264, 20);
+            this.panelNameBorder.Size = new System.Drawing.Size(253, 20);
             this.panelNameBorder.TabIndex = 64;
             // 
             // lblLastNameVerified
@@ -637,13 +637,14 @@
             this.lblLastNameVerified.AutoSize = true;
             this.lblLastNameVerified.Font = new System.Drawing.Font("Malgun Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastNameVerified.ForeColor = System.Drawing.Color.White;
-            this.lblLastNameVerified.Location = new System.Drawing.Point(37, 204);
+            this.lblLastNameVerified.Location = new System.Drawing.Point(37, 192);
             this.lblLastNameVerified.Name = "lblLastNameVerified";
             this.lblLastNameVerified.Size = new System.Drawing.Size(0, 12);
             this.lblLastNameVerified.TabIndex = 60;
             // 
             // panelimg
             // 
+            this.panelimg.Controls.Add(this.pictureBox1);
             this.panelimg.Controls.Add(this.lblagregarimg);
             this.panelimg.Controls.Add(this.lblagregarimg2);
             this.panelimg.Controls.Add(this.btnImage);
@@ -651,7 +652,7 @@
             this.panelimg.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelimg.Location = new System.Drawing.Point(341, 0);
             this.panelimg.Name = "panelimg";
-            this.panelimg.Size = new System.Drawing.Size(196, 248);
+            this.panelimg.Size = new System.Drawing.Size(196, 230);
             this.panelimg.TabIndex = 40;
             // 
             // panelPhone
@@ -667,9 +668,9 @@
             this.panelPhone.Controls.Add(this.label14);
             this.panelPhone.Controls.Add(this.label13);
             this.panelPhone.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPhone.Location = new System.Drawing.Point(0, 282);
+            this.panelPhone.Location = new System.Drawing.Point(0, 264);
             this.panelPhone.Name = "panelPhone";
-            this.panelPhone.Size = new System.Drawing.Size(537, 79);
+            this.panelPhone.Size = new System.Drawing.Size(537, 74);
             this.panelPhone.TabIndex = 65;
             // 
             // txtCodigo
@@ -701,21 +702,13 @@
             this.lblPhoneVerified.Size = new System.Drawing.Size(0, 12);
             this.lblPhoneVerified.TabIndex = 61;
             // 
-            // panelInfoOk
-            // 
-            this.panelInfoOk.Controls.Add(this.pictureBox1);
-            this.panelInfoOk.Controls.Add(this.btnNuevoRegistro);
-            this.panelInfoOk.Controls.Add(this.dtpNewUser);
-            this.panelInfoOk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInfoOk.Location = new System.Drawing.Point(0, 666);
-            this.panelInfoOk.Name = "panelInfoOk";
-            this.panelInfoOk.Size = new System.Drawing.Size(537, 54);
-            this.panelInfoOk.TabIndex = 66;
-            // 
             // panelInfo2
             // 
+            this.panelInfo2.Controls.Add(this.dtpNewUser);
+            this.panelInfo2.Controls.Add(this.pictureBox2);
             this.panelInfo2.Controls.Add(this.pbEyeRePass);
             this.panelInfo2.Controls.Add(this.pbEyePass);
+            this.panelInfo2.Controls.Add(this.btnNuevoRegistro);
             this.panelInfo2.Controls.Add(this.lblRePass);
             this.panelInfo2.Controls.Add(this.panel7);
             this.panelInfo2.Controls.Add(this.panelBarPass);
@@ -738,9 +731,9 @@
             this.panelInfo2.Controls.Add(this.label6);
             this.panelInfo2.Controls.Add(this.label15);
             this.panelInfo2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInfo2.Location = new System.Drawing.Point(0, 361);
+            this.panelInfo2.Location = new System.Drawing.Point(0, 338);
             this.panelInfo2.Name = "panelInfo2";
-            this.panelInfo2.Size = new System.Drawing.Size(537, 305);
+            this.panelInfo2.Size = new System.Drawing.Size(537, 382);
             this.panelInfo2.TabIndex = 67;
             // 
             // lblRePass
@@ -801,6 +794,16 @@
             // 
             this.errorName.ContainerControl = this;
             this.errorName.Icon = ((System.Drawing.Icon)(resources.GetObject("errorName.Icon")));
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Wood_Notes.Properties.Resources.Border2;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 254);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(105, 128);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 40;
+            this.pictureBox2.TabStop = false;
             // 
             // pbEyeRePass
             // 
@@ -868,16 +871,6 @@
             this.pbNicknameverified.TabStop = false;
             this.pbNicknameverified.Visible = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Wood_Notes.Properties.Resources.Wood_Notes_Icon;
-            this.pictureBox1.Location = new System.Drawing.Point(483, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // pbPhoneVerified
             // 
             this.pbPhoneVerified.Image = global::Wood_Notes.Properties.Resources.userverified;
@@ -903,7 +896,7 @@
             // pbLastNameVerified
             // 
             this.pbLastNameVerified.Image = global::Wood_Notes.Properties.Resources.userverified;
-            this.pbLastNameVerified.Location = new System.Drawing.Point(309, 182);
+            this.pbLastNameVerified.Location = new System.Drawing.Point(300, 170);
             this.pbLastNameVerified.Name = "pbLastNameVerified";
             this.pbLastNameVerified.Size = new System.Drawing.Size(18, 18);
             this.pbLastNameVerified.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -914,13 +907,23 @@
             // pbNameVerified
             // 
             this.pbNameVerified.Image = global::Wood_Notes.Properties.Resources.userverified;
-            this.pbNameVerified.Location = new System.Drawing.Point(309, 117);
+            this.pbNameVerified.Location = new System.Drawing.Point(300, 105);
             this.pbNameVerified.Name = "pbNameVerified";
             this.pbNameVerified.Size = new System.Drawing.Size(18, 18);
             this.pbNameVerified.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbNameVerified.TabIndex = 57;
             this.pbNameVerified.TabStop = false;
             this.pbNameVerified.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Wood_Notes.Properties.Resources.Border3;
+            this.pictureBox1.Location = new System.Drawing.Point(115, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 88);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 40;
+            this.pictureBox1.TabStop = false;
             // 
             // pbProfilePicture
             // 
@@ -929,7 +932,7 @@
             this.pbProfilePicture.BorderColor2 = System.Drawing.Color.HotPink;
             this.pbProfilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
             this.pbProfilePicture.BorderSize = 3;
-            this.pbProfilePicture.Location = new System.Drawing.Point(28, 74);
+            this.pbProfilePicture.Location = new System.Drawing.Point(13, 67);
             this.pbProfilePicture.Name = "pbProfilePicture";
             this.pbProfilePicture.Size = new System.Drawing.Size(120, 120);
             this.pbProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -966,10 +969,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(537, 720);
             this.Controls.Add(this.panelInfo2);
-            this.Controls.Add(this.panelInfoOk);
             this.Controls.Add(this.panelPhone);
             this.Controls.Add(this.panelInfo1);
             this.Controls.Add(this.panelSup);
@@ -990,7 +992,6 @@
             this.panelPhone.PerformLayout();
             this.panelBorderNumber.ResumeLayout(false);
             this.panelBorderNumber.PerformLayout();
-            this.panelInfoOk.ResumeLayout(false);
             this.panelInfo2.ResumeLayout(false);
             this.panelInfo2.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -1002,17 +1003,18 @@
             this.panelBorderNickname.ResumeLayout(false);
             this.panelBorderNickname.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEyeRePass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEyePass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRePass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSecurePass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEmailVerified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNicknameverified)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoneVerified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPais)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLastNameVerified)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNameVerified)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
@@ -1021,8 +1023,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnSalir;
         private System.Windows.Forms.Label label2;
@@ -1071,7 +1071,6 @@
         private System.Windows.Forms.Panel panelName;
         private System.Windows.Forms.Panel panelPhone;
         private System.Windows.Forms.Panel panelInfo2;
-        private System.Windows.Forms.Panel panelInfoOk;
         private System.Windows.Forms.PictureBox pbLastNameVerified;
         private System.Windows.Forms.PictureBox pbNameVerified;
         private System.Windows.Forms.PictureBox pbPhoneVerified;
@@ -1093,5 +1092,7 @@
         private System.Windows.Forms.PictureBox pbEyePass;
         private System.Windows.Forms.Label lblRePass;
         private System.Windows.Forms.PictureBox pbEyeRePass;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
