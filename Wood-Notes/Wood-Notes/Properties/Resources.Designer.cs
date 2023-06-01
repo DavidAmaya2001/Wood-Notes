@@ -103,9 +103,19 @@ namespace Wood_Notes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap closeWindow {
+        internal static System.Drawing.Bitmap Border4 {
             get {
-                object obj = ResourceManager.GetObject("closeWindow", resourceCulture);
+                object obj = ResourceManager.GetObject("Border4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CalendarMenu {
+            get {
+                object obj = ResourceManager.GetObject("CalendarMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +126,16 @@ namespace Wood_Notes.Properties {
         internal static System.Drawing.Bitmap CloseWindows {
             get {
                 object obj = ResourceManager.GetObject("CloseWindows", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ConfigMenu {
+            get {
+                object obj = ResourceManager.GetObject("ConfigMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,6 +223,26 @@ namespace Wood_Notes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Invitado {
+            get {
+                object obj = ResourceManager.GetObject("Invitado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Menu {
+            get {
+                object obj = ResourceManager.GetObject("Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimized {
             get {
                 object obj = ResourceManager.GetObject("minimized", resourceCulture);
@@ -226,6 +266,26 @@ namespace Wood_Notes.Properties {
         internal static System.Drawing.Bitmap nicaragua {
             get {
                 object obj = ResourceManager.GetObject("nicaragua", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NoImage {
+            get {
+                object obj = ResourceManager.GetObject("NoImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NotesMenu {
+            get {
+                object obj = ResourceManager.GetObject("NotesMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +326,16 @@ namespace Wood_Notes.Properties {
         internal static System.Drawing.Bitmap userimage {
             get {
                 object obj = ResourceManager.GetObject("userimage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserMenu {
+            get {
+                object obj = ResourceManager.GetObject("UserMenu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

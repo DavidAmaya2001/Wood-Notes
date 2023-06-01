@@ -271,12 +271,20 @@
     <None Include="Images\iconcloseeyeImage.png" />
     <None Include="Images\minimized.png" />
     <None Include="Images\Wood_Notes_Icon.png" />
-    <None Include="Images\closeWindow.png" />
     <None Include="Images\warningpass.png" />
     <None Include="Images\CloseWindows.png" />
     <None Include="Images\MinimizeWindow.png" />
     <None Include="Images\borde.png" />
     <None Include="Images\Border2.png" />
+    <None Include="Images\Border4.png" />
+    <None Include="Images\Invitado.png" />
+    <None Include="Images\NoImage.png" />
+    <None Include="Images\NoImage.jpg" />
+    <None Include="Images\Menu.png" />
+    <None Include="Images\UserMenu.png" />
+    <None Include="Images\NotesMenu.png" />
+    <None Include="Images\CalendarMenu.png" />
+    <None Include="Images\ConfigMenu.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

@@ -118,79 +118,100 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="minimized" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\minimized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="closeWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\closeWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="userverified" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\userverified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Border2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Border2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="userimage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\userimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconuserImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\iconuserImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="passwordverified" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\passwordverified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconeyeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\iconeyeImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NotesMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\NotesMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Wood_Notes_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Wood_Notes_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CloseWindows" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\CloseWindows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="warningpass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\warningpass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="honduras" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\honduras.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="panama" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\panama.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guatemala" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\guatemala.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="iconcloseeyeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\iconcloseeyeImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="nicaragua" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\nicaragua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="belice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\belice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="orangeCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\orangeCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="borde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\borde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="costa-rica" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\costa-rica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconpassImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\iconpassImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="warningpass" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\warningpass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CalendarMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\CalendarMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MinimizeWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\MinimizeWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="el-salvador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\el-salvador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="iconpassImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\iconpassImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CloseWindows" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\CloseWindows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nicaragua" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\nicaragua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="costa-rica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\costa-rica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="belice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\belice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconeyeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\iconeyeImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="panama" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\panama.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minimized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\minimized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconuserImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\iconuserImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="orangeCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\orangeCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="passwordverified" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\passwordverified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\UserMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="userverified" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\userverified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Border4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Border4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Border2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Border2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guatemala" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\guatemala.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Invitado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Invitado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Border3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Border3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NoImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\NoImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="userimage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\userimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconcloseeyeImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\iconcloseeyeImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="el-salvador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\el-salvador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ConfigMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ConfigMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
