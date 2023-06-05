@@ -25,6 +25,8 @@ namespace Wood_Notes
             DataTable Tabla = conexion.ConsultaNotas();
             dgvContenedor.DataSource = Tabla;
 
+            //Generador del diseño y visibilidad de las columnas en el DataGridView
+
             //dgvContenedor.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContenedor.Columns[0].Width = 100;
             dgvContenedor.Columns[0].Visible = false;
@@ -46,41 +48,50 @@ namespace Wood_Notes
             dgvContenedor.Columns[6].Visible = false;
 
             
-            // Agregado de columna de edit
+            // Agregado de columna de EDIT a cada Nota
             DataGridViewImageColumn columna_edit = new DataGridViewImageColumn();
             columna_edit.Name = "Editar";
             columna_edit.HeaderText = "Editar";
             columna_edit.Width = 80;
             columna_edit.DisplayIndex = 7;
-            string ruta = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\editico.png";
-            byte[] bufferedit = File.ReadAllBytes(ruta);
-            using (MemoryStream ms = new MemoryStream(bufferedit))
-            {
-                columna_edit.Image = Image.FromStream(ms);
-            }
+            columna_edit.Image = Wood_Notes.Properties.Resources.editIcon;
 
             dgvContenedor.Columns.Add(columna_edit);
             dgvContenedor.Columns["Editar"].DisplayIndex = 7;
 
-            // Agregado de columna de delete
+            //Codigo de importación de imagen inservible
+
+            /*string ruta = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\editico.png";
+            byte[] bufferedit = File.ReadAllBytes(ruta);
+            using (MemoryStream ms = new MemoryStream(bufferedit))
+            {
+                columna_edit.Image = Image.FromStream(ms);
+            }*/
+
+
+            // Agregado de columna de DELETE a cada Nota
             DataGridViewImageColumn columna_delete = new DataGridViewImageColumn();
             columna_delete.Name = "Eliminar";
             columna_delete.HeaderText = "Eliminar";
             columna_delete.Width = 80;
             columna_delete.DisplayIndex = 8;
-            string ruta2 = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\trashico.png";
+            columna_delete.Image = Wood_Notes.Properties.Resources.trashIcon;
+
+            dgvContenedor.Columns.Add(columna_delete);
+            dgvContenedor.Columns["Eliminar"].DisplayIndex = 8;
+
+
+            // Codigo de importación de imagen inservible
+
+            /*string ruta2 = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\trashico.png";
             byte[] bufferdelete = File.ReadAllBytes(ruta2);
             using(MemoryStream ms = new MemoryStream(bufferdelete))
             {
                 columna_delete.Image = Image.FromStream(ms);
-            }
-
-            dgvContenedor.Columns.Add(columna_delete);
-            dgvContenedor.Columns["Eliminar"].DisplayIndex = 8;
-            
-
+            }*/
         }
 
+        // Llamado a la clase conexión para la solicitud de los datos de los usuarios en las peticiones del form frmNotas
         Conexion conexion = new Conexion();
 
         #region Botones de Notas
@@ -124,12 +135,15 @@ namespace Wood_Notes
                 }
             }
             // Reconfigurando tamaño e imagen por defecto del boton reload en caso de cambio
-            string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\Reload.png";
+
+            /*string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\Reload.png";
             byte[] bufferdefaultreload = File.ReadAllBytes(Location);
             using (MemoryStream ms = new MemoryStream(bufferdefaultreload))
             {
                 btnReload.Image = Image.FromStream(ms);
-            }
+            }*/
+
+            btnReload.Image = Wood_Notes.Properties.Resources.refreshNotesIcon;
             btnReload.Size = new Size(39, 39);
         }
         #endregion

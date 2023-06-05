@@ -30,6 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWorkStation));
             this.PanelLateralLogo = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.lblId = new System.Windows.Forms.Label();
+            this.lblIdUser = new System.Windows.Forms.Label();
+            this.txtSinProposito = new System.Windows.Forms.TextBox();
+            this.panelTools = new System.Windows.Forms.Panel();
+            this.panelSuperior = new System.Windows.Forms.Panel();
+            this.panelEsc = new System.Windows.Forms.Panel();
+            this.panelContenido = new System.Windows.Forms.Panel();
+            this.btnSettingsSearch = new System.Windows.Forms.PictureBox();
+            this.pbProfilePicture = new Wood_Notes.RoundedPictureBox();
+            this.btnClose = new System.Windows.Forms.PictureBox();
+            this.btnMinimized = new System.Windows.Forms.PictureBox();
             this.panelMenuContent = new System.Windows.Forms.Panel();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.pbConfigIcon = new System.Windows.Forms.PictureBox();
@@ -43,20 +55,17 @@
             this.btnCalendario = new System.Windows.Forms.Button();
             this.btnCuenta = new System.Windows.Forms.Button();
             this.btnNotas = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.lblIdUser = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panelTools = new System.Windows.Forms.Panel();
-            this.panelSuperior = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panelEsc = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.PictureBox();
-            this.btnMinimized = new System.Windows.Forms.PictureBox();
-            this.panelContenido = new System.Windows.Forms.Panel();
-            this.pbProfilePicture = new Wood_Notes.RoundedPictureBox();
+            this.btnUserOptions = new System.Windows.Forms.Button();
             this.PanelLateralLogo.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            this.panelTools.SuspendLayout();
+            this.panelSuperior.SuspendLayout();
+            this.panelEsc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettingsSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
             this.panelMenuContent.SuspendLayout();
             this.panelButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfigIcon)).BeginInit();
@@ -64,15 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNotesIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenuIcon)).BeginInit();
-            this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelTools.SuspendLayout();
-            this.panelSuperior.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panelEsc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelLateralLogo
@@ -86,6 +87,143 @@
             this.PanelLateralLogo.Name = "PanelLateralLogo";
             this.PanelLateralLogo.Size = new System.Drawing.Size(260, 788);
             this.PanelLateralLogo.TabIndex = 0;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(260, 68);
+            this.panelLogo.TabIndex = 25;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.ForeColor = System.Drawing.Color.White;
+            this.lblId.Location = new System.Drawing.Point(632, 45);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(16, 13);
+            this.lblId.TabIndex = 1;
+            this.lblId.Text = "Id";
+            // 
+            // lblIdUser
+            // 
+            this.lblIdUser.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdUser.ForeColor = System.Drawing.Color.White;
+            this.lblIdUser.Location = new System.Drawing.Point(628, 23);
+            this.lblIdUser.MaximumSize = new System.Drawing.Size(100, 17);
+            this.lblIdUser.Name = "lblIdUser";
+            this.lblIdUser.Size = new System.Drawing.Size(100, 17);
+            this.lblIdUser.TabIndex = 0;
+            this.lblIdUser.Text = "UserName";
+            // 
+            // txtSinProposito
+            // 
+            this.txtSinProposito.BackColor = System.Drawing.Color.White;
+            this.txtSinProposito.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSinProposito.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSinProposito.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSinProposito.Location = new System.Drawing.Point(44, 22);
+            this.txtSinProposito.Multiline = true;
+            this.txtSinProposito.Name = "txtSinProposito";
+            this.txtSinProposito.Size = new System.Drawing.Size(365, 27);
+            this.txtSinProposito.TabIndex = 1;
+            this.txtSinProposito.Text = "Buscar";
+            // 
+            // panelTools
+            // 
+            this.panelTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panelTools.Controls.Add(this.panelSuperior);
+            this.panelTools.Controls.Add(this.panelEsc);
+            this.panelTools.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTools.Location = new System.Drawing.Point(260, 0);
+            this.panelTools.Name = "panelTools";
+            this.panelTools.Size = new System.Drawing.Size(1061, 68);
+            this.panelTools.TabIndex = 13;
+            // 
+            // panelSuperior
+            // 
+            this.panelSuperior.BackColor = System.Drawing.Color.Transparent;
+            this.panelSuperior.Controls.Add(this.btnUserOptions);
+            this.panelSuperior.Controls.Add(this.btnSettingsSearch);
+            this.panelSuperior.Controls.Add(this.pbProfilePicture);
+            this.panelSuperior.Controls.Add(this.lblId);
+            this.panelSuperior.Controls.Add(this.lblIdUser);
+            this.panelSuperior.Controls.Add(this.txtSinProposito);
+            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSuperior.Location = new System.Drawing.Point(0, 0);
+            this.panelSuperior.Name = "panelSuperior";
+            this.panelSuperior.Size = new System.Drawing.Size(963, 68);
+            this.panelSuperior.TabIndex = 0;
+            // 
+            // panelEsc
+            // 
+            this.panelEsc.BackColor = System.Drawing.Color.Transparent;
+            this.panelEsc.Controls.Add(this.btnClose);
+            this.panelEsc.Controls.Add(this.btnMinimized);
+            this.panelEsc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelEsc.Location = new System.Drawing.Point(963, 0);
+            this.panelEsc.Name = "panelEsc";
+            this.panelEsc.Size = new System.Drawing.Size(98, 68);
+            this.panelEsc.TabIndex = 0;
+            // 
+            // panelContenido
+            // 
+            this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenido.Location = new System.Drawing.Point(260, 68);
+            this.panelContenido.Name = "panelContenido";
+            this.panelContenido.Size = new System.Drawing.Size(1061, 720);
+            this.panelContenido.TabIndex = 14;
+            // 
+            // btnSettingsSearch
+            // 
+            this.btnSettingsSearch.Image = global::Wood_Notes.Properties.Resources.searchIcon;
+            this.btnSettingsSearch.Location = new System.Drawing.Point(428, 13);
+            this.btnSettingsSearch.Name = "btnSettingsSearch";
+            this.btnSettingsSearch.Size = new System.Drawing.Size(40, 40);
+            this.btnSettingsSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSettingsSearch.TabIndex = 8;
+            this.btnSettingsSearch.TabStop = false;
+            // 
+            // pbProfilePicture
+            // 
+            this.pbProfilePicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pbProfilePicture.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.pbProfilePicture.BorderColor2 = System.Drawing.Color.HotPink;
+            this.pbProfilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pbProfilePicture.BorderSize = 2;
+            this.pbProfilePicture.Location = new System.Drawing.Point(562, 4);
+            this.pbProfilePicture.Name = "pbProfilePicture";
+            this.pbProfilePicture.Size = new System.Drawing.Size(60, 60);
+            this.pbProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfilePicture.TabIndex = 7;
+            this.pbProfilePicture.TabStop = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Image = global::Wood_Notes.Properties.Resources.CloseWindows;
+            this.btnClose.Location = new System.Drawing.Point(56, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnClose.TabIndex = 7;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMinimized
+            // 
+            this.btnMinimized.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimized.Image = global::Wood_Notes.Properties.Resources.MinimizeWindow;
+            this.btnMinimized.Location = new System.Drawing.Point(15, 12);
+            this.btnMinimized.Name = "btnMinimized";
+            this.btnMinimized.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimized.TabIndex = 8;
+            this.btnMinimized.TabStop = false;
+            this.btnMinimized.Click += new System.EventHandler(this.btnMinimized_Click);
             // 
             // panelMenuContent
             // 
@@ -277,16 +415,6 @@
             this.btnNotas.MouseEnter += new System.EventHandler(this.btnNotas_MouseEnter);
             this.btnNotas.MouseLeave += new System.EventHandler(this.btnNotas_MouseLeave);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panelLogo.Controls.Add(this.pictureBox1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(260, 68);
-            this.panelLogo.TabIndex = 25;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -298,129 +426,19 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // lblId
+            // btnUserOptions
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(796, 36);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(38, 13);
-            this.lblId.TabIndex = 1;
-            this.lblId.Text = "IdUser";
-            // 
-            // lblIdUser
-            // 
-            this.lblIdUser.AutoSize = true;
-            this.lblIdUser.Location = new System.Drawing.Point(796, 13);
-            this.lblIdUser.Name = "lblIdUser";
-            this.lblIdUser.Size = new System.Drawing.Size(57, 13);
-            this.lblIdUser.TabIndex = 0;
-            this.lblIdUser.Text = "UserName";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.textBox1.Location = new System.Drawing.Point(44, 22);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(589, 27);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Buscar";
-            // 
-            // panelTools
-            // 
-            this.panelTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panelTools.Controls.Add(this.panelSuperior);
-            this.panelTools.Controls.Add(this.panelEsc);
-            this.panelTools.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTools.Location = new System.Drawing.Point(260, 0);
-            this.panelTools.Name = "panelTools";
-            this.panelTools.Size = new System.Drawing.Size(1061, 68);
-            this.panelTools.TabIndex = 13;
-            // 
-            // panelSuperior
-            // 
-            this.panelSuperior.BackColor = System.Drawing.Color.Transparent;
-            this.panelSuperior.Controls.Add(this.pbProfilePicture);
-            this.panelSuperior.Controls.Add(this.lblId);
-            this.panelSuperior.Controls.Add(this.lblIdUser);
-            this.panelSuperior.Controls.Add(this.textBox1);
-            this.panelSuperior.Controls.Add(this.pictureBox2);
-            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSuperior.Location = new System.Drawing.Point(0, 0);
-            this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(963, 68);
-            this.panelSuperior.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(648, 22);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panelEsc
-            // 
-            this.panelEsc.BackColor = System.Drawing.Color.Transparent;
-            this.panelEsc.Controls.Add(this.btnClose);
-            this.panelEsc.Controls.Add(this.btnMinimized);
-            this.panelEsc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelEsc.Location = new System.Drawing.Point(963, 0);
-            this.panelEsc.Name = "panelEsc";
-            this.panelEsc.Size = new System.Drawing.Size(98, 68);
-            this.panelEsc.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Image = global::Wood_Notes.Properties.Resources.CloseWindows;
-            this.btnClose.Location = new System.Drawing.Point(56, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnClose.TabIndex = 7;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnMinimized
-            // 
-            this.btnMinimized.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimized.Image = global::Wood_Notes.Properties.Resources.MinimizeWindow;
-            this.btnMinimized.Location = new System.Drawing.Point(15, 12);
-            this.btnMinimized.Name = "btnMinimized";
-            this.btnMinimized.Size = new System.Drawing.Size(30, 30);
-            this.btnMinimized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimized.TabIndex = 8;
-            this.btnMinimized.TabStop = false;
-            this.btnMinimized.Click += new System.EventHandler(this.btnMinimized_Click);
-            // 
-            // panelContenido
-            // 
-            this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenido.Location = new System.Drawing.Point(260, 68);
-            this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(1061, 720);
-            this.panelContenido.TabIndex = 14;
-            // 
-            // pbProfilePicture
-            // 
-            this.pbProfilePicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pbProfilePicture.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.pbProfilePicture.BorderColor2 = System.Drawing.Color.HotPink;
-            this.pbProfilePicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pbProfilePicture.BorderSize = 2;
-            this.pbProfilePicture.Location = new System.Drawing.Point(730, 3);
-            this.pbProfilePicture.Name = "pbProfilePicture";
-            this.pbProfilePicture.Size = new System.Drawing.Size(60, 60);
-            this.pbProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbProfilePicture.TabIndex = 7;
-            this.pbProfilePicture.TabStop = false;
+            this.btnUserOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(60)))), ((int)(((byte)(182)))));
+            this.btnUserOptions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(47)))), ((int)(((byte)(138)))));
+            this.btnUserOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(74)))), ((int)(((byte)(216)))));
+            this.btnUserOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserOptions.ForeColor = System.Drawing.Color.White;
+            this.btnUserOptions.Location = new System.Drawing.Point(738, 26);
+            this.btnUserOptions.Name = "btnUserOptions";
+            this.btnUserOptions.Size = new System.Drawing.Size(30, 23);
+            this.btnUserOptions.TabIndex = 9;
+            this.btnUserOptions.Text = "▼";
+            this.btnUserOptions.UseVisualStyleBackColor = false;
             // 
             // frmWorkStation
             // 
@@ -438,6 +456,15 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmWorkStation_Load);
             this.PanelLateralLogo.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            this.panelTools.ResumeLayout(false);
+            this.panelSuperior.ResumeLayout(false);
+            this.panelSuperior.PerformLayout();
+            this.panelEsc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettingsSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).EndInit();
             this.panelMenuContent.ResumeLayout(false);
             this.panelButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbConfigIcon)).EndInit();
@@ -445,16 +472,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbNotesIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenuIcon)).EndInit();
-            this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelTools.ResumeLayout(false);
-            this.panelSuperior.ResumeLayout(false);
-            this.panelSuperior.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelEsc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -463,8 +481,7 @@
 
         private System.Windows.Forms.Panel PanelLateralLogo;
         private System.Windows.Forms.Panel panelDetalles;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox txtSinProposito;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.PictureBox btnMinimized;
         private System.Windows.Forms.Button btnInicio;
@@ -488,6 +505,8 @@
         private System.Windows.Forms.PictureBox pbCalendarIcon;
         private System.Windows.Forms.Panel panelContenido;
         private System.Windows.Forms.PictureBox pbConfigIcon;
+        private System.Windows.Forms.PictureBox btnSettingsSearch;
+        private System.Windows.Forms.Button btnUserOptions;
     }
 }
 

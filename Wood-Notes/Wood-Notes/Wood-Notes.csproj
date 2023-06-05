@@ -285,6 +285,11 @@
     <None Include="Images\NotesMenu.png" />
     <None Include="Images\CalendarMenu.png" />
     <None Include="Images\ConfigMenu.png" />
+    <None Include="Images\searchIcon.png" />
+    <None Include="Images\editIcon.png" />
+    <None Include="Images\trashIcon.png" />
+    <None Include="Images\addNoteIcon.png" />
+    <None Include="Images\refreshNotesIcon.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

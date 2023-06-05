@@ -63,6 +63,16 @@ namespace Wood_Notes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addNoteIcon {
+            get {
+                object obj = ResourceManager.GetObject("addNoteIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap belice {
             get {
                 object obj = ResourceManager.GetObject("belice", resourceCulture);
@@ -146,6 +156,16 @@ namespace Wood_Notes.Properties {
         internal static System.Drawing.Bitmap costa_rica {
             get {
                 object obj = ResourceManager.GetObject("costa-rica", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editIcon {
+            get {
+                object obj = ResourceManager.GetObject("editIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +336,36 @@ namespace Wood_Notes.Properties {
         internal static System.Drawing.Bitmap passwordverified {
             get {
                 object obj = ResourceManager.GetObject("passwordverified", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refreshNotesIcon {
+            get {
+                object obj = ResourceManager.GetObject("refreshNotesIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchIcon {
+            get {
+                object obj = ResourceManager.GetObject("searchIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trashIcon {
+            get {
+                object obj = ResourceManager.GetObject("trashIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

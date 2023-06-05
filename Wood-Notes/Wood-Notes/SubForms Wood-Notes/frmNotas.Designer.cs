@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNotas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNotas));
             this.panelSuperior = new System.Windows.Forms.Panel();
             this.panelBuscadorNotas = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panelToolsNotas = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
-            this.btnAddNew = new System.Windows.Forms.PictureBox();
-            this.btnReload = new System.Windows.Forms.PictureBox();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.dgvContenedor = new System.Windows.Forms.DataGridView();
+            this.btnAddNew = new System.Windows.Forms.PictureBox();
+            this.btnReload = new System.Windows.Forms.PictureBox();
             this.panelSuperior.SuspendLayout();
             this.panelBuscadorNotas.SuspendLayout();
             this.panelToolsNotas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddNew)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReload)).BeginInit();
             this.panelTitulo.SuspendLayout();
             this.panelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContenedor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReload)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSuperior
@@ -126,32 +126,6 @@
             this.label.Size = new System.Drawing.Size(48, 13);
             this.label.TabIndex = 3;
             this.label.Text = "Agregar";
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddNew.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNew.Image")));
-            this.btnAddNew.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnAddNew.InitialImage")));
-            this.btnAddNew.Location = new System.Drawing.Point(109, 39);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(39, 39);
-            this.btnAddNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAddNew.TabIndex = 2;
-            this.btnAddNew.TabStop = false;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // btnReload
-            // 
-            this.btnReload.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReload.Image = ((System.Drawing.Image)(resources.GetObject("btnReload.Image")));
-            this.btnReload.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnReload.InitialImage")));
-            this.btnReload.Location = new System.Drawing.Point(38, 39);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(39, 39);
-            this.btnReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnReload.TabIndex = 1;
-            this.btnReload.TabStop = false;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // panelTitulo
             // 
@@ -260,6 +234,32 @@
             this.dgvContenedor.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContenedor_CellMouseMove);
             this.dgvContenedor.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContenedor_ColumnHeaderMouseClick);
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNew.Image = global::Wood_Notes.Properties.Resources.addNoteIcon;
+            this.btnAddNew.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnAddNew.InitialImage")));
+            this.btnAddNew.Location = new System.Drawing.Point(109, 39);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(39, 39);
+            this.btnAddNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAddNew.TabIndex = 2;
+            this.btnAddNew.TabStop = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
+            // btnReload
+            // 
+            this.btnReload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReload.Image = global::Wood_Notes.Properties.Resources.refreshNotesIcon;
+            this.btnReload.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnReload.InitialImage")));
+            this.btnReload.Location = new System.Drawing.Point(38, 39);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(39, 39);
+            this.btnReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnReload.TabIndex = 1;
+            this.btnReload.TabStop = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // frmNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,12 +275,12 @@
             this.panelBuscadorNotas.PerformLayout();
             this.panelToolsNotas.ResumeLayout(false);
             this.panelToolsNotas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddNew)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnReload)).EndInit();
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             this.panelPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContenedor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReload)).EndInit();
             this.ResumeLayout(false);
 
         }
