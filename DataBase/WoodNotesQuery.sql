@@ -90,8 +90,8 @@ insert into Users values('Pedro Melgar','Perez Bermudez','El Salvador','6163-164
 insert into UserCredentials values('Tilin',ENCRYPTBYPASSPHRASE(@hashkey,'contrasenasecreta','tilinsupremo@gmail.com')
 
 /* Eliminacion de usuarios de pruebas */
-delete from UserCredentials where idCredencial = 1
-delete from Users where idUsers = 1
+delete from UserCredentials where idCredencial = 2
+delete from Users where idUsers = 2
 
 -- Reset de Identity --
 DBCC CHECKIDENT ('Users',RESEED,1)
@@ -105,10 +105,16 @@ select idCredencial,nickname,pPassword from UserCredentials where nickname = 'El
 
 ---------------------------------------- Tabla UserNotes ------------------------------------------
 
-select * from UserNotes
+select * from UserNotes where idUsers = 1
 insert into UserNotes values('Wazaaaaa','Alerta presente que camaron que se duerme se lo lleva la corriente','2023-02-23','2023-02-23',66,null,2)
 insert into UserNotes values('Nota secreta','Vamono de fiesta factory, pero lleva mucho botiquin','2023-02-23','2023-02-23',60,null,2)
 insert into UserNotes values('Nota secreta pero del otro usuario','No llego tilin y tampoco ete sech','2023-02-23','2023-02-23',45,null,3)
+
+IF EXISTS (SELECT * FROM Users WHERE idUsers = 1)
+BEGIN
+INSERT INTO UserNotes (titulo, contenido, fecha, modificacion, caracteres, peso, idUsers)
+VALUES ('Wazaaaaa', 'Alerta presente que camaron que se duerme se lo lleva la corriente', '2023-02-23', '2023-02-23', 66, NULL, 1)
+END
 
 
 /* Reset de Tabla */
