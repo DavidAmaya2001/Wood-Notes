@@ -26,8 +26,12 @@ namespace Wood_Notes
         Point ppbCalendario;
         Point ppbConfig;
 
+
+
         private void frmWorkStation_Load(object sender, EventArgs e)
         {
+            
+
             // Asignación de diseño del boton y apertura del Menu de Inicio al entrar al sistema
             btnInicio.Size = new System.Drawing.Size(180, 60);
 
@@ -37,6 +41,11 @@ namespace Wood_Notes
             // Apertura de Conexion y petición de la imagen por medio del Id con el que ingreso al sistema (Peticion de Imagen a la base de Datos)
             conexion.AbrirConexion();
             ConseguirFoto(int.Parse(lblId.Text));
+
+            // Asignación del ID del usuario en la variable global para el uso en todos los form
+            Users.IdUserGlobal = lblId.Text;
+
+
 
             // Diseño de boton por defecto (Animación de Secciones)
             SelectedButton(btnInicio, pbMenuIcon);
@@ -48,6 +57,7 @@ namespace Wood_Notes
             ppbConfig = pbConfigIcon.Location;
 
             pbMenuIcon.Location = new Point(47, 111);
+            conexion.CerrarConexion();
 
         }
 
@@ -296,6 +306,7 @@ namespace Wood_Notes
 
         private void btnNotas_Click(object sender, EventArgs e)
         {
+
             AbrirForm<frmNotas>();
 
             // Diseño de los botones

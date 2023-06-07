@@ -11,6 +11,7 @@ namespace Wood_Notes
 {
     public class Conexion
     {
+        // Cadena de conexión que vincula a SQL Server
         static string conexionstring = "server= TUTIOELPOLLO-PC\\SQLSERVER; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);
 
@@ -48,11 +49,17 @@ namespace Wood_Notes
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
-        // Consulta de notas de SQL para cargar en el DataGridView
-        public DataTable ConsultaNotas()
+        // Consulta de notas de SQL para cargar en el DataGridView del form "frmNotas"
+        public DataTable ConsultaNotas(int idUsers)
         {
-            string query = "Select * from UserNotes";
+            // Query a utilizar para la consulta
+            string query = "Select * from UserNotes where idUsers = @userId";
+
+            // Asignando el query y la conexion abierta a SqlCommand
             SqlCommand comando = new SqlCommand(query, conexion);
+            comando.Parameters.AddWithValue("@userId", idUsers);
+
+            // Llenado el DataTable con el SqlDataAdapter que contiene el query
             SqlDataAdapter dataInfo = new SqlDataAdapter(comando);
             DataTable tabla = new DataTable();
             dataInfo.Fill(tabla);

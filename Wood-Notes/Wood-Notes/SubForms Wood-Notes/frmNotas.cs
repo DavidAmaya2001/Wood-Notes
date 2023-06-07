@@ -17,12 +17,18 @@ namespace Wood_Notes
 {
     public partial class frmNotas : Form
     {
+
         public frmNotas()
         {
-            
-            // Carga de Datos al form de Notas
+            #region Llenado de Datos del DataGridView
+            // Funcion de cargado del formulario frmNotas
             InitializeComponent();
-            DataTable Tabla = conexion.ConsultaNotas();
+
+            // Extraccion del id con el usuario ingresado
+            string idUserNotes = Users.IdUserGlobal;
+
+            // Asignacion de un objeto tipo DataTable para la extracción de los datos que se hace por la clase de Conexion
+            DataTable Tabla = conexion.ConsultaNotas(int.Parse(idUserNotes));
             dgvContenedor.DataSource = Tabla;
 
             //Generador del diseño y visibilidad de las columnas en el DataGridView
@@ -46,8 +52,9 @@ namespace Wood_Notes
             dgvContenedor.Columns[5].Visible = false;
             //dgvContenedor.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContenedor.Columns[6].Visible = false;
+            #endregion
 
-            
+            #region Agregado de columnas Edit y Delete
             // Agregado de columna de EDIT a cada Nota
             DataGridViewImageColumn columna_edit = new DataGridViewImageColumn();
             columna_edit.Name = "Editar";
@@ -89,36 +96,43 @@ namespace Wood_Notes
             {
                 columna_delete.Image = Image.FromStream(ms);
             }*/
+            #endregion
         }
 
-        // Llamado a la clase conexión para la solicitud de los datos de los usuarios en las peticiones del form frmNotas
+
+
+
+        // Objeto con referencia a la clase Conexion que contiene todo el funcionamiento y llamados a SQLServer
         Conexion conexion = new Conexion();
+
 
         #region Botones de Notas
 
-        // Abriendo formulario para agregar
+        // Apertura del formulario frmNotasSubMenu
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             Form formulario = new frmNotasSubMenu();
             formulario.ShowDialog();
         }
 
-        // Recarga Manual de formulario
+        // Funcion de recarga manual del DataGridView teniendo en cuenta si este contiene nuevos datos o algo en la barra de busqueda de notas
         private void btnReload_Click(object sender, EventArgs e)
         {
-            if (txtSearch.ForeColor == Color.Silver)    // Si no tiene contenido solo consulta los datos
+            if (txtSearch.ForeColor == Color.Silver)         // Si no hay busqueda en el controlador de texto entonces solo hará una consulta de todos los datos segun id
             {
-                DataTable Tabla = conexion.ConsultaNotas();
+                int idUsers = int.Parse(lblidUser.Text);
+                DataTable Tabla = conexion.ConsultaNotas(idUsers);
                 dgvContenedor.DataSource = Tabla;
 
             }
-            else if (txtSearch.ForeColor == Color.Black)     // Accede si tiene contenido
+            else if (txtSearch.ForeColor == Color.Black)     // si el controlador posee texto entonces se realizará una consulta de coincidencia de los datos segun id
             {
                 if (txtSearch.Text == "")                    // Si el campo esta con contenido pero vacio se le asigna el placeholder y carga los datos
                 {
                     txtSearch.Text = "Buscar por título";
                     txtSearch.ForeColor = Color.Silver;
-                    DataTable Tabla = conexion.ConsultaNotas();
+                    int idUsers = int.Parse(lblidUser.Text);
+                    DataTable Tabla = conexion.ConsultaNotas(idUsers);
                     dgvContenedor.DataSource = Tabla;
                     dgvContenedor.Focus();
                 }
@@ -126,7 +140,8 @@ namespace Wood_Notes
                 {
                     /*DataTable Tabla = conexion.BusquedaNotas(txtSearch.Text);
                     dgvContenedor.DataSource = Tabla;*/
-                    DataTable Tabla = conexion.ConsultaNotas();
+                    int idUsers = int.Parse(lblidUser.Text);
+                    DataTable Tabla = conexion.ConsultaNotas(idUsers);
                     dgvContenedor.DataSource = Tabla;         // Carga los datos con nuevas actualizaciones si es que las hay
                     BindingSource bs = new BindingSource();
                     bs.DataSource = dgvContenedor.DataSource;
@@ -148,21 +163,22 @@ namespace Wood_Notes
         }
         #endregion
 
-        #region Funciones del Buscador
+        #region UI y funciones extras del buscador
 
-        // Placeholder del buscador
+        // Asignacion del placeholder del buscador (Momento de entrar al controlador)
         private void txtSearch_Enter(object sender, EventArgs e)
         {
-            if (txtSearch.ForeColor == Color.Silver)
+            if (txtSearch.ForeColor == Color.Silver) // Si el contenido del controlador esta con el placeholder activo, este desaparecerá para que el usuario escriba
             {
                 txtSearch.Text = "";
                 txtSearch.ForeColor = Color.Black;
             }
         }
-        // Placeholder del buscador
+
+        // Asignacion del placeholder del buscador (Momento de salir del controlador)
         private void txtSearch_Leave(object sender, EventArgs e)
         {
-            if (txtSearch.ForeColor == Color.Black && txtSearch.Text == "")
+            if (txtSearch.ForeColor == Color.Black && txtSearch.Text == "") // Si el contenido del controlador se encuentra vacio entonces se le asigna el placeholder
             {
                 txtSearch.Text = "Buscar por título";
                 txtSearch.ForeColor = Color.Silver;
@@ -172,7 +188,7 @@ namespace Wood_Notes
         // Impedir el uso del Enter
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) // Funcion que deshabilita el uso del enter en el controlador de busqueda
             {
                 e.Handled = true;
                 return;
@@ -180,7 +196,6 @@ namespace Wood_Notes
         }
 
         #endregion
-
 
         #region Buscador Automatico y Dinamico
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -214,8 +229,9 @@ namespace Wood_Notes
         #region Compartido de datos con el formulario de edición y eliminación
         private void dgvContenedor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            /* Toma de datos de la celda seleccionada del datagridview y compartiendolas al formulario secundario
-               donde se realizarán los cambios */
+            /* Toma de datos de la celda seleccionada del datagridview y compartiendolas al formulario frmNotasSubMenu2 donde se realizarán los cambios */
+
+            // Seleccion de la celda de edición para el traspaso de los datos de la nota segun idNota
             if (e.RowIndex >= 0 && dgvContenedor.Columns[e.ColumnIndex].Name=="Editar")
             {
                 // Guardado de datos en variables para almacenarlos en la clase Load
@@ -252,31 +268,42 @@ namespace Wood_Notes
                     formulario.lblcontador.Text = Load.getCaracteres().ToString();
                     formulario.ShowDialog();
             }
+
+            // Selección de la celda de eliminacion para eliminar los datos de la nota segun idNota de la base de datos
             else if (e.RowIndex >= 0 && dgvContenedor.Columns[e.ColumnIndex].Name == "Eliminar")
             {
+                // Cuadro de confirmación
                 DialogResult resultado = MessageBox.Show("¿Está seguro que desea eliminar la siguiente nota?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
+                // Caso que se desea eliminar:
                 if (resultado == DialogResult.OK)
                 {
+                    // Obtención del idNota
                     int idNota = Convert.ToInt32(dgvContenedor.SelectedRows[0].Cells["IdNota"].Value);
-                    Conexion conexion = new Conexion();
+
+                    // Apertura de la conexión con SQLServer
                     conexion.AbrirConexion();
+
+                    // Funcion de la clase Conexion para la eliminación de la nota segun idNota
                     conexion.EliminarDato(idNota);
+
+                    // Cierre de la conexión con SqlServer
                     conexion.CerrarConexion();
                     MessageBox.Show("La nota se ha eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                     // Redimensionando Reload por cambio realizado
                     btnReload.Size = new Size(43,43);
-                    string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
+                    btnReload.Image = Wood_Notes.Properties.Resources.updateNotesIcon;
+                    /*string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
                     byte[] bufferdefaultreload = File.ReadAllBytes(Location);
                     using (MemoryStream ms = new MemoryStream(bufferdefaultreload))
                     {
                         btnReload.Image = Image.FromStream(ms);
-                    }
+                    }*/
+
                 }
             }
             dgvContenedor.Visible = true;
-
         }
         #endregion
 
@@ -287,6 +314,7 @@ namespace Wood_Notes
         {
             return;
         }
+
         // Hover de las filas al sobrepasar el mouse sobre las celdas
         private void dgvContenedor_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -295,12 +323,13 @@ namespace Wood_Notes
             style.BackColor = Color.FromArgb(50, 95, 255);
             style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-
+            // Cambios unicamente aplicables si son los Row que contiene los datos y no los Headers
             if (e.RowIndex > -1)
             {
                 dgvContenedor.Rows[e.RowIndex].DefaultCellStyle = style;
             }
         }
+
         // Regreso al color por defecto luego de ejecutar el evento del MouseMove (Hover)
         private void dgvContenedor_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
@@ -310,6 +339,7 @@ namespace Wood_Notes
             style2.BackColor = Color.RoyalBlue;
             style2.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
+            // Cambios unicamente aplicables si son los Row que contiene los datos y no los Headers
             if (e.RowIndex > -1)
             {
                 dgvContenedor.Rows[e.RowIndex].DefaultCellStyle = style2;

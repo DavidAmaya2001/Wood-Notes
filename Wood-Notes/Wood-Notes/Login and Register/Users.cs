@@ -16,6 +16,9 @@ namespace Wood_Notes
 {
     public class Users : Conexion
     {
+        // Variable que posee el id con el usuario ingresado
+        public static string IdUserGlobal;
+
         // Apertura de conexion con la base de datos WoodNotesDB
         static string conexionstring = "server= TUTIOELPOLLO-PC\\SQLSERVER; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);

@@ -290,6 +290,7 @@
     <None Include="Images\trashIcon.png" />
     <None Include="Images\addNoteIcon.png" />
     <None Include="Images\refreshNotesIcon.png" />
+    <None Include="Images\updateNotesIcon.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

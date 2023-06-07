@@ -47,7 +47,6 @@ namespace Wood_Notes
                     frmMain.lblIdUser.Text = ingresoUsers.getUsuario();
                     frmMain.lblId.Text = ingresoUsers.getId().ToString();
 
-
                     frmMain.ShowDialog();
                     this.Hide();
                 }
