@@ -116,10 +116,12 @@ INSERT INTO UserNotes (titulo, contenido, fecha, modificacion, caracteres, peso,
 VALUES ('Wazaaaaa', 'Alerta presente que camaron que se duerme se lo lleva la corriente', '2023-02-23', '2023-02-23', 66, NULL, 1)
 END
 
+DBCC CHECKIDENT ('UserNotes',RESEED,1)
+
 
 /* Reset de Tabla */
 truncate table UserNotes
 
 ----------------------------------------- Actualizaciones ------------------------------------------
 
-update UserNotes set titulo = 'El wazaaaa supremo', contenido = 'Alerta presente que camaron que se duerme se lo lleva la corriente vol.2 del batallon atlacatl', modificacion = '2023-02-24' where idNota=1 and idUsers = 1
+update UserNotes set titulo = 'El wazaaaa supremo', contenido = 'Alerta presente que camaron que se duerme se lo lleva la corriente vol.2 del batallon atlacatl', modificacion = '2023-02-24' where idNota=3 and idUsers = 1
