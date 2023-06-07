@@ -11,9 +11,11 @@ namespace Wood_Notes
 {
     public class Conexion
     {
-        static string conexionstring = "server= DESKTOP-DGI3QEQ\\SQLEXPRESS; database= WoodNotesDB; integrated security= true";
+        // Cadena de conexión que vincula a SQL Server
+        static string conexionstring = "server= TUTIOELPOLLO-PC\\SQLSERVER; database= WoodNotesDB; integrated security= true";
         SqlConnection conexion = new SqlConnection(conexionstring);
 
+        #region Apertura y cierre de conexion
         public void AbrirConexion()
         {
             conexion.Open();
@@ -23,23 +25,47 @@ namespace Wood_Notes
         {
             conexion.Close();
         }
+        #endregion
 
-        public void InsertarNotas(string Titulo, string Nota, string Fecha)
+        #region Consultas a SQL
+        // Insercion de Notas desde el formulario a SQL Server
+        public void InsertarNotas(string Titulo, string Nota, string Fecha, int Caracteres)
         {
-            string cadena = "insert into UserNotes([Titulo],[Contenido],[Fecha]) values ('" + Titulo + "','" + Nota + "','" + Fecha + "')";
+            string cadena = "insert into UserNotes([Titulo],[Contenido],[Fecha],[Modificacion],[Caracteres]) values ('" + Titulo + "','" + Nota + "','" + Fecha + "','" + Fecha + "','" + Caracteres + "')";
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
-
-        public DataTable ConsultaNotas()
+        // Peticion de eliminacion de dato hacia SQL Server
+        public void EliminarDato(int Id)
         {
-            string query = "Select * from UserNotes";
+            string cadena = "delete from UserNotes where IdNota =" + Id;
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            comando.ExecuteNonQuery();
+        }
+        // Peticion de modificacion de dato hacia SQL Server
+        public void ModificarDato(int Id, string Titulo, string Nota, string Fecha, int Caracteres)
+        {
+            string cadena = "update UserNotes set Titulo='" + Titulo + "',Contenido='" + Nota + "',Modificacion='" + Fecha + "',Caracteres='" + Caracteres +"'  where IdNota =" + Id;
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            comando.ExecuteNonQuery();
+        }
+        // Consulta de notas de SQL para cargar en el DataGridView del form "frmNotas"
+        public DataTable ConsultaNotas(int idUsers)
+        {
+            // Query a utilizar para la consulta
+            string query = "Select * from UserNotes where idUsers = @userId";
+
+            // Asignando el query y la conexion abierta a SqlCommand
             SqlCommand comando = new SqlCommand(query, conexion);
+            comando.Parameters.AddWithValue("@userId", idUsers);
+
+            // Llenado el DataTable con el SqlDataAdapter que contiene el query
             SqlDataAdapter dataInfo = new SqlDataAdapter(comando);
             DataTable tabla = new DataTable();
             dataInfo.Fill(tabla);
             return tabla;
         }
+        // Busqueda de notas por medio de el titulo
         public DataTable BusquedaNotas(string Titulo)
         {
             string query = "Select * from UserNotes where Titulo = '" + Titulo + "'";
@@ -49,5 +75,7 @@ namespace Wood_Notes
             dataInfo.Fill(tabla);
             return tabla;
         }
+
+        #endregion
     }
 }
