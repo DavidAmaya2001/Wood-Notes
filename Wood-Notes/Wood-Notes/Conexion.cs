@@ -29,23 +29,23 @@ namespace Wood_Notes
 
         #region Consultas a SQL
         // Insercion de Notas desde el formulario a SQL Server
-        public void InsertarNotas(string Titulo, string Nota, string Fecha, int Caracteres)
+        public void InsertarNotas(string Titulo, string Nota, string Fecha, int Caracteres, int idUsers)
         {
-            string cadena = "insert into UserNotes([Titulo],[Contenido],[Fecha],[Modificacion],[Caracteres]) values ('" + Titulo + "','" + Nota + "','" + Fecha + "','" + Fecha + "','" + Caracteres + "')";
+            string cadena = "insert into UserNotes([Titulo],[Contenido],[Fecha],[Modificacion],[Caracteres],[peso],[idUsers]) values ('" + Titulo + "','" + Nota + "','" + Fecha + "','" + Fecha + "','" + Caracteres + "', NULL , '" + idUsers + "')";
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
         // Peticion de eliminacion de dato hacia SQL Server
-        public void EliminarDato(int Id)
+        public void EliminarDato(int Id, int idUsers)
         {
             string cadena = "delete from UserNotes where IdNota =" + Id;
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
         // Peticion de modificacion de dato hacia SQL Server
-        public void ModificarDato(int Id, string Titulo, string Nota, string Fecha, int Caracteres)
+        public void ModificarDato(int Id, string Titulo, string Nota, string Fecha, int Caracteres, int idUsers)
         {
-            string cadena = "update UserNotes set Titulo='" + Titulo + "',Contenido='" + Nota + "',Modificacion='" + Fecha + "',Caracteres='" + Caracteres +"'  where IdNota =" + Id;
+            string cadena = "update UserNotes set Titulo='" + Titulo + "',Contenido='" + Nota + "',Modificacion='" + Fecha + "',Caracteres='" + Caracteres +"'  where IdNota =" + Id + "and idUsers =" + idUsers;
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }

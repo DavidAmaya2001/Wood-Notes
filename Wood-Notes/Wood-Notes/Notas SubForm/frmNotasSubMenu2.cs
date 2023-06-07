@@ -13,6 +13,13 @@ namespace Wood_Notes
 {
     public partial class frmNotasSubMenu2 : Form
     {
+
+        // Variable id Global a Local
+        string idUserNotes = Users.IdUserGlobal;
+
+        bool tituloVerified = false;
+        bool notaVerified = false;
+
         public frmNotasSubMenu2()
         {
             InitializeComponent();
@@ -45,8 +52,13 @@ namespace Wood_Notes
         {
             if (txtTitulo.Text == "")
             {
+                tituloVerified = false;
                 txtTitulo.Text = "Título";
                 txtTitulo.ForeColor = Color.Silver;
+            }
+            else
+            {
+                tituloVerified = true;
             }
         }
 
@@ -70,8 +82,13 @@ namespace Wood_Notes
         {
             if (rtxtNota.Text == "")
             {
+                notaVerified = false;
                 rtxtNota.Text = "Escribe una nota";
                 rtxtNota.ForeColor = Color.Silver;
+            }
+            else
+            {
+                notaVerified = true;
             }
         }
 
@@ -129,23 +146,25 @@ namespace Wood_Notes
             {
                 dtpNewDate.Value = DateTime.Now;
                 // Verificación de campos vacios en los textbox
-                if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
+                if (tituloVerified && notaVerified)
                 {
                     conexion.AbrirConexion();
                     // Modificar para agregar el campo de ultimo cambio aparte del cambo de fecha de creación
-                    conexion.ModificarDato(Convert.ToInt32(txtId.Text), txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text, Convert.ToInt32(lblcontador.Text));
+                    conexion.ModificarDato(Convert.ToInt32(txtId.Text), txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text, Convert.ToInt32(lblcontador.Text), int.Parse(idUserNotes));
                     conexion.CerrarConexion();
+                    tituloVerified = false;
+                    notaVerified = false;
                     panelMenu.Visible = false;
                     MessageBox.Show("El cambio se realizó correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    if (txtTitulo.ForeColor == Color.Silver)
+                    if (!tituloVerified)
                     {
                         errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
                         errorNota.Clear();
                     }
-                    else if (rtxtNota.ForeColor == Color.Silver)
+                    else if (!notaVerified)
                     {
                         errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
                         errorTitulo.Clear();
@@ -166,6 +185,11 @@ namespace Wood_Notes
         // Boton que ejecuta la funcion de la clase Conexion para poder eliminar los datos de la base de datos
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
+            if(txtTitulo.Text.Length != 0 && rtxtNota.Text.Length != 0)
+            {
+                tituloVerified = true;
+                notaVerified = true;
+            }
 
             // Mensaje de confirmación
             DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar la siguiente nota?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -173,22 +197,26 @@ namespace Wood_Notes
             if (result == DialogResult.OK)
             {
                 // Verificación de campos vacios en los textbox
-                if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
+                if (tituloVerified && notaVerified)
                 {
                     frmNotas formularionotas = new frmNotas();
                     formularionotas.btnReload.Size = new Size(43, 43);
-                    string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
+                    /*string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
                     byte[] buffereload = File.ReadAllBytes(Location);
                     using (MemoryStream ms = new MemoryStream(buffereload))
                     {
                         formularionotas.btnReload.Image = Image.FromStream(ms);
                     }
+                    */
+                    formularionotas.btnReload.Image = Wood_Notes.Properties.Resources.updateNotesIcon;
 
 
                     conexion.AbrirConexion();
-                    conexion.EliminarDato(Convert.ToInt32(txtId.Text));
+                    conexion.EliminarDato(Convert.ToInt32(txtId.Text), int.Parse(idUserNotes));
                     txtTitulo.Text = "";
                     rtxtNota.Text = "";
+                    tituloVerified = false;
+                    notaVerified = false;
                     dtpNewDate.Value = DateTime.Now;
                     conexion.CerrarConexion();
                     MessageBox.Show("La nota se ha eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -17,6 +17,8 @@ namespace Wood_Notes
 {
     public partial class frmNotas : Form
     {
+        // Variable de Id global a local
+        string idUserNotes = Users.IdUserGlobal;
 
         public frmNotas()
         {
@@ -25,7 +27,7 @@ namespace Wood_Notes
             InitializeComponent();
 
             // Extraccion del id con el usuario ingresado
-            string idUserNotes = Users.IdUserGlobal;
+            
 
             // Asignacion de un objeto tipo DataTable para la extracción de los datos que se hace por la clase de Conexion
             DataTable Tabla = conexion.ConsultaNotas(int.Parse(idUserNotes));
@@ -33,25 +35,37 @@ namespace Wood_Notes
 
             //Generador del diseño y visibilidad de las columnas en el DataGridView
 
-            //dgvContenedor.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+              //dgvContenedor.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // Columna idNota
             dgvContenedor.Columns[0].Width = 100;
             dgvContenedor.Columns[0].Visible = false;
-            //dgvContenedor.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[1].Width = 700;
+
+            // Columna Titulo
+            dgvContenedor.Columns[1].Width = 650;
             dgvContenedor.Columns[1].Visible = true;
-            //dgvContenedor.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[2].Width = 605;
+
+            // Columna contenido
+            dgvContenedor.Columns[2].Width = 600;
             dgvContenedor.Columns[2].Visible = false;
-            //dgvContenedor.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // Columna fecha
             dgvContenedor.Columns[3].Width = 10;
             dgvContenedor.Columns[3].Visible = false;
-            //dgvContenedor.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvContenedor.Columns[4].Width = 186;
+
+            // Columna modificacion
+            dgvContenedor.Columns[4].Width = 205;
             dgvContenedor.Columns[4].Visible = true;
-            //dgvContenedor.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // Columna caracteres
             dgvContenedor.Columns[5].Visible = false;
-            //dgvContenedor.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // Columna peso
             dgvContenedor.Columns[6].Visible = false;
+
+            // Columna idUsers
+            dgvContenedor.Columns[7].Visible = false;
+
             #endregion
 
             #region Agregado de columnas Edit y Delete
@@ -59,7 +73,7 @@ namespace Wood_Notes
             DataGridViewImageColumn columna_edit = new DataGridViewImageColumn();
             columna_edit.Name = "Editar";
             columna_edit.HeaderText = "Editar";
-            columna_edit.Width = 80;
+            columna_edit.Width = 102;
             columna_edit.DisplayIndex = 7;
             columna_edit.Image = Wood_Notes.Properties.Resources.editIcon;
 
@@ -80,7 +94,7 @@ namespace Wood_Notes
             DataGridViewImageColumn columna_delete = new DataGridViewImageColumn();
             columna_delete.Name = "Eliminar";
             columna_delete.HeaderText = "Eliminar";
-            columna_delete.Width = 80;
+            columna_delete.Width = 102;
             columna_delete.DisplayIndex = 8;
             columna_delete.Image = Wood_Notes.Properties.Resources.trashIcon;
 
@@ -120,7 +134,7 @@ namespace Wood_Notes
         {
             if (txtSearch.ForeColor == Color.Silver)         // Si no hay busqueda en el controlador de texto entonces solo hará una consulta de todos los datos segun id
             {
-                int idUsers = int.Parse(lblidUser.Text);
+                int idUsers = int.Parse(idUserNotes);
                 DataTable Tabla = conexion.ConsultaNotas(idUsers);
                 dgvContenedor.DataSource = Tabla;
 
@@ -131,7 +145,7 @@ namespace Wood_Notes
                 {
                     txtSearch.Text = "Buscar por título";
                     txtSearch.ForeColor = Color.Silver;
-                    int idUsers = int.Parse(lblidUser.Text);
+                    int idUsers = int.Parse(idUserNotes);
                     DataTable Tabla = conexion.ConsultaNotas(idUsers);
                     dgvContenedor.DataSource = Tabla;
                     dgvContenedor.Focus();
@@ -140,7 +154,7 @@ namespace Wood_Notes
                 {
                     /*DataTable Tabla = conexion.BusquedaNotas(txtSearch.Text);
                     dgvContenedor.DataSource = Tabla;*/
-                    int idUsers = int.Parse(lblidUser.Text);
+                    int idUsers = int.Parse(idUserNotes);
                     DataTable Tabla = conexion.ConsultaNotas(idUsers);
                     dgvContenedor.DataSource = Tabla;         // Carga los datos con nuevas actualizaciones si es que las hay
                     BindingSource bs = new BindingSource();
@@ -285,7 +299,7 @@ namespace Wood_Notes
                     conexion.AbrirConexion();
 
                     // Funcion de la clase Conexion para la eliminación de la nota segun idNota
-                    conexion.EliminarDato(idNota);
+                    conexion.EliminarDato(idNota, int.Parse(idUserNotes));
 
                     // Cierre de la conexión con SqlServer
                     conexion.CerrarConexion();

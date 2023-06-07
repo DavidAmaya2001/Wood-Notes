@@ -15,6 +15,11 @@ namespace Wood_Notes
 {
     public partial class frmNotasSubMenu : Form
     {
+        // Variable id Global a Local
+        string idUserNotes = Users.IdUserGlobal;
+
+        bool tituloVerified = false;
+        bool notaVerified = false;
 
         // Estableciendo conexion y ajustando parametros de los controladores
         Conexion conexion = new Conexion();
@@ -62,23 +67,26 @@ namespace Wood_Notes
             if (result == DialogResult.OK)
             {
                 // Verificacion de campos vacios de una nueva nota
-                if (txtTitulo.ForeColor != Color.Silver && rtxtNota.ForeColor != Color.Silver)
+                if ( tituloVerified && notaVerified)
                 {
-                    conexion.InsertarNotas(txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text,Convert.ToInt32(lblcontador.Text));
+                    // Inserción de los datos si todo esta correctamente validado
+                    conexion.InsertarNotas(txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text,Convert.ToInt32(lblcontador.Text),/*peso,*/int.Parse(idUserNotes));
                     txtTitulo.Text = "";
                     rtxtNota.Text = "";
                     dtpNewDate.Value = DateTime.Now;
                     panelMenu.Visible = false;
+                    tituloVerified = false;
+                    notaVerified = false;
                     MessageBox.Show("La nota se agrego correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    if (txtTitulo.ForeColor == Color.Silver)
+                    if (!tituloVerified)
                     {
                         errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
                         errorNota.Clear();
                     }
-                    else if (rtxtNota.ForeColor == Color.Silver)
+                    else if (!notaVerified)
                     {
                         errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
                         errorTitulo.Clear();
@@ -165,8 +173,13 @@ namespace Wood_Notes
         {
             if (txtTitulo.Text == "")
             {
+                tituloVerified = false;
                 txtTitulo.Text = "Título";
                 txtTitulo.ForeColor = Color.Silver;
+            }
+            else
+            {
+                tituloVerified=true;
             }
         }
 
@@ -190,8 +203,13 @@ namespace Wood_Notes
         {
             if (rtxtNota.Text == "")
             {
+                notaVerified = false;
                 rtxtNota.Text = "Escribe una nota";
                 rtxtNota.ForeColor = Color.Silver;
+            }
+            else
+            {
+                notaVerified = true;
             }
         }
 

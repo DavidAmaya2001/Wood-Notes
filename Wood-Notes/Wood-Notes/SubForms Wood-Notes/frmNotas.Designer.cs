@@ -43,7 +43,6 @@
             this.btnAddNew = new System.Windows.Forms.PictureBox();
             this.btnReload = new System.Windows.Forms.PictureBox();
             this.panelTitulo = new System.Windows.Forms.Panel();
-            this.lblidUser = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.dgvContenedor = new System.Windows.Forms.DataGridView();
@@ -157,22 +156,12 @@
             // panelTitulo
             // 
             this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panelTitulo.Controls.Add(this.lblidUser);
             this.panelTitulo.Controls.Add(this.label1);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(251, 117);
             this.panelTitulo.TabIndex = 1;
-            // 
-            // lblidUser
-            // 
-            this.lblidUser.AutoSize = true;
-            this.lblidUser.Location = new System.Drawing.Point(58, 83);
-            this.lblidUser.Name = "lblidUser";
-            this.lblidUser.Size = new System.Drawing.Size(44, 13);
-            this.lblidUser.TabIndex = 1;
-            this.lblidUser.Text = "idsecret";
             // 
             // label1
             // 
@@ -202,8 +191,8 @@
             this.dgvContenedor.AllowUserToDeleteRows = false;
             this.dgvContenedor.AllowUserToResizeColumns = false;
             this.dgvContenedor.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
             this.dgvContenedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvContenedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvContenedor.BackgroundColor = System.Drawing.Color.White;
@@ -310,6 +299,5 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.PictureBox btnReload;
-        public System.Windows.Forms.Label lblidUser;
     }
 }
