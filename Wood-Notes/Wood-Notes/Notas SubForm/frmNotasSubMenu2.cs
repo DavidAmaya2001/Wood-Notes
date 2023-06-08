@@ -323,36 +323,34 @@ namespace Wood_Notes
         // Boton que abre el formulario de detalles
         private void btnDetalles_Click(object sender, EventArgs e)
         {
-            // Paso de datos hacia el formulario detalles
-            formulariodetalles.txtId.Text = txtId.Text;
-            if(txtCreacion.Text.Length == 19)
-            {
-                formulariodetalles.txtCreacion.Text = txtCreacion.Text.Substring(0, 11);
-            }
-            else if(txtCreacion.Text.Length == 18)
-            {
-                formulariodetalles.txtCreacion.Text = txtCreacion.Text.Substring(0, 10);
-            }
-            else
-            {
-                formulariodetalles.txtCreacion.Text = txtCreacion.Text.Substring(0, 9);
-            }
+            // Traspaso de información de la nota (en base de datos) al form Detalles
+            int IdNota = int.Parse(txtId.Text);
+            int idUsers = int.Parse(idUserNotes);
 
-            if(txtMod.Text.Length == 19)
-            {
-                formulariodetalles.txtModificacion.Text = txtMod.Text.Substring(0,11);
-            }
-            else if(txtMod.Text.Length == 18)
-            {
-                formulariodetalles.txtModificacion.Text = txtMod.Text.Substring(0, 10);
-            }
-            else
-            {
-                formulariodetalles.txtModificacion.Text = txtMod.Text.Substring(0, 9);
-            }
-            
-            
-            formulariodetalles.txtCaracteres.Text = lblcontador.Text;
+            // Apertura de la conexión, Consulta de los detalles de la nota a la base de datos y cierre de conexión
+            conexion.AbrirConexion();
+            conexion.ConsultaDetalles(IdNota, idUsers);
+            conexion.CerrarConexion();
+
+            // Traspaso de todos los datos a los componentes del form frmDetalles
+
+            // Variables globales de notas a Local
+            int idNota = Conexion.idNota;
+            string tituloNota = Conexion.tituloNota;
+            string fechaNota = Conexion.fecha;
+            string modificacionNota = Conexion.modificacion;
+            string caracteresNota = Conexion.caracteres;
+            string pesoNota = Conexion.peso;
+
+            // moviendo datos a controladores label
+            formulariodetalles.txtId.Text = idNota.ToString();
+            formulariodetalles.txtTitulo.Text = tituloNota;
+            formulariodetalles.txtCreacion.Text = fechaNota;
+            formulariodetalles.txtModificacion.Text = modificacionNota;
+            formulariodetalles.txtCaracteres.Text = caracteresNota;
+            formulariodetalles.txtPeso.Text = pesoNota;
+
+
 
             // Abriendo formulario detalles
             panelMenu.Visible = false;

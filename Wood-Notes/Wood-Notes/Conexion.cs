@@ -35,6 +35,7 @@ namespace Wood_Notes
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
+
         // Peticion de eliminacion de dato hacia SQL Server
         public void EliminarDato(int Id, int idUsers)
         {
@@ -42,6 +43,7 @@ namespace Wood_Notes
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
+
         // Peticion de modificacion de dato hacia SQL Server
         public void ModificarDato(int Id, string Titulo, string Nota, string Fecha, int Caracteres, int idUsers)
         {
@@ -49,6 +51,7 @@ namespace Wood_Notes
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
         }
+
         // Consulta de notas de SQL para cargar en el DataGridView del form "frmNotas"
         public DataTable ConsultaNotas(int idUsers)
         {
@@ -65,6 +68,7 @@ namespace Wood_Notes
             dataInfo.Fill(tabla);
             return tabla;
         }
+
         // Busqueda de notas por medio de el titulo
         public DataTable BusquedaNotas(string Titulo)
         {
@@ -74,6 +78,40 @@ namespace Wood_Notes
             DataTable tabla = new DataTable();
             dataInfo.Fill(tabla);
             return tabla;
+        }
+
+        public static int idNota;
+        public static string tituloNota;
+        public static string fecha;
+        public static string modificacion;
+        public static string caracteres;
+        public static string peso;
+
+        public void ConsultaDetalles(int IdNota, int idUsers)
+        {
+            // Query a utilizar para la consulta
+            string query = "Select idNota,titulo,fecha,modificacion,caracteres,peso from UserNotes where idUsers = @userId and idNota = @notaId";
+            
+            // Asignando el query y la conexion abierta al SqlCommand
+            SqlCommand comando = new SqlCommand(query, conexion);
+            comando.Parameters.AddWithValue("@userId", idUsers);
+            comando.Parameters.AddWithValue("@notaId", IdNota);
+
+            //Aplicando el DataReader para obtener los datos de la nota
+            SqlDataReader reader = comando.ExecuteReader();
+            reader.Read();
+
+
+            // Guardado de datos en las variables globales
+            idNota = int.Parse(reader["idNota"].ToString());
+            tituloNota = reader["titulo"].ToString();
+            fecha = reader["fecha"].ToString();
+            modificacion = reader["modificacion"].ToString();
+            caracteres = reader["caracteres"].ToString();
+            peso = reader["peso"].ToString();
+
+            reader.Close();
+            
         }
 
         #endregion

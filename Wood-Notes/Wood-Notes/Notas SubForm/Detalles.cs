@@ -17,9 +17,14 @@ namespace Wood_Notes
             InitializeComponent();
         }
 
+        Conexion conexion = new Conexion();
+
+        // Boton de cierre del form frmDetalles
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+
     }
 }
