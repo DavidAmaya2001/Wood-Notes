@@ -116,6 +116,8 @@ INSERT INTO UserNotes (titulo, contenido, fecha, modificacion, caracteres, peso,
 VALUES ('Wazaaaaa', 'Alerta presente que camaron que se duerme se lo lleva la corriente', '2023-02-23', '2023-02-23', 66, NULL, 1)
 END
 
+select idNota,titulo,fecha,modificacion,caracteres,peso from UserNotes where idUsers = 1 and idNota = 3
+
 DBCC CHECKIDENT ('UserNotes',RESEED,1)
 
 
