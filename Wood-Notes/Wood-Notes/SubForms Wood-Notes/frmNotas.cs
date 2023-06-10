@@ -20,14 +20,15 @@ namespace Wood_Notes
         // Variable de Id global a local
         string idUserNotes = Users.IdUserGlobal;
 
+        public Timer _timer;
+
         public frmNotas()
         {
-            #region Llenado de Datos del DataGridView
             // Funcion de cargado del formulario frmNotas
             InitializeComponent();
 
-            // Extraccion del id con el usuario ingresado
-            
+
+            #region Llenado de Datos del DataGridView
 
             // Asignacion de un objeto tipo DataTable para la extracción de los datos que se hace por la clase de Conexion
             DataTable Tabla = conexion.ConsultaNotas(int.Parse(idUserNotes));
@@ -113,7 +114,12 @@ namespace Wood_Notes
             #endregion
         }
 
-
+        // Actualizador de imagen de Reload ante cambios en frmNotasSubMenu y frmNotasSubMenu2
+        public void UpdateReloadButton(Image updatebutton)
+        {
+            btnReload.Size = new Size(43, 43);
+            btnReload.Image = updatebutton;
+        }
 
 
         // Objeto con referencia a la clase Conexion que contiene todo el funcionamiento y llamados a SQLServer
@@ -121,16 +127,39 @@ namespace Wood_Notes
 
 
         #region Botones de Notas
-
         // Apertura del formulario frmNotasSubMenu
+        private frmNotasSubMenu formulario;
+        private void OpenSubMenu()
+        {
+            if(formulario == null || formulario.IsDisposed)
+            {
+                formulario = new frmNotasSubMenu();
+                formulario.FormClosed += formulario_FormClosed;
+                formulario.Show();
+            }
+        }
+        // Accion que se ejecutara si el form frmNotasSubMenu es cerrado
+        private void formulario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // condicion que verifica si se agrego o no una nota antes de cerrar el formulario
+            if (formulario.updateIcon)
+            {
+                btnReload.Image = Wood_Notes.Properties.Resources.updateNotesIcon;
+                formulario.updateIcon = false;
+            }
+        }
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            Form formulario = new frmNotasSubMenu();
-            formulario.ShowDialog();
+            OpenSubMenu();
         }
 
         // Funcion de recarga manual del DataGridView teniendo en cuenta si este contiene nuevos datos o algo en la barra de busqueda de notas
         private void btnReload_Click(object sender, EventArgs e)
+        {
+            Reload();
+        }
+
+        public void Reload()
         {
             if (txtSearch.ForeColor == Color.Silver)         // Si no hay busqueda en el controlador de texto entonces solo hará una consulta de todos los datos segun id
             {
@@ -306,8 +335,7 @@ namespace Wood_Notes
                     MessageBox.Show("La nota se ha eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                     // Redimensionando Reload por cambio realizado
-                    btnReload.Size = new Size(43,43);
-                    btnReload.Image = Wood_Notes.Properties.Resources.updateNotesIcon;
+                    UpdateReloadButton(Wood_Notes.Properties.Resources.updateNotesIcon);
                     /*string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
                     byte[] bufferdefaultreload = File.ReadAllBytes(Location);
                     using (MemoryStream ms = new MemoryStream(bufferdefaultreload))

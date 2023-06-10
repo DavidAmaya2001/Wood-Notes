@@ -21,6 +21,8 @@ namespace Wood_Notes
         bool tituloVerified = false;
         bool notaVerified = false;
 
+        frmNotas frmNotasOb = new frmNotas();
+
         // Estableciendo conexion y ajustando parametros de los controladores
         Conexion conexion = new Conexion();
         public frmNotasSubMenu()
@@ -48,17 +50,23 @@ namespace Wood_Notes
             // Regresando Placeholder al acceder al menu
             if (txtTitulo.Text == "")
             {
+                // Cambia el target de los textbox al menu para que evalue si estan llenos o vacios
+                panelMenu.Focus();
                 txtTitulo.Text = "Título";
                 txtTitulo.ForeColor = Color.Silver;
             }
             if (rtxtNota.Text == "")
             {
+                // Cambia el target de los textbox al menu para que evalue si estan llenos o vacios
+                panelMenu.Focus();
                 rtxtNota.Text = "Escribe una nota";
                 rtxtNota.ForeColor = Color.Silver;
             }
         }
 
         // Agregado de nota
+
+        public bool updateIcon = false;
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             // Mensaje de confirmación
@@ -67,26 +75,40 @@ namespace Wood_Notes
             if (result == DialogResult.OK)
             {
                 // Verificacion de campos vacios de una nueva nota
-                if ( tituloVerified && notaVerified)
+                if (tituloVerified && notaVerified)
                 {
+                    // Limpieza de texto en blanco delante y detras de los titulos y la nota
+                    string TituloTrim = txtTitulo.Text.Trim();
+                    string NotaTrim = rtxtNota.Text.Trim();
+
                     // Inserción de los datos si todo esta correctamente validado
-                    conexion.InsertarNotas(txtTitulo.Text, rtxtNota.Text, dtpNewDate.Text,Convert.ToInt32(lblcontador.Text),/*peso,*/int.Parse(idUserNotes));
+                    conexion.InsertarNotas(TituloTrim, NotaTrim, dtpNewDate.Text,Convert.ToInt32(lblcontador.Text),/*peso,*/int.Parse(idUserNotes));
+
+                    // Reinicio de los campos y de las variables booleanas
                     txtTitulo.Text = "";
                     rtxtNota.Text = "";
                     dtpNewDate.Value = DateTime.Now;
                     panelMenu.Visible = false;
                     tituloVerified = false;
                     notaVerified = false;
+
+                    errorTitulo.Clear();
+                    errorNota.Clear();
+
+                    // Actualizacion del icono de recarga
+                    updateIcon = true;
+
+                    // Mensaje de exito
                     MessageBox.Show("La nota se agrego correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    if (!tituloVerified)
+                    if (!tituloVerified) // Si antes de guardar no hay un titulo no puede crear la nota y genera el error siguiente:
                     {
                         errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
                         errorNota.Clear();
                     }
-                    else if (!notaVerified)
+                    else if (!notaVerified) // Si antes de guardar no hay contenido en la nota no puede crear la nota y genera el error siguiente:
                     {
                         errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
                         errorTitulo.Clear();
@@ -100,6 +122,7 @@ namespace Wood_Notes
             }
             
         }
+
         // Copiar al portapapeles
         private void btnPortapapeles_Click(object sender, EventArgs e)
         {
@@ -108,36 +131,57 @@ namespace Wood_Notes
         // Creación de archivo .txt
         private void btnFile_Click(object sender, EventArgs e)
         {
-            /*string RutaOrigen = @"D:\Users\Documentos";
+            // Mensaje de confirmación
+            DialogResult result = MessageBox.Show("¿Desea crear un archivo de texto para esta nota?", "Crear archivo de texto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            List<string> CreadorArchivo = new List<string>();
-            CreadorArchivo.Add("Titulo: " + txtTitulo.Text);
-            CreadorArchivo.Add("\n");
-            CreadorArchivo.Add("Contenido: " + rtxtNota.Text);
-            CreadorArchivo.Add("\n");
-            CreadorArchivo.Add("Ultima fecha de modificación: " + dtpNewDate.Text);
-
-            File.AppendAllLines(RutaOrigen, CreadorArchivo);
-            */
-
-            /*
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
+            if(result == DialogResult.OK)
             {
-                string RutaOrigen = fbd.SelectedPath;
-                File.Create(RutaOrigen);
-                List<string> CreadorArchivo = new List<string>();
-                CreadorArchivo.Add("Titulo: " + txtTitulo.Text);
-                CreadorArchivo.Add("\n");
-                CreadorArchivo.Add("Contenido: " + rtxtNota.Text);
-                CreadorArchivo.Add("\n");
-                CreadorArchivo.Add("Ultima fecha de modificación: " + dtpNewDate.Text);
+                // Verificacion de campos vacios para la creacion del archivo de texto
+                if (tituloVerified && notaVerified)
+                {
+                    // Se obtienen los valores de loscontroladores y los almacena en variables
+                    string TituloTrim = txtTitulo.Text.Trim();
+                    string NotaTrim = rtxtNota.Text.Trim();
 
-                File.AppendAllLines(RutaOrigen, CreadorArchivo);
-            
+                    // Ruta y nombre del archivo de destino (adaptarlo luego para que sea modificable en las configuraciones)
+                    string direccionOrigen = "M:\\Usuarios\\OneDrive\\Escritorio\\" + TituloTrim + ".txt";
+
+                    // Escritura en el (.txt) 
+                    using (StreamWriter writer = new StreamWriter(direccionOrigen))
+                    {
+                        writer.WriteLine("Titulo: " + TituloTrim);
+                        writer.WriteLine("Contenido: " + NotaTrim);
+                    }
+
+                    errorTitulo.Clear();
+                    errorNota.Clear();
+
+                    MessageBox.Show("Archivo creado y guardado correctamente", "¡Archivo de texto generado!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    if (!tituloVerified) // Si antes de crear el archivo de texto no hay titulo entonces no se podrá crear el archivo de texto y genera el error siguiente
+                    {
+                        errorTitulo.SetError(txtTitulo, "El campo no puede estar vacío");
+                        errorNota.Clear();
+                    }
+                    else if (!notaVerified) // Si antes de crear el archivo de texto no hay contenido entonces no se podrá crear el archivo de texto y genera el error siguiente
+                    {
+                        errorNota.SetError(rtxtNota, "El campo no puede estar vacío");
+                        errorTitulo.Clear();
+                    }
+                    else
+                    {
+                        errorTitulo.Clear();
+                        errorNota.Clear();
+                    }
+                }
             }
-            */
-            
+            else
+            {
+
+            }
+
         }
 
         #endregion
@@ -171,12 +215,14 @@ namespace Wood_Notes
 
         private void txtTitulo_Leave(object sender, EventArgs e)
         {
+            // Hover del textbox
             if (txtTitulo.Text == "")
             {
                 tituloVerified = false;
                 txtTitulo.Text = "Título";
                 txtTitulo.ForeColor = Color.Silver;
             }
+            // Validacion de titulo con contenido
             else
             {
                 tituloVerified=true;
@@ -201,19 +247,19 @@ namespace Wood_Notes
 
         private void rtxtNota_Leave(object sender, EventArgs e)
         {
+            // Hover del textbox
             if (rtxtNota.Text == "")
             {
                 notaVerified = false;
                 rtxtNota.Text = "Escribe una nota";
                 rtxtNota.ForeColor = Color.Silver;
             }
+            // Validacion de titulo con contenido
             else
             {
                 notaVerified = true;
             }
         }
-
-
 
         #endregion
 
