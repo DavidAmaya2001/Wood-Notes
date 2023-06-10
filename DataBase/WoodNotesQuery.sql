@@ -118,7 +118,7 @@ END
 
 select idNota,titulo,fecha,modificacion,caracteres,peso from UserNotes where idUsers = 1 and idNota = 3
 
-DBCC CHECKIDENT ('UserNotes',RESEED,1)
+DBCC CHECKIDENT ('UserNotes',RESEED,0)
 
 
 /* Reset de Tabla */
