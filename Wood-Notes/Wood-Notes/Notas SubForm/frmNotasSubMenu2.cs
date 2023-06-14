@@ -137,6 +137,9 @@ namespace Wood_Notes
         }
 
         // Boton que ejecuta la funcion de la clase Conexion para poder modificar los datos en la base de datos
+
+        // Editado de nota
+        public bool updateIcon = false;
         private void btnEditar_Click(object sender, EventArgs e)
         {
             // Mensaje de confirmación
@@ -155,6 +158,9 @@ namespace Wood_Notes
                     tituloVerified = false;
                     notaVerified = false;
                     panelMenu.Visible = false;
+
+                    // Actualizacion de icono de nota 
+                    updateIcon = true;
                     MessageBox.Show("El cambio se realizó correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -200,17 +206,8 @@ namespace Wood_Notes
                 if (tituloVerified && notaVerified)
                 {
                     frmNotas formularionotas = new frmNotas();
-                    formularionotas.btnReload.Size = new Size(43, 43);
-                    /*string Location = @"D:\Users\Documentos\GitHub TuTioElPollo\Wood-Notes\Wood-Notes\Wood-Notes\Images\ReloadNew.png";
-                    byte[] buffereload = File.ReadAllBytes(Location);
-                    using (MemoryStream ms = new MemoryStream(buffereload))
-                    {
-                        formularionotas.btnReload.Image = Image.FromStream(ms);
-                    }
-                    */
-                    formularionotas.btnReload.Image = Wood_Notes.Properties.Resources.updateNotesIcon;
 
-
+                    // Apertura de la Conexion, Eliminacion del dato y Cierre de la conexion
                     conexion.AbrirConexion();
                     conexion.EliminarDato(Convert.ToInt32(txtId.Text), int.Parse(idUserNotes));
                     txtTitulo.Text = "";
@@ -219,6 +216,10 @@ namespace Wood_Notes
                     notaVerified = false;
                     dtpNewDate.Value = DateTime.Now;
                     conexion.CerrarConexion();
+
+                    // Actualizacion del icono de recarga
+                    updateIcon = true;
+
                     MessageBox.Show("La nota se ha eliminado correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Close();

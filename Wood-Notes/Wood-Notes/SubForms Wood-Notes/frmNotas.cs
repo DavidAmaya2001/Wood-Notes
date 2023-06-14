@@ -55,7 +55,7 @@ namespace Wood_Notes
             dgvContenedor.Columns[3].Visible = false;
 
             // Columna modificacion
-            dgvContenedor.Columns[4].Width = 205;
+            dgvContenedor.Columns[4].Width = 195;
             dgvContenedor.Columns[4].Visible = true;
 
             // Columna caracteres
@@ -114,17 +114,17 @@ namespace Wood_Notes
             #endregion
         }
 
+        // Objeto con referencia a la clase Conexion que contiene todo el funcionamiento y llamados a SQLServer
+        Conexion conexion = new Conexion();
+
+        #region Actualizador default Reload 
         // Actualizador de imagen de Reload ante cambios en frmNotasSubMenu y frmNotasSubMenu2
         public void UpdateReloadButton(Image updatebutton)
         {
             btnReload.Size = new Size(43, 43);
             btnReload.Image = updatebutton;
         }
-
-
-        // Objeto con referencia a la clase Conexion que contiene todo el funcionamiento y llamados a SQLServer
-        Conexion conexion = new Conexion();
-
+        #endregion
 
         #region Botones de Notas
         // Apertura del formulario frmNotasSubMenu
@@ -178,6 +178,7 @@ namespace Wood_Notes
                     DataTable Tabla = conexion.ConsultaNotas(idUsers);
                     dgvContenedor.DataSource = Tabla;
                     dgvContenedor.Focus();
+
                 }
                 else                                         // Si no esta vacio se busca los datos y luego se filtra segun lo que contenga el textbox
                 {
@@ -238,6 +239,26 @@ namespace Wood_Notes
             }
         }
 
+        // Footer button
+        private bool openFooter = false;
+        private void btnFooterShow_Click(object sender, EventArgs e)
+        {
+            // Condicion que verifica si se encuentra abierto o cerrado el footer
+            if (!openFooter)
+            {
+                openFooter = true;
+                btnFooterShow.Location = new Point(499, 547);
+                panelFooter.Size = new Size(1058, 32);
+            }
+            else
+            {
+                openFooter = false;
+                btnFooterShow.Location = new Point(499, 569);
+                panelFooter.Size = new Size(1058, 10);
+            }
+
+        }
+
         #endregion
 
         #region Buscador Automatico y Dinamico
@@ -270,6 +291,11 @@ namespace Wood_Notes
         #endregion
 
         #region Compartido de datos con el formulario de edición y eliminación
+
+        private frmNotasSubMenu2 formulario2;
+
+        LoadData Load = new LoadData();
+
         private void dgvContenedor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             /* Toma de datos de la celda seleccionada del datagridview y compartiendolas al formulario frmNotasSubMenu2 donde se realizarán los cambios */
@@ -290,7 +316,7 @@ namespace Wood_Notes
                     //MessageBox.Show(idNota + " " + Titulo + " " + Contenido + "" + Fecha);
 
                     // Guardado de datos en la clase Load
-                    LoadData Load = new LoadData();
+
                     Load.setIdNota(idNota);
                     Load.setTituloNota(Titulo);
                     Load.setContenidoNota(Contenido);
@@ -298,18 +324,10 @@ namespace Wood_Notes
                     Load.setFechaModificacion(Fecha);
                     Load.setCaracteres(Caracteres);
 
-                    frmNotasSubMenu2 formulario = new frmNotasSubMenu2();
-                    frmDetalles formulariodetalles = new frmDetalles();
+                // Abriendo el form frmSubMenu2
+                OpenSubMenu2();
 
-                    // Moviendo a segundo formulario los datos para usarse tanto para modificar, eliminar o ver detalles
-                    formulario.txtId.Text = Convert.ToString(Load.getIdNota());
-                    formulario.txtCreacion.Text = Load.getFechaNota();
-                    formulario.txtMod.Text = Load.getFechaModificacion();
-                    formulario.txtTitulo.Text = Load.getTituloNota();
-                    formulario.rtxtNota.Text = Load.getContenidoNota();
-                    formulario.dtpNewDate.Value = Convert.ToDateTime(Load.getFechaModificacion());
-                    formulario.lblcontador.Text = Load.getCaracteres().ToString();
-                    formulario.ShowDialog();
+
             }
 
             // Selección de la celda de eliminacion para eliminar los datos de la nota segun idNota de la base de datos
@@ -347,6 +365,41 @@ namespace Wood_Notes
             }
             dgvContenedor.Visible = true;
         }
+
+        private void OpenSubMenu2()
+        {
+            if (formulario2 == null || formulario2.IsDisposed)
+            {
+                formulario2 = new frmNotasSubMenu2();
+
+                // Moviendo a segundo formulario los datos para usarse tanto para modificar, eliminar o ver detalles
+                formulario2.txtId.Text = Convert.ToString(Load.getIdNota());
+                formulario2.txtCreacion.Text = Load.getFechaNota();
+                formulario2.txtMod.Text = Load.getFechaModificacion();
+                formulario2.txtTitulo.Text = Load.getTituloNota();
+                formulario2.rtxtNota.Text = Load.getContenidoNota();
+                formulario2.dtpNewDate.Value = Convert.ToDateTime(Load.getFechaModificacion());
+                formulario2.lblcontador.Text = Load.getCaracteres().ToString();
+
+                formulario2.FormClosed += formulario_FormClosed2;
+                formulario2.Show();
+            }
+            else
+            {
+                formulario2.Focus();
+            }
+        }
+        // Accion que se ejecutara si el form frmNotasSubMenu es cerrado
+        private void formulario_FormClosed2(object sender, FormClosedEventArgs e)
+        {
+            // condicion que verifica si se agrego o no una nota antes de cerrar el formulario
+            if (formulario2.updateIcon)
+            {
+                btnReload.Image = Wood_Notes.Properties.Resources.updateNotesIcon;
+                formulario2.updateIcon = false;
+            }
+        }
+
         #endregion
 
         #region Apariencia y diseño del DataGridView
@@ -388,5 +441,7 @@ namespace Wood_Notes
             }
         }
         #endregion
+
+
     }
 }

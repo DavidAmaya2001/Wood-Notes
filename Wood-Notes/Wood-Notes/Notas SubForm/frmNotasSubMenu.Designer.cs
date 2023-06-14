@@ -34,12 +34,6 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelInfNew = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblcontador = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpNewDate = new System.Windows.Forms.DateTimePicker();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelCenNew = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,19 +44,25 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnFile = new System.Windows.Forms.Button();
             this.btnPortapapeles = new System.Windows.Forms.Button();
+            this.panelInfNew = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblcontador = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpNewDate = new System.Windows.Forms.DateTimePicker();
             this.panelSupNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
-            this.panelInfNew.SuspendLayout();
             this.panelCenNew.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorTitulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorNota)).BeginInit();
             this.panelMenu.SuspendLayout();
+            this.panelInfNew.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSupNew
             // 
-            this.panelSupNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.panelSupNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(56)))));
             this.panelSupNew.Controls.Add(this.btnClose);
             this.panelSupNew.Controls.Add(this.btnMenu);
             this.panelSupNew.Controls.Add(this.label1);
@@ -75,7 +75,7 @@
             // btnClose
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Image = global::Wood_Notes.Properties.Resources.CloseWindows;
             this.btnClose.Location = new System.Drawing.Point(741, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(40, 40);
@@ -89,9 +89,9 @@
             this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.InitialImage = null;
-            this.btnMenu.Location = new System.Drawing.Point(682, 12);
+            this.btnMenu.Location = new System.Drawing.Point(683, 12);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(40, 40);
+            this.btnMenu.Size = new System.Drawing.Size(39, 40);
             this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMenu.TabIndex = 1;
             this.btnMenu.TabStop = false;
@@ -101,73 +101,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(24, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Agregar nueva nota";
-            // 
-            // panelInfNew
-            // 
-            this.panelInfNew.Controls.Add(this.label4);
-            this.panelInfNew.Controls.Add(this.label3);
-            this.panelInfNew.Controls.Add(this.lblcontador);
-            this.panelInfNew.Controls.Add(this.label2);
-            this.panelInfNew.Controls.Add(this.dtpNewDate);
-            this.panelInfNew.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInfNew.Location = new System.Drawing.Point(0, 568);
-            this.panelInfNew.Name = "panelInfNew";
-            this.panelInfNew.Size = new System.Drawing.Size(805, 52);
-            this.panelInfNew.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(542, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 15);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Limite de Caracteres:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(733, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "/  2000";
-            // 
-            // lblcontador
-            // 
-            this.lblcontador.AutoSize = true;
-            this.lblcontador.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcontador.Location = new System.Drawing.Point(700, 21);
-            this.lblcontador.Name = "lblcontador";
-            this.lblcontador.Size = new System.Drawing.Size(14, 15);
-            this.lblcontador.TabIndex = 3;
-            this.lblcontador.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Guardado en la fecha actual:";
-            // 
-            // dtpNewDate
-            // 
-            this.dtpNewDate.Enabled = false;
-            this.dtpNewDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNewDate.Location = new System.Drawing.Point(214, 16);
-            this.dtpNewDate.Name = "dtpNewDate";
-            this.dtpNewDate.Size = new System.Drawing.Size(116, 20);
-            this.dtpNewDate.TabIndex = 1;
             // 
             // btnAgregar
             // 
@@ -185,7 +124,7 @@
             // 
             // panelCenNew
             // 
-            this.panelCenNew.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelCenNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
             this.panelCenNew.Controls.Add(this.panel1);
             this.panelCenNew.Controls.Add(this.rtxtNota);
             this.panelCenNew.Controls.Add(this.txtTitulo);
@@ -197,7 +136,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(56)))));
             this.panel1.Location = new System.Drawing.Point(0, 49);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(805, 3);
@@ -205,9 +144,9 @@
             // 
             // rtxtNota
             // 
-            this.rtxtNota.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rtxtNota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
             this.rtxtNota.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtxtNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtNota.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtNota.ForeColor = System.Drawing.Color.Silver;
             this.rtxtNota.Location = new System.Drawing.Point(49, 67);
             this.rtxtNota.MaxLength = 2000;
@@ -221,9 +160,9 @@
             // 
             // txtTitulo
             // 
-            this.txtTitulo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
             this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitulo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.ForeColor = System.Drawing.Color.Silver;
             this.txtTitulo.Location = new System.Drawing.Point(49, 6);
             this.txtTitulo.MaxLength = 50;
@@ -249,12 +188,13 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(56)))));
             this.panelMenu.Controls.Add(this.btnFile);
             this.panelMenu.Controls.Add(this.btnPortapapeles);
             this.panelMenu.Controls.Add(this.btnAgregar);
             this.panelMenu.Location = new System.Drawing.Point(545, 65);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(177, 150);
+            this.panelMenu.Size = new System.Drawing.Size(177, 115);
             this.panelMenu.TabIndex = 9;
             this.panelMenu.Visible = false;
             // 
@@ -286,6 +226,77 @@
             this.btnPortapapeles.UseVisualStyleBackColor = false;
             this.btnPortapapeles.Click += new System.EventHandler(this.btnPortapapeles_Click);
             // 
+            // panelInfNew
+            // 
+            this.panelInfNew.BackgroundImage = global::Wood_Notes.Properties.Resources.borde;
+            this.panelInfNew.Controls.Add(this.label4);
+            this.panelInfNew.Controls.Add(this.label3);
+            this.panelInfNew.Controls.Add(this.lblcontador);
+            this.panelInfNew.Controls.Add(this.label2);
+            this.panelInfNew.Controls.Add(this.dtpNewDate);
+            this.panelInfNew.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelInfNew.Location = new System.Drawing.Point(0, 568);
+            this.panelInfNew.Name = "panelInfNew";
+            this.panelInfNew.Size = new System.Drawing.Size(805, 52);
+            this.panelInfNew.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(476, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 15);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Limite de Caracteres:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(690, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "/  2000";
+            // 
+            // lblcontador
+            // 
+            this.lblcontador.AutoSize = true;
+            this.lblcontador.BackColor = System.Drawing.Color.Transparent;
+            this.lblcontador.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcontador.ForeColor = System.Drawing.Color.White;
+            this.lblcontador.Location = new System.Drawing.Point(651, 22);
+            this.lblcontador.Name = "lblcontador";
+            this.lblcontador.Size = new System.Drawing.Size(14, 15);
+            this.lblcontador.TabIndex = 3;
+            this.lblcontador.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(25, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Guardado en la fecha actual:";
+            // 
+            // dtpNewDate
+            // 
+            this.dtpNewDate.Enabled = false;
+            this.dtpNewDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNewDate.Location = new System.Drawing.Point(214, 17);
+            this.dtpNewDate.Name = "dtpNewDate";
+            this.dtpNewDate.Size = new System.Drawing.Size(116, 20);
+            this.dtpNewDate.TabIndex = 1;
+            // 
             // frmNotasSubMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,13 +314,13 @@
             this.panelSupNew.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
-            this.panelInfNew.ResumeLayout(false);
-            this.panelInfNew.PerformLayout();
             this.panelCenNew.ResumeLayout(false);
             this.panelCenNew.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorTitulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorNota)).EndInit();
             this.panelMenu.ResumeLayout(false);
+            this.panelInfNew.ResumeLayout(false);
+            this.panelInfNew.PerformLayout();
             this.ResumeLayout(false);
 
         }

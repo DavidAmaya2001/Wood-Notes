@@ -68,7 +68,7 @@
             // 
             // panelSupNew
             // 
-            this.panelSupNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.panelSupNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(56)))));
             this.panelSupNew.Controls.Add(this.btnClose);
             this.panelSupNew.Controls.Add(this.btnMenu);
             this.panelSupNew.Controls.Add(this.label2);
@@ -81,7 +81,7 @@
             // btnClose
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Image = global::Wood_Notes.Properties.Resources.CloseWindows;
             this.btnClose.Location = new System.Drawing.Point(741, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(40, 40);
@@ -106,7 +106,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(24, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 21);
@@ -115,7 +117,7 @@
             // 
             // panelCenNew
             // 
-            this.panelCenNew.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelCenNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
             this.panelCenNew.Controls.Add(this.panel1);
             this.panelCenNew.Controls.Add(this.rtxtNota);
             this.panelCenNew.Controls.Add(this.txtTitulo);
@@ -127,7 +129,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(56)))));
             this.panel1.Location = new System.Drawing.Point(0, 49);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(805, 3);
@@ -135,9 +137,9 @@
             // 
             // rtxtNota
             // 
-            this.rtxtNota.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rtxtNota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
             this.rtxtNota.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtxtNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtNota.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtNota.ForeColor = System.Drawing.Color.Black;
             this.rtxtNota.Location = new System.Drawing.Point(28, 67);
             this.rtxtNota.MaxLength = 2000;
@@ -151,9 +153,9 @@
             // 
             // txtTitulo
             // 
-            this.txtTitulo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(95)))), ((int)(((byte)(255)))));
             this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitulo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.ForeColor = System.Drawing.Color.Black;
             this.txtTitulo.Location = new System.Drawing.Point(28, 6);
             this.txtTitulo.MaxLength = 80;
@@ -167,6 +169,7 @@
             // 
             // panelInfNew
             // 
+            this.panelInfNew.BackgroundImage = global::Wood_Notes.Properties.Resources.borde;
             this.panelInfNew.Controls.Add(this.txtMod);
             this.panelInfNew.Controls.Add(this.txtCreacion);
             this.panelInfNew.Controls.Add(this.label3);
@@ -202,8 +205,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(733, 21);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(694, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 15);
             this.label3.TabIndex = 12;
@@ -212,8 +217,10 @@
             // lblcontador
             // 
             this.lblcontador.AutoSize = true;
+            this.lblcontador.BackColor = System.Drawing.Color.Transparent;
             this.lblcontador.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcontador.Location = new System.Drawing.Point(691, 21);
+            this.lblcontador.ForeColor = System.Drawing.Color.White;
+            this.lblcontador.Location = new System.Drawing.Point(658, 21);
             this.lblcontador.Name = "lblcontador";
             this.lblcontador.Size = new System.Drawing.Size(14, 15);
             this.lblcontador.TabIndex = 11;
@@ -222,8 +229,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(542, 21);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(479, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 15);
             this.label4.TabIndex = 10;
@@ -232,7 +241,7 @@
             // txtId
             // 
             this.txtId.AutoSize = true;
-            this.txtId.Location = new System.Drawing.Point(499, 21);
+            this.txtId.Location = new System.Drawing.Point(366, 21);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(0, 13);
             this.txtId.TabIndex = 9;
@@ -240,7 +249,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(25, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 17);
@@ -251,7 +262,7 @@
             // 
             this.dtpNewDate.Enabled = false;
             this.dtpNewDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNewDate.Location = new System.Drawing.Point(214, 16);
+            this.dtpNewDate.Location = new System.Drawing.Point(214, 17);
             this.dtpNewDate.Name = "dtpNewDate";
             this.dtpNewDate.Size = new System.Drawing.Size(116, 20);
             this.dtpNewDate.TabIndex = 1;
@@ -260,11 +271,12 @@
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(0, 3);
+            this.btnEditar.Location = new System.Drawing.Point(3, 9);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(177, 32);
+            this.btnEditar.Size = new System.Drawing.Size(171, 32);
             this.btnEditar.TabIndex = 0;
             this.btnEditar.Text = "Modificar Nota";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -272,25 +284,27 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(56)))));
             this.panelMenu.Controls.Add(this.btnDetalles);
             this.panelMenu.Controls.Add(this.btnEliminar);
             this.panelMenu.Controls.Add(this.btnFile);
             this.panelMenu.Controls.Add(this.btnPortapapeles);
             this.panelMenu.Controls.Add(this.btnEditar);
-            this.panelMenu.Location = new System.Drawing.Point(545, 68);
+            this.panelMenu.Location = new System.Drawing.Point(545, 65);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(177, 192);
+            this.panelMenu.Size = new System.Drawing.Size(177, 195);
             this.panelMenu.TabIndex = 15;
             this.panelMenu.Visible = false;
             // 
             // btnDetalles
             // 
             this.btnDetalles.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDetalles.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnDetalles.Location = new System.Drawing.Point(0, 153);
+            this.btnDetalles.Location = new System.Drawing.Point(3, 156);
             this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.Size = new System.Drawing.Size(177, 32);
+            this.btnDetalles.Size = new System.Drawing.Size(171, 32);
             this.btnDetalles.TabIndex = 4;
             this.btnDetalles.Text = "Detalles";
             this.btnDetalles.UseVisualStyleBackColor = false;
@@ -299,11 +313,12 @@
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(0, 115);
+            this.btnEliminar.Location = new System.Drawing.Point(3, 119);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(177, 32);
+            this.btnEliminar.Size = new System.Drawing.Size(171, 32);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar Nota";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -315,7 +330,7 @@
             this.btnFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFile.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFile.ForeColor = System.Drawing.Color.White;
-            this.btnFile.Location = new System.Drawing.Point(3, 79);
+            this.btnFile.Location = new System.Drawing.Point(3, 82);
             this.btnFile.Name = "btnFile";
             this.btnFile.Size = new System.Drawing.Size(171, 32);
             this.btnFile.TabIndex = 2;
@@ -329,7 +344,7 @@
             this.btnPortapapeles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPortapapeles.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPortapapeles.ForeColor = System.Drawing.Color.White;
-            this.btnPortapapeles.Location = new System.Drawing.Point(3, 41);
+            this.btnPortapapeles.Location = new System.Drawing.Point(3, 45);
             this.btnPortapapeles.Name = "btnPortapapeles";
             this.btnPortapapeles.Size = new System.Drawing.Size(171, 32);
             this.btnPortapapeles.TabIndex = 1;
