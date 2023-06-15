@@ -19,7 +19,7 @@ codigo varchar(6) not null,
 telefono varchar(9) not null,
 foto image,
 fecha_union date not null,
---Llave primaria --
+-- Llave primaria --
 primary key(idUsers)
 );
 
@@ -32,7 +32,17 @@ modificacion date,
 caracteres int,
 peso int,
 idUsers int not null,
+-- Llave primaria --
 primary key(idNota)
+);
+
+create table UserEvents(
+idEvent int identity(1,1),
+eventName varchar(30) not null,
+eventDay date not null,
+idUsers int not null,
+-- Llave primaria --
+primary key(idEvent)
 );
 
 -- Relación 1:1
@@ -52,6 +62,9 @@ foreign key(idUsers) references Users(idUsers);
 alter table UserCredentials add constraint FK_Credentials_Users
 foreign key(idCredencial) references Users(idUsers);
 
+alter table UserEvents add constraint FK_UserEvents_Users
+foreign key(idUsers) references Users(idUsers);
+
 -- hashKey para las Passwords Encriptadas
 declare @hashkey varchar(25)
 set @hashkey = 'wood-notes'
@@ -62,7 +75,8 @@ print @hashkey
 /* Alerta */
 drop table Users
 drop table UserCredentials    /* Eliminación de tablas */
-drop table UserNotes   
+drop table UserNotes  
+drop table UserEvents
 
 --------------------------- Tabla Users y UserCredentials ------------------------------------------
 
@@ -119,7 +133,9 @@ END
 select idNota,titulo,fecha,modificacion,caracteres,peso from UserNotes where idUsers = 1 and idNota = 3
 
 DBCC CHECKIDENT ('UserNotes',RESEED,0)
+DBCC CHECKIDENT ('UserEvents',RESEED,0)
 
+select * from UserEvents where idUsers = 1
 
 /* Reset de Tabla */
 truncate table UserNotes
