@@ -247,12 +247,14 @@ namespace Wood_Notes
             if (!openFooter)
             {
                 openFooter = true;
+                btnFooterShow.Text = "˅";
                 btnFooterShow.Location = new Point(499, 547);
                 panelFooter.Size = new Size(1058, 32);
             }
             else
             {
                 openFooter = false;
+                btnFooterShow.Text = "^";
                 btnFooterShow.Location = new Point(499, 569);
                 panelFooter.Size = new Size(1058, 10);
             }
@@ -386,6 +388,7 @@ namespace Wood_Notes
             }
             else
             {
+                // Agregar MessageBox avisando que hay otro form abierto
                 formulario2.Focus();
             }
         }

@@ -91,3 +91,6 @@ M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debu
 M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.csproj.CopyComplete
 M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.exe
 M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood-Notes.pdb
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.UserControls.CalendarDayPanel.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.UserControls.UserControlDays.resources
+M:\Usuarios\OneDrive\Documentos\Github\Wood-Notes\Wood-Notes\Wood-Notes\obj\Debug\Wood_Notes.Calendar_SubForm.frmEventosAdd.resources
